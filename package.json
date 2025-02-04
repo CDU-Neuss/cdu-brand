@@ -11,7 +11,7 @@
   "keywords": ["cdu", "tailwind", "theme"],
   "author": "CDU Neuss",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@9.15.5",
+  "packageManager": "pnpm@10.2.0",
   "devDependencies": {
     "@fontsource/ibm-plex-serif": "^5.1.0",
     "@fontsource/inter": "^5.1.0",
