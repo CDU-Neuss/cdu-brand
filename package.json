@@ -1,6 +1,6 @@
 {
   "name": "cdu-brand",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Tailwind theme and basic assets for CDU related websites",
   "type": "module",
   "scripts": {
