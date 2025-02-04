@@ -1,0 +1,12 @@
+@utility bg-arc-cadenabbia-wide {
+  background-image: url('../../img/cdu-bogen_cadenabbia_wide.png');
+  @apply bg-contain bg-right-bottom bg-no-repeat;
+}
+
+@utility bg-arc-cadenabbia {
+  background-image: url('../../img/cdu-bogen_cadenabbia.png');
+}
+
+@utility bg-arc-black-red-gold {
+  background-image: url('../../img/cdu-bogen_schwarz-rot-gold.png');
+}

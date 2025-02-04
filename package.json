@@ -1,0 +1,28 @@
+{
+  "name": "cdu-brand",
+  "version": "0.0.1",
+  "description": "Tailwind theme and basic assets for CDU related websites",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["cdu", "tailwind", "theme"],
+  "author": "CDU Neuss",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@9.15.5",
+  "devDependencies": {
+    "@fontsource/ibm-plex-serif": "^5.1.0",
+    "@fontsource/inter": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.0.0",
+    "prettier": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.0"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.0.0"
+  }
+}

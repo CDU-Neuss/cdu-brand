@@ -1,0 +1,37 @@
+@layer base {
+  :root,
+  .bg-cadenabbia {
+    --union-title-background-color: var(--color-cadenabbia);
+    --union-title-text-color: var(--color-rhoendorf);
+  }
+
+  .bg-gold {
+    --union-title-background-color: var(--color-gold);
+    --union-title-text-color: var(--color-rhoendorf);
+  }
+
+  .bg-rhoendorf {
+    --union-title-background-color: var(--color-rhoendorf);
+    --union-title-text-color: var(--color-white);
+  }
+
+  .bg-white {
+    --union-title-background-color: var(--color-white);
+    --union-title-text-color: var(--color-rhoendorf);
+  }
+}
+
+@layer components {
+  .union-title {
+    @apply overflow-hidden bg-transparent! break-words;
+    color: var(--union-title-text-color);
+
+    span {
+      @apply box-decoration-clone;
+      --padding-factor: 0.25;
+      line-height: calc(1 + var(--padding-factor) * 2) !important;
+      padding: calc(var(--padding-factor) * 1em);
+      background-color: var(--union-title-background-color);
+    }
+  }
+}

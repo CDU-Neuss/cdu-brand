@@ -1,0 +1,43 @@
+@theme {
+  --color-*: initial;
+
+  --color-current: currentColor;
+  --color-transparent: transparent;
+
+  --color-black: #1b191d;
+  --color-white: #fff;
+  --color-red: #bf111b;
+  --color-gold: #ffa600;
+
+  --color-cadenabbia-10: #f2f8fa;
+  --color-cadenabbia-25: #ddeef1;
+  --color-cadenabbia-60: #a7d5dc;
+  --color-cadenabbia: #52b7c1;
+
+  --color-rhoendorf-10: #e5e5e9;
+  --color-rhoendorf-25: #bec1c7;
+  --color-rhoendorf-60: #737986;
+  --color-rhoendorf: #2d3c4b;
+
+  --color-facebook: #3770e1;
+  --color-linkedin: #0a66c2;
+  --color-whatsapp: #00544a;
+  --color-x: #000;
+
+  --font-*: initial;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: IBM Plex Serif, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --default-font-family: var(--font-serif);
+
+  --font-weight-*: initial;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --transition-duration: 300ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
