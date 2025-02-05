@@ -1,9 +1,5 @@
 @import "tailwindcss";
-@import "./theme.css";
-@import "./typography.css";
-@import "./components/button.css";
-@import "./components/union-title.css";
-@import "./utilities/arc.css";
+@import "./index.css";
 
 @layer base {
   main {
