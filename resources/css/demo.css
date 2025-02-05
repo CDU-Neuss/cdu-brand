@@ -100,6 +100,28 @@
       }
     }
   }
+
+  #arc {
+    ul {
+      @apply mt-4 grid grid-cols-3 gap-4;
+
+      figure {
+        div {
+          @apply aspect-video w-full;
+        }
+
+        figcaption {
+          @apply mt-2 text-center text-sm;
+        }
+      }
+    }
+  }
+
+  #prose {
+    article {
+      @apply mt-4;
+    }
+  }
 }
 
 @utility bg-chess {
