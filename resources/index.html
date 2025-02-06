@@ -7,6 +7,7 @@
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon" />
     <script type="module" src="./js/fonts.js"></script>
+    <script type="module" src="./demo.js"></script>
     <link rel="stylesheet" href="./demo.css" />
   </head>
   <body class="text-rhoendorf bg-white">
@@ -287,7 +288,7 @@
           </ul>
         </section>
         <section id="feature">
-          <h2>Feature</h2>
+          <h3>Feature</h3>
           <ul>
             <li>
               <div class="feature">
@@ -348,6 +349,33 @@
               </div>
             </li>
           </ul>
+        </section>
+        <section id="countdown">
+          <h3>Countdown</h3>
+          <figure class="countdown mt-2" aria-hidden="true" x-data="countdown('2028-01-01 12:00:00')" x-cloak>
+            <div class="clock">
+              <dl x-show="days > 0">
+                <dd x-text="days">&nbsp;</dd>
+                <dt>Days</dt>
+              </dl>
+              <div class="divider" x-show="days > 0">:</div>
+              <dl x-show="hours > 0">
+                <dd x-text="hours">&nbsp;</dd>
+                <dt>Hours</dt>
+              </dl>
+              <div class="divider" x-show="hours > 0">:</div>
+              <dl>
+                <dd x-text="minutes">&nbsp;</dd>
+                <dt>Minutes</dt>
+              </dl>
+              <div class="divider">:</div>
+              <dl>
+                <dd x-text="seconds">&nbsp;</dd>
+                <dt>Seconds</dt>
+              </dl>
+            </div>
+            <figcaption>to go until our great event</figcaption>
+          </figure>
         </section>
       </section>
       <section id="utilities">
