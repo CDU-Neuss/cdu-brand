@@ -111,6 +111,12 @@
     }
   }
 
+  #feature {
+    ul {
+      @apply mt-4 grid max-w-screen-md grid-cols-3 gap-4;
+    }
+  }
+
   #arc {
     ul {
       @apply mt-4 grid grid-cols-3 gap-4;
