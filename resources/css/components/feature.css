@@ -1,0 +1,22 @@
+@layer components {
+  .feature {
+    @apply text-rhoendorf flex flex-row space-x-4;
+
+    > .icon {
+      @apply size-10;
+    }
+
+    > .content {
+      @apply flex-1;
+
+      > .title {
+        @apply text-rhoendorf font-sans font-extrabold;
+      }
+
+      a,
+      button {
+        @apply decoration-gold decoration-2 hover:underline;
+      }
+    }
+  }
+}
