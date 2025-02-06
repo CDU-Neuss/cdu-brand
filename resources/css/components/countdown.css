@@ -1,0 +1,31 @@
+@layer components {
+  figure.countdown {
+    @apply bg-gold cursor-default p-6;
+
+    .clock {
+      @apply text-rhoendorf flex flex-row items-baseline justify-center text-center leading-tight;
+
+      > * {
+        @apply mx-1 sm:mx-3;
+      }
+
+      dl {
+        dd {
+          @apply font-sans text-2xl font-extrabold sm:text-4xl;
+        }
+
+        dt {
+          @apply text-xs sm:text-sm;
+        }
+      }
+
+      .divider {
+        @apply font-sans text-2xl font-extrabold sm:text-4xl;
+      }
+    }
+
+    figcaption {
+      @apply text-rhoendorf mt-5 text-center sm:text-lg;
+    }
+  }
+}
