@@ -1,67 +1,71 @@
 @plugin "@tailwindcss/typography";
 
 @layer utilities {
-    .prose {
-        --tw-prose-body: var(--color-rhoendorf);
-        --tw-prose-headings: var(--color-rhoendorf);
-        --tw-prose-lead: var(--color-rhoendorf);
-        --tw-prose-links: var(--color-rhoendorf);
-        --tw-prose-bold: var(--color-rhoendorf);
-        --tw-prose-counters: var(--color-gold);
-        --tw-prose-bullets: var(--color-gold);
-        --tw-prose-hr: var(--color-rhoendorf);
-        --tw-prose-quotes: var(--color-rhoendorf);
-        --tw-prose-quote-borders: var(--color-cadenabbia);
-        --tw-prose-captions: var(--color-rhoendorf);
-        --tw-prose-code: var(--color-rhoendorf);
-        --tw-prose-pre-code: var(--color-white);
-        --tw-prose-pre-bg: var(--color-rhoendorf);
-        --tw-prose-th-borders: var(--color-rhoendorf);
-        --tw-prose-td-borders: var(--color-rhoendorf);
+  .prose {
+    --tw-prose-body: var(--color-rhoendorf);
+    --tw-prose-headings: var(--color-rhoendorf);
+    --tw-prose-lead: var(--color-rhoendorf);
+    --tw-prose-links: var(--color-rhoendorf);
+    --tw-prose-bold: var(--color-rhoendorf);
+    --tw-prose-counters: var(--color-gold);
+    --tw-prose-bullets: var(--color-gold);
+    --tw-prose-hr: var(--color-rhoendorf);
+    --tw-prose-quotes: var(--color-rhoendorf);
+    --tw-prose-quote-borders: var(--color-cadenabbia);
+    --tw-prose-captions: var(--color-rhoendorf);
+    --tw-prose-code: var(--color-rhoendorf);
+    --tw-prose-pre-code: var(--color-white);
+    --tw-prose-pre-bg: var(--color-rhoendorf);
+    --tw-prose-th-borders: var(--color-rhoendorf);
+    --tw-prose-td-borders: var(--color-rhoendorf);
 
-        --tw-prose-invert-body: var(--color-white);
-        --tw-prose-invert-headings: var(--color-white);
-        --tw-prose-invert-lead: var(--color-white);
-        --tw-prose-invert-links: var(--color-white);
-        --tw-prose-invert-bold: var(--color-white);
-        --tw-prose-invert-counters: var(--color-white);
-        --tw-prose-invert-bullets: var(--color-white);
-        --tw-prose-invert-hr: var(--color-white);
-        --tw-prose-invert-quotes: var(--color-white);
-        --tw-prose-invert-quote-borders: var(--color-white);
-        --tw-prose-invert-captions: var(--color-white);
-        --tw-prose-invert-code: var(--color-white);
-        --tw-prose-invert-pre-code: var(--color-rhoendorf);
-        --tw-prose-invert-pre-bg: var(--color-white);
-        --tw-prose-invert-th-borders: var(--color-white);
-        --tw-prose-invert-td-borders: var(--color-white);
+    --tw-prose-invert-body: var(--color-white);
+    --tw-prose-invert-headings: var(--color-white);
+    --tw-prose-invert-lead: var(--color-white);
+    --tw-prose-invert-links: var(--color-white);
+    --tw-prose-invert-bold: var(--color-white);
+    --tw-prose-invert-counters: var(--color-white);
+    --tw-prose-invert-bullets: var(--color-white);
+    --tw-prose-invert-hr: var(--color-white);
+    --tw-prose-invert-quotes: var(--color-white);
+    --tw-prose-invert-quote-borders: var(--color-white);
+    --tw-prose-invert-captions: var(--color-white);
+    --tw-prose-invert-code: var(--color-white);
+    --tw-prose-invert-pre-code: var(--color-rhoendorf);
+    --tw-prose-invert-pre-bg: var(--color-white);
+    --tw-prose-invert-th-borders: var(--color-white);
+    --tw-prose-invert-td-borders: var(--color-white);
 
-        line-height: 1.8em;
+    line-height: 1.8em;
 
-        ul > li > p,
-        ol > li > p {
-            margin-top: 0 !important;
-            margin-bottom: 0 !important;
-            line-height: 1.8em;
-        }
-
-        :where(.prose > div > :first-child) {
-            margin-top: 0 !important;
-        }
-
-        :where(.prose > div > :last-child) {
-            margin-bottom: 0 !important;
-        }
+    ul > li > p,
+    ol > li > p {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      line-height: 1.8em;
     }
 
-    .prose-sm,
-    .prose-lg,
-    .prose-xl,
-    .prose-2xl {
-        line-height: 1.8em;
+    :where(.prose > div > :first-child) {
+      margin-top: 0 !important;
     }
 
-    .prose-lg :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-        @apply text-3xl! sm:text-4xl!;
+    :where(.prose > div > :last-child) {
+      margin-bottom: 0 !important;
     }
+
+    a:hover {
+      @apply decoration-gold;
+    }
+  }
+
+  .prose-sm,
+  .prose-lg,
+  .prose-xl,
+  .prose-2xl {
+    line-height: 1.8em;
+  }
+
+  .prose-lg :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    @apply text-3xl! sm:text-4xl!;
+  }
 }
