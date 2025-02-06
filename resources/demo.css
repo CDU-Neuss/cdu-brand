@@ -99,7 +99,7 @@
 
   #icon-circle {
     ul {
-      @apply mt-4 grid max-w-screen-md grid-cols-3 items-center gap-4;
+      @apply mt-4 grid max-w-screen-md grid-cols-4 items-center gap-4;
 
       li > figure {
         @apply flex h-full w-full flex-col items-center justify-end;

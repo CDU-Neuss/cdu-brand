@@ -1,7 +1,8 @@
 @layer components {
   .icon-circle,
   .icon-circle-lg,
-  .icon-circle-xl {
+  .icon-circle-xl,
+  .icon-circle-2xl {
     @apply bg-gold text-rhoendorf flex items-center justify-center rounded-full;
   }
 
@@ -26,6 +27,14 @@
 
     svg {
       @apply size-20;
+    }
+  }
+
+  .icon-circle-2xl {
+    @apply size-36;
+
+    svg {
+      @apply size-26;
     }
   }
 }
