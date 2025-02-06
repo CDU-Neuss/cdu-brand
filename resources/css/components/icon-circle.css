@@ -1,0 +1,40 @@
+@layer components {
+  .icon-circle,
+  .icon-circle-lg,
+  .icon-circle-xl,
+  .icon-circle-2xl {
+    @apply bg-gold text-rhoendorf flex items-center justify-center rounded-full;
+  }
+
+  .icon-circle {
+    @apply size-10;
+
+    svg {
+      @apply size-6;
+    }
+  }
+
+  .icon-circle-lg {
+    @apply size-16;
+
+    svg {
+      @apply size-10;
+    }
+  }
+
+  .icon-circle-xl {
+    @apply size-28;
+
+    svg {
+      @apply size-20;
+    }
+  }
+
+  .icon-circle-2xl {
+    @apply size-36;
+
+    svg {
+      @apply size-26;
+    }
+  }
+}
