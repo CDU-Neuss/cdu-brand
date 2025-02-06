@@ -1,0 +1,25 @@
+@layer components {
+    ul.authors {
+        @apply flex flex-wrap gap-2 text-sm;
+
+        > li {
+            @apply truncate;
+
+            > a {
+                @apply hover:bg-gold hover:text-rhoendorf dark:text-cadenabbia-10 dark:hover:text-rhoendorf flex transform items-center gap-2 rounded-full py-px pr-4 text-black transition-all duration-200 ease-in-out;
+
+                > figure {
+                    @apply size-10 flex-shrink-0;
+
+                    img {
+                        @apply aspect-square rounded-full;
+                    }
+                }
+
+                > span {
+                    @apply text-ellipsis;
+                }
+            }
+        }
+    }
+}
