@@ -62,7 +62,7 @@
       counter-reset: item;
 
       > li:not(:last-child) {
-        @apply flex flex-wrap items-center gap-4;
+        @apply flex items-center gap-4;
         counter-increment: item;
 
         &:before {
