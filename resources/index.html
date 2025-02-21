@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" x-data :class="{ 'dark': $store.darkMode.isDark }">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
     <script type="module" src="./demo.js"></script>
     <link rel="stylesheet" href="./demo.css" />
   </head>
-  <body class="text-rhoendorf bg-white">
+  <body class="text-rhoendorf dark:bg-rhoendorf bg-white dark:text-white">
     <header class="sticky top-0 bg-white shadow-md">
       <div class="container mx-auto flex flex-row items-center justify-between p-4">
         <h1 class="union-title bg-rhoendorf font-sans text-xl font-extrabold sm:text-3xl"><span>Brand Demo</span></h1>
@@ -74,7 +74,7 @@
           </li>
           <li>
             <figure>
-              <div class="bg-rhoendorf"></div>
+              <div class="dark:border-rhoendorf-60 bg-rhoendorf dark:border"></div>
               <figcaption>Rhoendorf</figcaption>
             </figure>
           </li>
@@ -204,13 +204,13 @@
             <li>
               <button class="btn btn-gold-transparent">Gold Transparent</button>
             </li>
-            <li class="col-start-1">
+            <li class="dark:bg-cadenabbia-10 col-start-1">
               <button class="btn btn-blue">Blue</button>
             </li>
             <li class="bg-rhoendorf">
               <button class="btn btn-blue-inverted">Blue Inverted</button>
             </li>
-            <li>
+            <li class="dark:bg-cadenabbia-10">
               <button class="btn btn-blue-transparent">Blue Transparent</button>
             </li>
           </ul>
@@ -218,7 +218,7 @@
         <section id="union-title">
           <h3>Union Title</h3>
           <h4 class="union-title">
-            <span class="bg-rhoendorf font-sans text-3xl font-extrabold text-white"
+            <span class="bg-rhoendorf dark:text-rhoendorf font-sans text-3xl font-extrabold text-white dark:bg-white"
               >Weit hinten, hinter den Wortbergen,<br />fern der Länder Vokalien und Konsonantien</span
             >
           </h4>
@@ -441,7 +441,7 @@
       </section>
       <section id="prose">
         <h2>Prose</h2>
-        <article class="prose prose-lg mx-auto">
+        <article class="prose prose-lg dark:prose-invert mx-auto">
           <p class="lead">
             Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for
             typography and a lot of complex custom CSS.
@@ -699,11 +699,36 @@
         </article>
       </section>
     </main>
-    <footer class="bg-rhoendorf mt-12 p-12 text-center font-sans font-light text-white">
+    <footer class="bg-rhoendorf dark:bg-rhoendorf-60 mt-12 p-12 text-center font-sans font-light text-white">
       <a href="https://www.cdu-neuss.de" target="_blank" class="mx-auto mb-4 inline-block hover:scale-105">
         <img src="./img/cdu-logo-white-transparent.png" alt="CDU Logo" class="w-32" />
       </a>
       <p>&copy;2025 CDU Neuss</p>
     </footer>
+    <div class="dark:bg-rhoendorf/60 fixed right-2 bottom-2 rounded-full bg-white/60 p-1 backdrop-blur-xl">
+      <div class="flex flex-col justify-center" x-data="$store.darkMode">
+        <input type="checkbox" name="light-switch" id="light-switch" class="sr-only" @change="switchTheme()" />
+        <label class="relative cursor-pointer p-2" for="light-switch">
+          <svg class="dark:hidden" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <path
+              class="fill-rhoendorf-25"
+              d="M7 0h2v2H7zM12.88 1.637l1.414 1.415-1.415 1.413-1.413-1.414zM14 7h2v2h-2zM12.95 14.433l-1.414-1.413 1.413-1.415 1.415 1.414zM7 14h2v2H7zM2.98 14.364l-1.413-1.415 1.414-1.414 1.414 1.415zM0 7h2v2H0zM3.05 1.706 4.463 3.12 3.05 4.535 1.636 3.12z"
+            />
+            <path class="fill-rhoendorf" d="M8 4C5.8 4 4 5.8 4 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4Z" />
+          </svg>
+          <svg class="hidden dark:block" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <path
+              class="fill-rhoendorf-10"
+              d="M6.2 1C3.2 1.8 1 4.6 1 7.9 1 11.8 4.2 15 8.1 15c3.3 0 6-2.2 6.9-5.2C9.7 11.2 4.8 6.3 6.2 1Z"
+            />
+            <path
+              class="fill-rhoendorf-25"
+              d="M12.5 5a.625.625 0 0 1-.625-.625 1.252 1.252 0 0 0-1.25-1.25.625.625 0 1 1 0-1.25 1.252 1.252 0 0 0 1.25-1.25.625.625 0 1 1 1.25 0c.001.69.56 1.249 1.25 1.25a.625.625 0 1 1 0 1.25c-.69.001-1.249.56-1.25 1.25A.625.625 0 0 1 12.5 5Z"
+            />
+          </svg>
+          <span class="sr-only">Switch to light / dark version</span>
+        </label>
+      </div>
+    </div>
   </body>
 </html>

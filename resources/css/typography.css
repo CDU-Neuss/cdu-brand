@@ -53,8 +53,12 @@
       margin-bottom: 0 !important;
     }
 
-    a:hover {
-      @apply decoration-gold;
+    a {
+      @apply decoration-2 motion-safe:transition-colors motion-safe:duration-300 motion-safe:ease-in-out;
+
+      &:hover {
+        @apply decoration-gold;
+      }
     }
 
     > ol {

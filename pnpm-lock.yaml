@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@alpinejs/persist':
+        specifier: ^3.14.8
+        version: 3.14.8
       '@fontsource/ibm-plex-serif':
         specifier: ^5.1.1
         version: 5.1.1
@@ -37,6 +40,9 @@ importers:
         version: 6.1.0(jiti@2.4.2)(lightningcss@1.29.1)
 
 packages:
+
+  '@alpinejs/persist@3.14.8':
+    resolution: {integrity: sha512-aK30sjUuvhoB4JIqY3QRu9WdBVHCuCq6tXq3vIzxyFSvdPI0vXAGAQNsjQ/Y2ak+GtSFVssd13NlUMotRYMQQA==}
 
   '@esbuild/aix-ppc64@0.24.2':
     resolution: {integrity: sha512-thpVCb/rhxE/BnMLQ7GReQLLN8q9qbHmI55F4489/ByVg2aQaQ6kbcLb6FHkocZzQhxc4gx0sCk0tJkKBFzDhA==}
@@ -624,6 +630,8 @@ packages:
         optional: true
 
 snapshots:
+
+  '@alpinejs/persist@3.14.8': {}
 
   '@esbuild/aix-ppc64@0.24.2':
     optional: true
