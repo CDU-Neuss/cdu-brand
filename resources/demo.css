@@ -89,7 +89,7 @@
 
   #buttons {
     ul {
-      @apply mt-4 grid max-w-screen-md grid-cols-3 gap-4;
+      @apply mt-4 grid max-w-screen-md grid-cols-1 gap-4 sm:grid-cols-3;
 
       li {
         @apply border-rhoendorf-10 flex flex-col items-center border p-4;
@@ -99,7 +99,7 @@
 
   #icon-circle {
     ul {
-      @apply mt-4 grid max-w-screen-md grid-cols-4 items-center gap-4;
+      @apply mt-4 grid max-w-screen-md grid-cols-2 items-center gap-4 sm:grid-cols-4;
 
       li > figure {
         @apply flex h-full w-full flex-col items-center justify-end;
@@ -113,13 +113,13 @@
 
   #feature {
     ul {
-      @apply mt-4 grid max-w-screen-md grid-cols-3 gap-4;
+      @apply mt-4 grid max-w-screen-md grid-cols-1 gap-4 sm:grid-cols-3;
     }
   }
 
   #arc {
     ul {
-      @apply mt-4 grid grid-cols-3 gap-4;
+      @apply mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3;
 
       figure {
         div {
