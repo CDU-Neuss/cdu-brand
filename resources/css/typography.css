@@ -62,7 +62,7 @@
       counter-reset: item;
 
       > li:not(:last-child) {
-        @apply flex items-center gap-4;
+        @apply grid grid-cols-[50px_1fr] items-center gap-x-4;
         counter-increment: item;
 
         &:before {
@@ -70,13 +70,13 @@
           content: counter(item) " ";
         }
 
-        > ul,
-        ol {
-          @apply mt-0 ml-16 w-full;
+        *:not(:first-child) {
+          @apply col-start-2;
+        }
 
-          > li:first-child {
-            @apply mt-0;
-          }
+        > ul,
+        > ol {
+          @apply mt-0;
         }
       }
     }
