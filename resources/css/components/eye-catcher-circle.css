@@ -1,0 +1,9 @@
+@layer components {
+  .eye-catcher-circle {
+    @apply bg-gold text-rhoendorf flex aspect-square -rotate-12 flex-col items-center justify-center overflow-hidden rounded-full p-4 text-center font-sans leading-none font-extrabold uppercase;
+
+    strong {
+      @apply text-white;
+    }
+  }
+}
