@@ -3,21 +3,25 @@
   .bg-cadenabbia {
     --union-title-background-color: var(--color-cadenabbia);
     --union-title-text-color: var(--color-rhoendorf);
+    --union-title-text-strong-color: var(--color-gold);
   }
 
   .bg-gold {
     --union-title-background-color: var(--color-gold);
     --union-title-text-color: var(--color-rhoendorf);
+    --union-title-text-strong-color: var(--color-white);
   }
 
   .bg-rhoendorf {
     --union-title-background-color: var(--color-rhoendorf);
     --union-title-text-color: var(--color-white);
+    --union-title-text-strong-color: var(--color-gold);
   }
 
   .bg-white {
     --union-title-background-color: var(--color-white);
     --union-title-text-color: var(--color-rhoendorf);
+    --union-title-text-strong-color: var(--color-gold);
   }
 }
 
@@ -32,6 +36,10 @@
       line-height: calc(1 + var(--padding-factor) * 2) !important;
       padding: calc(var(--padding-factor) * 1em);
       background-color: var(--union-title-background-color);
+
+      strong {
+        color: var(--union-title-text-strong-color);
+      }
     }
   }
 }
