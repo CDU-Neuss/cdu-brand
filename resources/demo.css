@@ -125,10 +125,18 @@
 
       li {
         figure {
-          @apply bg-cadenabbia relative aspect-video w-full;
+          @apply bg-cadenabbia relative aspect-video w-full overflow-hidden;
 
           img {
             @apply aspect-video object-cover;
+          }
+
+          figcaption.eye-catcher-circle:first-child {
+            @apply absolute top-6 left-6 max-w-1/3 text-3xl sm:text-xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
+          }
+
+          figcaption.eye-catcher-circle:nth-child(2) {
+            @apply absolute right-6 bottom-6 max-w-1/4 text-2xl sm:text-base lg:text-2xl xl:text-3xl 2xl:text-4xl;
           }
         }
       }
