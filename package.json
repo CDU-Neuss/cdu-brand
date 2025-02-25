@@ -19,7 +19,7 @@
   ],
   "author": "CDU Neuss",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.4.1",
+  "packageManager": "pnpm@10.5.0",
   "devDependencies": {
     "@alpinejs/persist": "^3.14.8",
     "@fontsource/ibm-plex-serif": "^5.1.1",
