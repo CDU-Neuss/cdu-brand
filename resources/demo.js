@@ -1,12 +1,47 @@
 import Alpine from "alpinejs";
 import { persist } from "@alpinejs/persist";
 import countdown from "./js/countdown.js";
+import Swiper from "swiper";
+import "swiper/css";
+import { Navigation, Scrollbar } from "swiper/modules";
 
 Alpine.plugin(persist);
 
 window.Alpine = Alpine;
 
 document.addEventListener("alpine:init", () => {
+  new Swiper("#my-swiper", {
+    modules: [Navigation, Scrollbar],
+    slidesPerView: 1,
+    spaceBetween: 40,
+    direction: "horizontal",
+    loop: false,
+    speed: 500,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      draggable: true,
+    },
+
+    breakpoints: {
+      576: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 2,
+      },
+      1210: {
+        slidesPerView: 3,
+      },
+    },
+  });
+
   Alpine.data("countdown", (targetDate) => countdown(targetDate));
 
   Alpine.store("darkMode", {
