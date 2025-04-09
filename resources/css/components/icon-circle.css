@@ -6,6 +6,16 @@
     @apply bg-gold text-rhoendorf flex items-center justify-center rounded-full;
   }
 
+  a,
+  button {
+    &.icon-circle,
+    &.icon-circle-lg,
+    &.icon-circle-xl,
+    &.icon-circle-2xl {
+      @apply hover:bg-gold-110 transition-colors duration-200 ease-in-out;
+    }
+  }
+
   .icon-circle {
     @apply size-10;
 
