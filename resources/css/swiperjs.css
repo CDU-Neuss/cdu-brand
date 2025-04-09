@@ -1,0 +1,25 @@
+@layer base {
+  .swiper-scrollbar {
+    @apply bg-cadenabbia-25 static w-full rounded-full;
+
+    .swiper-scrollbar-drag {
+      @apply bg-cadenabbia cursor-pointer rounded-full;
+    }
+
+    &.swiper-scrollbar-horizontal {
+      @apply h-1;
+
+      .swiper-scrollbar-drag {
+        @apply h-1;
+      }
+    }
+
+    &.swiper-scrollbar-vertical {
+      @apply w-1;
+
+      .swiper-scrollbar-drag {
+        @apply w-1;
+      }
+    }
+  }
+}

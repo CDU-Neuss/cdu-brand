@@ -159,6 +159,12 @@
     }
   }
 
+  #swiper {
+    .swiper-slide {
+      @apply min-h-32 p-3;
+    }
+  }
+
   #prose {
     article {
       @apply mt-4;
