@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import FeatureComponent from "../components/Feature.astro";
+---
+
+<Layout title="Feature">
+  <section id="feature">
+    <h3>Feature</h3>
+    <ul>
+      <li>
+        <FeatureComponent title="Address">
+          <Icon name="ph:house" slot="icon" />
+          <Fragment>
+            Münsterplatz 13a<br />
+            41460 Neuss
+          </Fragment>
+        </FeatureComponent>
+      </li>
+      <li>
+        <FeatureComponent title="Email">
+          <Icon name="ph:envelope-simple" slot="icon" />
+          <a href="mailto:info@cdu-neuss.de">info@cdu-neuss.de</a>
+        </FeatureComponent>
+      </li>
+      <li>
+        <FeatureComponent title="Contact Person">
+          <Icon name="ph:user" slot="icon" />
+          <a href="#">Erika Mustermann</a>
+        </FeatureComponent>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  ul {
+    @apply mt-4 grid max-w-screen-md grid-cols-1 gap-4 sm:grid-cols-3;
+  }
+</style>

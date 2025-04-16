@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import logo from "../resources/img/cdu-gesamtlogo.png";
+import logoTransparent from "../resources/img/cdu-logo-transparent.png";
+import logoWhiteTransparent from "../resources/img/cdu-logo-white-transparent.png";
+import Image from "astro/components/Image.astro";
+---
+
+<Layout title="Logo">
+  <section id="logo">
+    <ul>
+      <li>
+        <figure>
+          <Image src={logo} alt="CDU Logo" />
+          <figcaption>Default with white background</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <Image src={logoTransparent} alt="CDU Logo" />
+          <figcaption>Default with transparent background</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <Image src={logoWhiteTransparent} alt="CDU Logo" class="bg-rhoendorf" />
+          <figcaption>White with transparent background</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  #logo {
+    ul {
+      @apply mt-4 grid max-w-screen-md grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3;
+
+      figure {
+        img {
+          @apply bg-chess aspect-square w-full object-contain;
+        }
+
+        figcaption {
+          @apply mt-2 text-xs;
+        }
+      }
+    }
+  }
+</style>

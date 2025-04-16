@@ -87,7 +87,7 @@
 
 @layer components {
   .btn {
-    @apply rounded border-2 px-5 py-2 font-sans! font-extrabold! no-underline! transition-colors duration-200 ease-in-out focus:outline-none motion-safe:transition;
+    @apply flex flex-row items-center justify-between gap-x-1 rounded border-2 px-5 py-2 font-sans! font-extrabold! no-underline! transition-colors duration-200 ease-in-out focus:outline-none motion-safe:transition;
 
     border-color: var(--btn-border-color);
     background-color: var(--btn-background-color);

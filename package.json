@@ -7,11 +7,6 @@
     "url": "https://github.com/CDU-Neuss/cdu-brand.git"
   },
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
   "keywords": [
     "cdu",
     "tailwind",
@@ -19,19 +14,11 @@
   ],
   "author": "CDU Neuss",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.7.1",
+  "packageManager": "pnpm@10.8.0",
   "devDependencies": {
-    "@alpinejs/persist": "^3.14.8",
-    "@fontsource/ibm-plex-serif": "^5.1.1",
-    "@fontsource/inter": "^5.1.1",
-    "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.0.3",
-    "alpinejs": "^3.14.8",
     "prettier": "^3.4.2",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "swiper": "^11.2.6",
-    "tailwindcss": "^4.0.3",
-    "vite": "^6.1.0"
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11"
   },
   "peerDependencies": {
     "@fontsource/ibm-plex-serif": "^5.1.0",

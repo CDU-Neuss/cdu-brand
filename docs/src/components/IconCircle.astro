@@ -1,0 +1,19 @@
+---
+interface Props {
+  icon?: string;
+  size?: "default" | "lg" | "xl" | "2xl";
+  as?: "a" | "button" | "figure";
+}
+const { icon, size = "default", as: As = "figure" } = Astro.props;
+const circleClass =
+  size === "lg" ? "icon-circle-lg" : size === "xl" ? "icon-circle-xl" : size === "2xl" ? "icon-circle-2xl" : "icon-circle";
+---
+
+<As class={circleClass}>
+  {icon ? { icon } : <slot />}
+</As>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/components/icon-circle.css";
+</style>

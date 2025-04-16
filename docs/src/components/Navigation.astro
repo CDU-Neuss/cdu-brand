@@ -1,0 +1,68 @@
+<nav>
+  <dl>
+    <dt>Basics</dt>
+    <dd>
+      <ul>
+        <li><a href="/">Introduction</a></li>
+        <li><a href="/logo">Logo</a></li>
+        <li><a href="/colors">Colors</a></li>
+        <li><a href="/typography">Typography</a></li>
+      </ul>
+    </dd>
+    <dt>Components</dt>
+    <dd>
+      <ul>
+        <li><a href="/button">Button</a></li>
+        <li><a href="/union-title">Union Title</a></li>
+        <li><a href="/icon-circle">Icon Circle</a></li>
+        <li><a href="/feature">Feature</a></li>
+        <li><a href="/countdown">Countdown</a></li>
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/eye-catcher-circle">Eye Catcher Circle</a></li>
+      </ul>
+    </dd>
+    <dt>Utilities</dt>
+    <dd>
+      <ul>
+        <li><a href="/arc-background">Arc Background</a></li>
+      </ul>
+    </dd>
+    <dt>Plugins</dt>
+    <dd>
+      <ul>
+        <li><a href="/prose">Prose</a></li>
+        <li><a href="/swiper">Swiper</a></li>
+      </ul>
+    </dd>
+  </dl>
+</nav>
+
+<style>
+  @import url("../styles/global.css");
+
+  nav {
+    @apply bg-rhoendorf text-rhoendorf-10 fixed bottom-0 z-50 w-52 pt-12 shadow-md;
+
+    height: calc(100vh - var(--spacing) * 20);
+
+    dl {
+      @apply m-4 font-sans;
+
+      dt {
+        @apply text-cadenabbia-25 mb-1 text-xs font-extrabold uppercase;
+      }
+
+      dd {
+        @apply mb-4 font-light;
+
+        &:last-child {
+          @apply mb-0;
+        }
+
+        a {
+          @apply decoration-gold decoration-2 hover:underline;
+        }
+      }
+    }
+  }
+</style>

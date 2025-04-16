@@ -1,0 +1,27 @@
+---
+import { Icon } from "astro-icon/components";
+import IconCircle from "./IconCircle.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="feature">
+  <div class="icon">
+    <IconCircle>
+      <slot name="icon" />
+    </IconCircle>
+  </div>
+  <div class="content">
+    <h5 class="title">{title}</h5>
+    <slot />
+  </div>
+</div>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/components/feature.css";
+</style>

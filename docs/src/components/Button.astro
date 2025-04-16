@@ -1,0 +1,33 @@
+---
+interface Props {
+  color?: "default" | "blue" | "gold" | "blue-inverted" | "gold-inverted" | "blue-transparent" | "gold-transparent";
+  as?: "a" | "button";
+  href?: string;
+}
+const { color = "default", as: As = "button", href } = Astro.props;
+const buttonClass =
+  color === "blue"
+    ? "btn btn-blue"
+    : color === "gold"
+      ? "btn btn-gold"
+      : color === "blue-inverted"
+        ? "btn btn-blue-inverted"
+        : color === "gold-inverted"
+          ? "btn btn-gold-inverted"
+          : color === "blue-transparent"
+            ? "btn btn-blue-transparent"
+            : color === "gold-transparent"
+              ? "btn btn-gold-transparent"
+              : "btn";
+---
+
+<As class={buttonClass} href={href}>
+  <slot name="icon-left" />
+  <slot />
+  <slot name="icon-right" />
+</As>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/components/button.css";
+</style>
