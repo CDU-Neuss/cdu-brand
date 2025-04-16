@@ -3,13 +3,14 @@ interface Props {
   icon?: string;
   size?: "default" | "lg" | "xl" | "2xl";
   as?: "a" | "button" | "figure";
+  class?: string;
 }
-const { icon, size = "default", as: As = "figure" } = Astro.props;
+const { icon, size = "default", as: As = "figure", class: className } = Astro.props;
 const circleClass =
   size === "lg" ? "icon-circle-lg" : size === "xl" ? "icon-circle-xl" : size === "2xl" ? "icon-circle-2xl" : "icon-circle";
 ---
 
-<As class={circleClass}>
+<As class:list={[circleClass, className]}>
   {icon ? { icon } : <slot />}
 </As>
 
