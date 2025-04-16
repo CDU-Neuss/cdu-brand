@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.6",
-    "@tailwindcss/vite": "^4.1.4",
     "@fontsource/ibm-plex-serif": "5.2.5",
     "@fontsource/inter": "5.2.5",
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/typography": "0.5.16",
+    "@tailwindcss/vite": "^4.1.4",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.9",
     "astro": "^5.7.0",

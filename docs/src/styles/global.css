@@ -5,6 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
+  body {
+    @apply text-rhoendorf dark:bg-rhoendorf bg-white dark:text-white;
+  }
+
   h1,
   h2,
   h3,

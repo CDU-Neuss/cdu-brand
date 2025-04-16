@@ -1,47 +1,60 @@
-<nav>
-  <dl>
-    <dt>Basics</dt>
-    <dd>
-      <ul>
-        <li><a href="/">Introduction</a></li>
-        <li><a href="/logo">Logo</a></li>
-        <li><a href="/colors">Colors</a></li>
-        <li><a href="/typography">Typography</a></li>
-      </ul>
-    </dd>
-    <dt>Components</dt>
-    <dd>
-      <ul>
-        <li><a href="/button">Button</a></li>
-        <li><a href="/union-title">Union Title</a></li>
-        <li><a href="/icon-circle">Icon Circle</a></li>
-        <li><a href="/feature">Feature</a></li>
-        <li><a href="/countdown">Countdown</a></li>
-        <li><a href="/authors">Authors</a></li>
-        <li><a href="/eye-catcher-circle">Eye Catcher Circle</a></li>
-      </ul>
-    </dd>
-    <dt>Utilities</dt>
-    <dd>
-      <ul>
-        <li><a href="/arc-background">Arc Background</a></li>
-      </ul>
-    </dd>
-    <dt>Plugins</dt>
-    <dd>
-      <ul>
-        <li><a href="/prose">Prose</a></li>
-        <li><a href="/swiper">Swiper</a></li>
-      </ul>
-    </dd>
-  </dl>
-</nav>
+---
+import { Image } from "astro:assets";
+import logo from "../resources/img/cdu-logo-white-transparent.png";
+---
+
+<aside>
+  <nav>
+    <dl>
+      <dt>Basics</dt>
+      <dd>
+        <ul>
+          <li><a href="/">Introduction</a></li>
+          <li><a href="/logo">Logo</a></li>
+          <li><a href="/colors">Colors</a></li>
+          <li><a href="/typography">Typography</a></li>
+        </ul>
+      </dd>
+      <dt>Components</dt>
+      <dd>
+        <ul>
+          <li><a href="/button">Button</a></li>
+          <li><a href="/union-title">Union Title</a></li>
+          <li><a href="/icon-circle">Icon Circle</a></li>
+          <li><a href="/feature">Feature</a></li>
+          <li><a href="/countdown">Countdown</a></li>
+          <li><a href="/authors">Authors</a></li>
+          <li><a href="/eye-catcher-circle">Eye Catcher Circle</a></li>
+        </ul>
+      </dd>
+      <dt>Utilities</dt>
+      <dd>
+        <ul>
+          <li><a href="/arc-background">Arc Background</a></li>
+        </ul>
+      </dd>
+      <dt>Plugins</dt>
+      <dd>
+        <ul>
+          <li><a href="/prose">Prose</a></li>
+          <li><a href="/swiper">Swiper</a></li>
+        </ul>
+      </dd>
+    </dl>
+  </nav>
+  <footer class="mt-12 text-center font-sans text-xs font-light">
+    <a href="https://www.cdu-neuss.de" target="_blank" class="mx-auto mb-4 inline-block hover:scale-105">
+      <Image src={logo} alt="CDU Logo" class="w-20" loading="lazy" width={128} height={128} />
+    </a>
+    <p>&copy;2025 CDU Neuss</p>
+  </footer>
+</aside>
 
 <style>
   @import url("../styles/global.css");
 
-  nav {
-    @apply bg-rhoendorf text-rhoendorf-10 fixed bottom-0 z-50 w-52 pt-12 shadow-md;
+  aside {
+    @apply bg-rhoendorf dark:bg-rhoendorf-60 text-rhoendorf-10 fixed bottom-0 z-50 flex w-52 flex-col justify-between py-12;
 
     height: calc(100vh - var(--spacing) * 20);
 

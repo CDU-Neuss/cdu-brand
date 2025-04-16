@@ -4,6 +4,7 @@ import "../styles/global.css";
 import logo from "../resources/img/cdu-logo-transparent.png";
 import Image from "astro/components/Image.astro";
 import Navigation from "../components/Navigation.astro";
+import DarkModeToggle from "../components/DarkModeToggle.astro";
 const { title = "CDU Brand", ...props } = Astro.props;
 ---
 
@@ -30,6 +31,7 @@ const { title = "CDU Brand", ...props } = Astro.props;
         <slot />
       </main>
     </div>
+    <DarkModeToggle />
   </body>
 </html>
 
