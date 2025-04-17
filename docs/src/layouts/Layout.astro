@@ -17,12 +17,14 @@ const { title = "CDU Brand", ...props } = Astro.props;
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="debug-screens">
     <header>
-      <figure>
-        <Image src={logo} alt="CDU Logo" />
-        <figcaption>Brand Demo</figcaption>
-      </figure>
+      <a href="/">
+        <figure>
+          <Image src={logo} alt="CDU Logo" />
+          <figcaption>Brand Demo</figcaption>
+        </figure>
+      </a>
     </header>
     <div class="site-wrapper">
       <Navigation />
@@ -59,6 +61,6 @@ const { title = "CDU Brand", ...props } = Astro.props;
   }
 
   main {
-    @apply my-12 ml-56 flex flex-col gap-12 p-4;
+    @apply my-12 flex flex-col gap-12 p-4 md:ml-56;
   }
 </style>

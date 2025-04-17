@@ -44,6 +44,9 @@ importers:
       tailwindcss:
         specifier: ^4.1.4
         version: 4.1.4
+      tailwindcss-debug-screens:
+        specifier: ^3.0.1
+        version: 3.0.1(tailwindcss@4.1.4)
 
 packages:
 
@@ -1727,6 +1730,11 @@ packages:
   swiper@11.2.6:
     resolution: {integrity: sha512-8aXpYKtjy3DjcbzZfz+/OX/GhcU5h+looA6PbAzHMZT6ESSycSp9nAjPCenczgJyslV+rUGse64LMGpWE3PX9Q==}
     engines: {node: '>= 4.7.0'}
+
+  tailwindcss-debug-screens@3.0.1:
+    resolution: {integrity: sha512-ibUaLQGk4AvxnKzGyoLlj1kzBRADcQV65ELENcWxkXJArUCnitR/GZxxDPL9XnW96mzUEuhJqgFI7C43hKm6Vw==}
+    peerDependencies:
+      tailwindcss: ^4.0
 
   tailwindcss@4.1.4:
     resolution: {integrity: sha512-1ZIUqtPITFbv/DxRmDr5/agPqJwF69d24m9qmM1939TJehgY539CtzeZRjbLt5G6fSy/7YqqYsfvoTEw9xUI2A==}
@@ -4019,6 +4027,10 @@ snapshots:
       picocolors: 1.1.1
 
   swiper@11.2.6: {}
+
+  tailwindcss-debug-screens@3.0.1(tailwindcss@4.1.4):
+    dependencies:
+      tailwindcss: 4.1.4
 
   tailwindcss@4.1.4: {}
 
