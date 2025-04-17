@@ -19,6 +19,7 @@
     "alpinejs": "^3.14.9",
     "astro": "^5.7.0",
     "astro-icon": "^1.1.5",
+    "sharp": "^0.34.1",
     "swiper": "11.2.6",
     "tailwindcss": "^4.1.4",
     "tailwindcss-debug-screens": "^3.0.1"
