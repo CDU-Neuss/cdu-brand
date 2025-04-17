@@ -1,0 +1,58 @@
+---
+interface Props {
+  targetDate: string;
+  event?: string;
+  labels?: {
+    days?: string;
+    hours?: string;
+    minutes?: string;
+    seconds?: string;
+  };
+}
+
+const defaultLabels = {
+  days: "Days",
+  hours: "Hours",
+  minutes: "Minutes",
+  seconds: "Seconds",
+};
+
+const { targetDate, event, labels } = Astro.props as Props;
+const mergedLabels = { ...defaultLabels, ...labels };
+---
+
+<figure class="countdown" aria-hidden="true" x-data={`countdown('${targetDate}')`} x-cloak>
+  <div class="clock">
+    <dl x-show="days > 0">
+      <dd x-text="days">&nbsp;</dd>
+      <dt>{mergedLabels.days}</dt>
+    </dl>
+    <div class="divider" x-show="days > 0">:</div>
+    <dl x-show="hours > 0">
+      <dd x-text="hours">&nbsp;</dd>
+      <dt>{mergedLabels.hours}</dt>
+      <div class="divider" x-show="hours > 0">:</div>
+      <dl>
+        <dd x-text="minutes">&nbsp;</dd>
+        <dt>{mergedLabels.minutes}</dt>
+      </dl>
+      <div class="divider">:</div>
+      <dl>
+        <dd x-text="seconds">&nbsp;</dd>
+        <dt>{mergedLabels.seconds}</dt>
+      </dl>
+      {event && <figcaption>{event}</figcaption>}
+    </dl>
+
+    <style>
+      @import "../styles/global.css";
+      @import "../../../resources/css/components/countdown.css";
+    </style>
+
+    <script>
+      import countdown from "../../../resources/js/countdown.js";
+
+      Alpine.data("countdown", (targetDate: string) => countdown(targetDate));
+    </script>
+  </div>
+</figure>

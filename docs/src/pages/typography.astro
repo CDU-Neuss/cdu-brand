@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Typography">
+  <section id="typography">
+    <ul>
+      <li>
+        <figure>
+          <div class="font-serif font-normal"></div>
+          <figcaption>IBM Plex Serif Normal</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="font-serif font-bold"></div>
+          <figcaption>IBM Plex Serif Bold</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="font-sans font-light"></div>
+          <figcaption>Inter Light</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="font-sans font-normal"></div>
+          <figcaption>Inter Normal</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="font-sans font-medium"></div>
+          <figcaption>Inter Medium</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="font-sans font-extrabold"></div>
+          <figcaption>Inter Extrabold</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  #typography {
+    ul {
+      @apply mt-4 grid grid-cols-1 gap-x-4 gap-y-8;
+
+      figure {
+        @apply border-rhoendorf-10 border px-4 py-3;
+
+        div {
+          @apply text-xl after:content-['Weit_hinten,_hinter_den_Wortbergen,_fern_der_Länder_Vokalien_und_Konsonantien_leben_die_Blindtexte.'];
+        }
+
+        figcaption {
+          @apply mt-2 text-xs;
+        }
+      }
+    }
+  }
+</style>

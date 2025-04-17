@@ -1,0 +1,60 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import ButtonComponent from "../components/Button.astro";
+---
+
+<Layout title="Button">
+  <section id="buttons">
+    <ul>
+      <li>
+        <ButtonComponent>Default</ButtonComponent>
+      </li>
+      <li>
+        <ButtonComponent>
+          <Icon name="ph:arrow-left-bold" slot="icon-left" />
+          Icon Left
+        </ButtonComponent>
+      </li>
+      <li>
+        <ButtonComponent>
+          <Icon name="ph:arrow-right-bold" slot="icon-right" />
+          Icon Right
+        </ButtonComponent>
+      </li>
+      <li class="col-start-1">
+        <ButtonComponent color="gold">Gold</ButtonComponent>
+      </li>
+
+      <li class="bg-gold">
+        <ButtonComponent color="gold-inverted">Gold Inverted</ButtonComponent>
+      </li>
+      <li>
+        <ButtonComponent color="gold-transparent">Gold Transparent</ButtonComponent>
+      </li>
+      <li class="dark:bg-cadenabbia-10 col-start-1">
+        <ButtonComponent color="blue">Blue</ButtonComponent>
+      </li>
+      <li class="bg-rhoendorf">
+        <ButtonComponent color="blue-inverted">Blue Inverted</ButtonComponent>
+      </li>
+      <li class="dark:bg-cadenabbia-10">
+        <ButtonComponent color="blue-transparent">Blue Transparent</ButtonComponent>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  #buttons {
+    ul {
+      @apply mt-4 grid max-w-screen-md grid-cols-1 gap-4 sm:grid-cols-3;
+
+      li {
+        @apply border-rhoendorf-10 flex flex-col items-center border p-4;
+      }
+    }
+  }
+</style>

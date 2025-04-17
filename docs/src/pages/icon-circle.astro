@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import IconCircleComponent from "../components/IconCircle.astro";
+---
+
+<Layout title="Icon Circle">
+  <section id="icon-circle">
+    <ul>
+      <li>
+        <figure>
+          <IconCircleComponent>
+            <Icon name="ph:bell-ringing-bold" />
+          </IconCircleComponent>
+          <figcaption>Default</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <IconCircleComponent size="lg">
+            <Icon name="ph:bell-ringing-bold" />
+          </IconCircleComponent>
+          <figcaption>LG</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <IconCircleComponent size="xl">
+            <Icon name="ph:bell-ringing-bold" />
+          </IconCircleComponent>
+          <figcaption>XL</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <IconCircleComponent size="2xl">
+            <Icon name="ph:bell-ringing-bold" />
+          </IconCircleComponent>
+          <figcaption>2XL</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <IconCircleComponent as="button">
+            <Icon name="ph:bell-ringing-bold" />
+          </IconCircleComponent>
+          <figcaption>Link/Button</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  #icon-circle {
+    ul {
+      @apply mt-4 grid max-w-screen-md grid-cols-2 items-center gap-4 sm:grid-cols-4;
+
+      li > figure {
+        @apply flex h-full w-full flex-col items-center justify-end;
+
+        figcaption {
+          @apply mt-2 text-sm;
+        }
+      }
+    }
+  }
+</style>

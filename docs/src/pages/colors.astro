@@ -1,0 +1,201 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Colors">
+  <section id="colors">
+    <ul>
+      <li class="col-span-full"><h2>Main Brand Colors</h2></li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-cadenabbia"></div>
+          <figcaption>Cadenabbia</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-cadenabbia-60"></div>
+          <figcaption>Cadenabbia 60</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-cadenabbia-25"></div>
+          <figcaption>Cadenabbia 25</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-cadenabbia-10"></div>
+          <figcaption>Cadenabbia 10</figcaption>
+        </figure>
+      </li>
+      <li class="col-start-1">
+        <figure>
+          <div class="dark:border-rhoendorf-60 bg-rhoendorf dark:border"></div>
+          <figcaption>Rhoendorf</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-rhoendorf-60"></div>
+          <figcaption>Rhoendorf 60</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-rhoendorf-25"></div>
+          <figcaption>Rhoendorf 25</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-rhoendorf-10"></div>
+          <figcaption>Rhoendorf 10</figcaption>
+        </figure>
+      </li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-black"></div>
+          <figcaption>Black</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-red"></div>
+          <figcaption>Red</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-gold"></div>
+          <figcaption>Gold</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-gold-110"></div>
+          <figcaption>Gold 110</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="border-rhoendorf-10 border bg-white"></div>
+          <figcaption>White</figcaption>
+        </figure>
+      </li>
+      <li class="col-span-full"><h2>Organizations</h2></li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-cda-blue"></div>
+          <figcaption>CDA Blue</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-cda-red"></div>
+          <figcaption>CDA Red</figcaption>
+        </figure>
+      </li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-fu-aubergine"></div>
+          <figcaption>FU Aubergine</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-fu-magenta"></div>
+          <figcaption>FU Magenta</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-fu-orange"></div>
+          <figcaption>FU Orange</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-fu-red"></div>
+          <figcaption>FU Red</figcaption>
+        </figure>
+      </li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-ju-blue"></div>
+          <figcaption>JU Blue</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-ju-light-blue"></div>
+          <figcaption>JU Light Blue</figcaption>
+        </figure>
+      </li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-mit-red"></div>
+          <figcaption>MIT Red</figcaption>
+        </figure>
+      </li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-su-blue"></div>
+          <figcaption>SU Blue</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-su-red"></div>
+          <figcaption>SU Red</figcaption>
+        </figure>
+      </li>
+      <li class="col-span-full"><h2>Social Media Brands</h2></li>
+      <li class="col-start-1">
+        <figure>
+          <div class="bg-facebook"></div>
+          <figcaption>Facebook</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-linkedin"></div>
+          <figcaption>LinkedIn</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-whatsapp"></div>
+          <figcaption>WhatsApp</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-x"></div>
+          <figcaption>X</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  #colors {
+    ul {
+      @apply mt-4 grid max-w-screen-md grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4;
+
+      figure {
+        div {
+          @apply aspect-square w-full;
+        }
+
+        figcaption {
+          @apply mt-2 text-center text-sm;
+        }
+      }
+    }
+  }
+</style>

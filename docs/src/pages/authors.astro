@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AuthorsComponent from "../components/Authors.astro";
+
+const authors = [
+  {
+    name: "Max Mustermann",
+    image: "https://i.pravatar.cc/80?img=6",
+    link: "#",
+  },
+  {
+    name: "Peter Parker",
+    link: "#",
+  },
+  {
+    name: "Erika Mustermann",
+    image: "https://i.pravatar.cc/80?img=5",
+    link: "#",
+  },
+];
+---
+
+<Layout title="Authors">
+  <section id="authors">
+    <AuthorsComponent authors={authors} />
+  </section>
+</Layout>

@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Arc Background">
+  <section id="arc">
+    <ul>
+      <li>
+        <figure>
+          <div class="bg-cadenabbia bg-arc-cadenabbia-wide"></div>
+          <figcaption>Cadenabbia Wide</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-cadenabbia bg-arc-cadenabbia"></div>
+          <figcaption>Cadenabbia</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <div class="bg-rhoendorf-10 bg-arc-black-red-gold"></div>
+          <figcaption>Black Red Gold</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/utilities/arc.css";
+
+  #arc {
+    ul {
+      @apply mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3;
+
+      figure {
+        div {
+          @apply aspect-video w-full;
+        }
+
+        figcaption {
+          @apply mt-2 text-center text-sm;
+        }
+      }
+    }
+  }
+</style>

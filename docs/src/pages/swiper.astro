@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import IconCircle from "../components/IconCircle.astro";
+---
+
+<Layout title="Swiper">
+  <section id="swiper">
+    <div class="swiper" id="my-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide bg-cadenabbia-10">Slide 1</div>
+        <div class="swiper-slide bg-cadenabbia-25">Slide 2</div>
+        <div class="swiper-slide bg-cadenabbia-60">Slide 3</div>
+        <div class="swiper-slide bg-cadenabbia">Slide 4</div>
+        <div class="swiper-slide bg-rhoendorf-10">Slide 5</div>
+        <div class="swiper-slide bg-rhoendorf-25">Slide 6</div>
+      </div>
+      <div class="swiper-scrollbar mt-6" data-swiper-scrollbar></div>
+
+      <div class="mt-3 flex flex-row items-center justify-end space-x-2">
+        <IconCircle as="button" class="swiper-button-prev">
+          <Icon name="ph:caret-left-bold" />
+        </IconCircle>
+        <IconCircle as="button" class="swiper-button-next">
+          <Icon name="ph:caret-right-bold" />
+        </IconCircle>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/swiperjs.css";
+
+  #swiper {
+    @apply max-w-xl md:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl;
+
+    .swiper-slide {
+      @apply min-h-32 p-3;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  import { Navigation, Scrollbar } from "swiper/modules";
+
+  new Swiper("#my-swiper", {
+    modules: [Navigation, Scrollbar],
+    slidesPerView: 1,
+    spaceBetween: 40,
+    direction: "horizontal",
+    loop: false,
+    speed: 500,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    scrollbar: {
+      el: ".swiper-scrollbar",
+      draggable: true,
+    },
+
+    breakpoints: {
+      576: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 2,
+      },
+      1210: {
+        slidesPerView: 3,
+      },
+    },
+  });
+</script>
