@@ -31,28 +31,28 @@ const mergedLabels = { ...defaultLabels, ...labels };
     <dl x-show="hours > 0">
       <dd x-text="hours">&nbsp;</dd>
       <dt>{mergedLabels.hours}</dt>
-      <div class="divider" x-show="hours > 0">:</div>
-      <dl>
-        <dd x-text="minutes">&nbsp;</dd>
-        <dt>{mergedLabels.minutes}</dt>
-      </dl>
-      <div class="divider">:</div>
-      <dl>
-        <dd x-text="seconds">&nbsp;</dd>
-        <dt>{mergedLabels.seconds}</dt>
-      </dl>
-      {event && <figcaption>{event}</figcaption>}
     </dl>
-
-    <style>
-      @import "../styles/global.css";
-      @import "../../../resources/css/components/countdown.css";
-    </style>
-
-    <script>
-      import countdown from "../../../resources/js/countdown.js";
-
-      Alpine.data("countdown", (targetDate: string) => countdown(targetDate));
-    </script>
+    <div class="divider" x-show="hours > 0">:</div>
+    <dl>
+      <dd x-text="minutes">&nbsp;</dd>
+      <dt>{mergedLabels.minutes}</dt>
+    </dl>
+    <div class="divider">:</div>
+    <dl>
+      <dd x-text="seconds">&nbsp;</dd>
+      <dt>{mergedLabels.seconds}</dt>
+    </dl>
   </div>
+  {event && <figcaption>{event}</figcaption>}
 </figure>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/components/countdown.css";
+</style>
+
+<script>
+  import countdown from "../../../resources/js/countdown.js";
+
+  Alpine.data("countdown", (targetDate: string) => countdown(targetDate));
+</script>
