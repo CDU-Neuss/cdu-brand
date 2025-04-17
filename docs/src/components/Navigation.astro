@@ -2,6 +2,41 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import logo from "../../../resources/img/cdu-logo-white-transparent.png";
+
+const navigationTree = [
+  {
+    name: "Basics",
+    items: [
+      { name: "Introduction", href: "./" },
+      { name: "Logo", href: "logo" },
+      { name: "Colors", href: "colors" },
+      { name: "Typography", href: "typography" },
+    ],
+  },
+  {
+    name: "Components",
+    items: [
+      { name: "Button", href: "button" },
+      { name: "Union Title", href: "union-title" },
+      { name: "Icon Circle", href: "icon-circle" },
+      { name: "Feature", href: "feature" },
+      { name: "Countdown", href: "countdown" },
+      { name: "Authors", href: "authors" },
+      { name: "Eye Catcher Circle", href: "eye-catcher-circle" },
+    ],
+  },
+  {
+    name: "Utilities",
+    items: [{ name: "Arc Background", href: "arc-background" }],
+  },
+  {
+    name: "Plugins",
+    items: [
+      { name: "Prose", href: "prose" },
+      { name: "Swiper", href: "swiper" },
+    ],
+  },
+];
 ---
 
 <aside x-data="{ open: false }" x-transition @click.outside="open = false">
@@ -12,40 +47,22 @@ import logo from "../../../resources/img/cdu-logo-white-transparent.png";
   <div x-show="open" x-cloak>
     <nav>
       <dl>
-        <dt>Basics</dt>
-        <dd>
-          <ul>
-            <li><a href="/">Introduction</a></li>
-            <li><a href="/logo">Logo</a></li>
-            <li><a href="/colors">Colors</a></li>
-            <li><a href="/typography">Typography</a></li>
-          </ul>
-        </dd>
-        <dt>Components</dt>
-        <dd>
-          <ul>
-            <li><a href="/button">Button</a></li>
-            <li><a href="/union-title">Union Title</a></li>
-            <li><a href="/icon-circle">Icon Circle</a></li>
-            <li><a href="/feature">Feature</a></li>
-            <li><a href="/countdown">Countdown</a></li>
-            <li><a href="/authors">Authors</a></li>
-            <li><a href="/eye-catcher-circle">Eye Catcher Circle</a></li>
-          </ul>
-        </dd>
-        <dt>Utilities</dt>
-        <dd>
-          <ul>
-            <li><a href="/arc-background">Arc Background</a></li>
-          </ul>
-        </dd>
-        <dt>Plugins</dt>
-        <dd>
-          <ul>
-            <li><a href="/prose">Prose</a></li>
-            <li><a href="/swiper">Swiper</a></li>
-          </ul>
-        </dd>
+        {
+          navigationTree.map((section) => (
+            <>
+              <dt>{section.name}</dt>
+              <dd>
+                <ul>
+                  {section.items.map((item) => (
+                    <li>
+                      <a href={item.href}>{item.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </>
+          ))
+        }
       </dl>
     </nav>
     <footer class="mt-12 text-center font-sans text-xs font-light">
