@@ -2,38 +2,39 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import logo from "../../../resources/img/cdu-logo-white-transparent.png";
+const base = import.meta.env.BASE_URL;
 
 const navigationTree = [
   {
     name: "Basics",
     items: [
-      { name: "Introduction", href: "./" },
-      { name: "Logo", href: "./logo" },
-      { name: "Colors", href: "./colors" },
-      { name: "Typography", href: "./typography" },
+      { name: "Introduction", href: base },
+      { name: "Logo", href: `${base}/logo` },
+      { name: "Colors", href: `${base}/colors` },
+      { name: "Typography", href: `${base}/typography` },
     ],
   },
   {
     name: "Components",
     items: [
-      { name: "Button", href: "./button" },
-      { name: "Union Title", href: "./union-title" },
-      { name: "Icon Circle", href: "./icon-circle" },
-      { name: "Feature", href: "./feature" },
-      { name: "Countdown", href: "./countdown" },
-      { name: "Authors", href: "./authors" },
-      { name: "Eye Catcher Circle", href: "./eye-catcher-circle" },
+      { name: "Button", href: `${base}/button` },
+      { name: "Union Title", href: `${base}/union-title` },
+      { name: "Icon Circle", href: `${base}/icon-circle` },
+      { name: "Feature", href: `${base}/feature` },
+      { name: "Countdown", href: `${base}/countdown` },
+      { name: "Authors", href: `${base}/authors` },
+      { name: "Eye Catcher Circle", href: `${base}/eye-catcher-circle` },
     ],
   },
   {
     name: "Utilities",
-    items: [{ name: "Arc Background", href: "./arc-background" }],
+    items: [{ name: "Arc Background", href: `${base}/arc-background` }],
   },
   {
     name: "Plugins",
     items: [
-      { name: "Prose", href: "./prose" },
-      { name: "Swiper", href: "./swiper" },
+      { name: "Prose", href: `${base}/prose` },
+      { name: "Swiper", href: `${base}/swiper` },
     ],
   },
 ];
