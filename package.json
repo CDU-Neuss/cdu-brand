@@ -14,7 +14,7 @@
   ],
   "author": "CDU Neuss",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.11.1",
   "devDependencies": {
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
