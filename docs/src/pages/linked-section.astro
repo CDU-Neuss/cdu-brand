@@ -1,0 +1,41 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
+import LinkedSectionComponent from "../components/LinkedSection.astro";
+---
+
+<Layout title="Linked Section">
+  <section id="linked-section">
+    <ul>
+      <li>
+        <LinkedSectionComponent title="CDUplus" href="#">
+          <Icon name="ph:info" slot="icon" />
+          <Fragment> Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. </Fragment>
+        </LinkedSectionComponent>
+      </li>
+      <li>
+        <LinkedSectionComponent title="CDU Shop" href="#" hasButton>
+          <Icon name="ph:shopping-cart" slot="icon" />
+          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen
+          an der Küste des Semantik, eines großen Sprachozeans.
+        </LinkedSectionComponent>
+      </li>
+      <li>
+        <LinkedSectionComponent title="CDU Creative Portal" href="#" linkText="Show me more">
+          <Icon name="ph:pen" slot="icon" />
+          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen
+          an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit
+          den nötigen Regelialien.
+        </LinkedSectionComponent>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  ul {
+    @apply mt-4 grid w-full max-w-screen-xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3;
+  }
+</style>

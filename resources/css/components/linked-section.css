@@ -1,0 +1,43 @@
+@layer components {
+  .linked-section {
+    @apply bg-cadenabbia-10 text-rhoendorf relative flex h-full flex-col space-y-6 p-8 transition-transform duration-300 ease-in-out hover:scale-99;
+
+    .headline {
+      @apply flex flex-row items-center space-x-4;
+
+      .icon-circle {
+        @apply bg-cadenabbia-60 size-12;
+
+        svg {
+          @apply size-6;
+        }
+      }
+
+      h3 {
+        @apply font-sans text-lg font-extrabold;
+      }
+    }
+
+    .content {
+      @apply flex-1 font-serif text-lg;
+    }
+
+    .link {
+      @apply flex flex-row justify-end;
+
+      a::before,
+      button::before {
+        @apply absolute top-0 right-0 bottom-0 left-0 block;
+        content: "";
+      }
+    }
+
+    &.has-button {
+      @apply bg-arc-cadenabbia;
+
+      .link {
+        @apply justify-start;
+      }
+    }
+  }
+}

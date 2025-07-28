@@ -1,0 +1,40 @@
+---
+import IconCircle from "./IconCircle.astro";
+import Button from "./Button.astro";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  href: string;
+  linkText?: string;
+  hasButton?: boolean;
+}
+
+const { title, href, linkText, hasButton = false } = Astro.props;
+---
+
+<div class={`linked-section${hasButton ? " has-button" : ""}`}>
+  <div class="headline">
+    <div class="icon">
+      <IconCircle>
+        <slot name="icon" />
+      </IconCircle>
+    </div>
+    <h3 class="title">{title}</h3>
+  </div>
+  <div class="content">
+    <slot />
+  </div>
+  <div class="link">
+    <Button href={href} as="a" color={hasButton ? "gold" : "link"}>
+      {!hasButton && <Icon name="ph:caret-right-bold" slot="icon-right" />}
+      {linkText ?? title}
+    </Button>
+  </div>
+</div>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/utilities/arc.css";
+  @import "../../../resources/css/components/linked-section.css";
+</style>
