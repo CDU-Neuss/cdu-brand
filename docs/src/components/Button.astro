@@ -1,24 +1,23 @@
 ---
 interface Props {
-  color?: "default" | "blue" | "gold" | "blue-inverted" | "gold-inverted" | "blue-transparent" | "gold-transparent";
+  color?: "default" | "blue" | "gold" | "blue-inverted" | "gold-inverted" | "blue-transparent" | "gold-transparent" | "link";
   as?: "a" | "button";
   href?: string;
 }
+
 const { color = "default", as: As = "button", href } = Astro.props;
-const buttonClass =
-  color === "blue"
-    ? "btn btn-blue"
-    : color === "gold"
-      ? "btn btn-gold"
-      : color === "blue-inverted"
-        ? "btn btn-blue-inverted"
-        : color === "gold-inverted"
-          ? "btn btn-gold-inverted"
-          : color === "blue-transparent"
-            ? "btn btn-blue-transparent"
-            : color === "gold-transparent"
-              ? "btn btn-gold-transparent"
-              : "btn";
+const colorClassMap = {
+  blue: "btn btn-blue",
+  gold: "btn btn-gold",
+  "blue-inverted": "btn btn-blue-inverted",
+  "gold-inverted": "btn btn-gold-inverted",
+  "blue-transparent": "btn btn-blue-transparent",
+  "gold-transparent": "btn btn-gold-transparent",
+  link: "btn btn-link",
+  default: "btn",
+};
+
+const buttonClass = colorClassMap[color as keyof typeof colorClassMap] || colorClassMap.default;
 ---
 
 <As class={buttonClass} href={href}>
