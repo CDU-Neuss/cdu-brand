@@ -1,0 +1,30 @@
+# ✍️ Description:
+# This workflow will be triggered automatically after the new app version workflow has been executed successfully.
+# It will create a new GitHub release with the new app version and the release notes.
+
+# 🚨 GTHUB SECRETS REQUIRED: None
+
+name: New GitHub Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    name: New GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 📦 Checkout project repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 0
+
+      - name: 🏃‍♂️Create A Draft Github Release
+        uses: ncipollo/release-action@bcfe5470707e8832e12347755757cec0eb3c22af # v1
+        with:
+          generateReleaseNotes: true
+          draft: false
