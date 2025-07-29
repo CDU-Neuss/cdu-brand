@@ -3,10 +3,14 @@
     @apply mx-auto;
 
     &:not(.with-image) {
-      @apply bg-rhoendorf relative flex flex-col items-center justify-center px-6 py-16 text-center text-white;
+      @apply bg-rhoendorf dark:bg-rhoendorf-60 relative flex flex-col items-center justify-center overflow-hidden px-6 py-16 text-center text-white;
 
       .overlay {
         @apply absolute top-0 left-0 z-0;
+      }
+
+      .body {
+        @apply z-1;
       }
 
       .title,
