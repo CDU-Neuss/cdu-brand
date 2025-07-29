@@ -9,19 +9,19 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.6",
+    "@astrojs/alpinejs": "^0.4.8",
     "@fontsource/ibm-plex-serif": "5.2.6",
     "@fontsource/inter": "5.2.6",
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/typography": "0.5.16",
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.11",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.9",
-    "astro": "^5.7.0",
+    "astro": "^5.12.4",
     "astro-icon": "^1.1.5",
-    "sharp": "^0.34.1",
+    "sharp": "^0.34.3",
     "swiper": "11.2.10",
-    "tailwindcss": "^4.1.4",
+    "tailwindcss": "^4.1.11",
     "tailwindcss-debug-screens": "^3.0.1"
   },
   "packageManager": "pnpm@10.13.1"
