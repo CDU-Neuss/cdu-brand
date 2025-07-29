@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CtaComponent from "../components/Cta.astro";
+import { Image, Picture } from "astro:assets";
+---
+
+<Layout title="Call to Action">
+  <section id="cta-section">
+    <ul>
+      <li>
+        <h2>Default</h2>
+        <CtaComponent title="CDU Shop" links={[{ text: "Shop Now", href: "#", isButton: true }]}>
+          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
+        </CtaComponent>
+      </li>
+      <li>
+        <h2>Multiple Buttons</h2>
+        <CtaComponent
+          title="CDUplus"
+          links={[
+            { text: "Get the App", href: "#", isButton: true },
+            { text: "More information", href: "#" },
+          ]}
+        >
+          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+          Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.
+        </CtaComponent>
+      </li>
+      <li>
+        <h2>With Image</h2>
+        <CtaComponent title="CDU Shop" links={[{ text: "Shop Now", href: "#", isButton: true }]}>
+          <Picture
+            src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&h=1000&q=80"
+            alt=""
+            width="1000"
+            height="1000"
+            slot="image"
+          />
+          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
+        </CtaComponent>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @import "../styles/global.css";
+
+  ul {
+    @apply mt-4 grid w-full max-w-screen-xl grid-cols-1 gap-16;
+  }
+
+  h2 {
+    @apply mb-4;
+  }
+</style>

@@ -1,0 +1,51 @@
+---
+import Button from "./Button.astro";
+import pattern from "../../../resources/img/pattern-cta.png";
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  links?: Array<{
+    text?: string;
+    href: string;
+    isButton?: boolean;
+  }>;
+}
+
+const { title, links } = Astro.props;
+---
+
+<div class={`cta${Astro.slots.has("image") ? " with-image" : ""}`}>
+  {
+    Astro.slots.has("image") && (
+      <figure>
+        <slot name="image" />
+      </figure>
+    )
+  }
+  <div class="body">
+    <h2 class="title">{title}</h2>
+    <div class="content">
+      <slot />
+    </div>
+    <div class="links">
+      {
+        links &&
+          links.length > 0 &&
+          links.map((link) => (
+            <Button href={link.href} as="a" color={link.isButton ? "gold" : "link"}>
+              {link.text || "Mehr erfahren"}
+            </Button>
+          ))
+      }
+    </div>
+  </div>
+  <div class="overlay">
+    <Image src={pattern} alt="" class="pattern" aria-hidden="true" />
+  </div>
+</div>
+
+<style>
+  @import "../styles/global.css";
+  @import "../../../resources/css/components/cta.css";
+</style>

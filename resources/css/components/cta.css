@@ -1,0 +1,61 @@
+@layer components {
+  .cta {
+    @apply mx-auto;
+
+    &:not(.with-image) {
+      @apply bg-rhoendorf relative flex flex-col items-center justify-center px-6 py-16 text-center text-white;
+
+      .overlay {
+        @apply absolute top-0 left-0 z-0;
+      }
+
+      .title,
+      .content {
+        @apply mx-auto max-w-4xl;
+      }
+
+      .links {
+        @apply justify-center;
+      }
+    }
+
+    &.with-image {
+      @apply grid grid-cols-12 items-center gap-8;
+
+      figure {
+        @apply col-span-full md:col-span-5;
+        img {
+          @apply aspect-[3/2] w-full object-cover;
+        }
+      }
+
+      .body {
+        @apply col-span-full md:col-span-6 md:col-start-7;
+      }
+
+      .overlay {
+        @apply hidden;
+      }
+    }
+
+    .title {
+      @apply mb-8 font-sans text-3xl font-extrabold;
+    }
+
+    .content {
+      @apply mb-10 font-serif text-lg;
+    }
+
+    .links {
+      @apply flex w-full flex-col items-center gap-4 sm:w-auto sm:flex-row;
+
+      .btn {
+        @apply w-full justify-center sm:w-auto;
+      }
+
+      .btn-link {
+        @apply text-white;
+      }
+    }
+  }
+}
