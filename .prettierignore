@@ -1,0 +1,10 @@
+# Ignore artifacts:
+dist
+.astro
+
+# Standard
+**/.git
+**/node_modules
+
+# lockfile
+pnpm-lock.yaml
