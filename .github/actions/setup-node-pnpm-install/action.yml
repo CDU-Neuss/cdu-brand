@@ -24,3 +24,7 @@ runs:
     - name: 📦 Install Project Dependencies
       run: pnpm install --frozen-lockfile
       shell: bash
+    - name: 📦 Install Docs Dependencies
+      run: pnpm install --frozen-lockfile
+      working-directory: ./docs
+      shell: bash
