@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.8",
     "@fontsource/ibm-plex-serif": "5.2.6",
-    "@fontsource/inter": "5.2.6",
+    "@fontsource/inter": "5.2.7",
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/typography": "0.5.16",
     "@tailwindcss/vite": "^4.1.11",
