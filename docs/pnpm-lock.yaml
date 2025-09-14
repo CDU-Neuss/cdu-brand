@@ -15,8 +15,8 @@ importers:
         specifier: 5.2.6
         version: 5.2.6
       '@fontsource/inter':
-        specifier: 5.2.6
-        version: 5.2.6
+        specifier: 5.2.7
+        version: 5.2.7
       '@iconify-json/ph':
         specifier: ^1.2.2
         version: 1.2.2
@@ -264,8 +264,8 @@ packages:
   '@fontsource/ibm-plex-serif@5.2.6':
     resolution: {integrity: sha512-/FyBI9qciE6QQjF0Q2Uul68tz9vPsGZgh13ftKcyHsGkP8TvcW+2H77KurT7rN3usWHEbGgjoUkSzUEG7z+fRQ==}
 
-  '@fontsource/inter@5.2.6':
-    resolution: {integrity: sha512-CZs9S1CrjD0jPwsNy9W6j0BhsmRSQrgwlTNkgQXTsAeDRM42LBRLo3eo9gCzfH4GvV7zpyf78Ozfl773826csw==}
+  '@fontsource/inter@5.2.7':
+    resolution: {integrity: sha512-sfE4VQglV9B05DuJ+RD2RHY42FiVTdCf/dJtVkugRVkygoDigLM4SuNcBrCeo+zoGiC/IudmVcE6QKqW7S1Gkg==}
 
   '@iconify-json/ph@1.2.2':
     resolution: {integrity: sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw==}
@@ -2392,7 +2392,7 @@ snapshots:
 
   '@fontsource/ibm-plex-serif@5.2.6': {}
 
-  '@fontsource/inter@5.2.6': {}
+  '@fontsource/inter@5.2.7': {}
 
   '@iconify-json/ph@1.2.2':
     dependencies:
