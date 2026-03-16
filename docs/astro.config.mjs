@@ -11,6 +11,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
+  security: {
+    csp: true,
+  },
   integrations: [alpinejs(), icon()],
 });
