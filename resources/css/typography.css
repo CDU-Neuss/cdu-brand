@@ -54,7 +54,7 @@
     }
 
     a {
-      @apply decoration-2 motion-safe:transition-colors motion-safe:duration-300 motion-safe:ease-in-out;
+      @apply decoration-2 motion-safe:transition-colors motion-safe:duration-300;
 
       &:hover {
         @apply decoration-gold;

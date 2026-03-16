@@ -1,0 +1,30 @@
+# ✍️ Description:
+# Runs the Vitest test suite for the brand package
+# Runs on pull requests and pushes to the main branch
+
+# 🚨 GITHUB SECRETS REQUIRED: NONE
+
+name: Test (vitest)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test (vitest)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 Checkout project repo
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Node + PNPM + install deps
+        uses: ./.github/actions/setup-node-pnpm-install
+
+      - name: 🧪 Run tests
+        run: pnpm test
