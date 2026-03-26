@@ -84,9 +84,7 @@ describe("package structure", () => {
     const path = resourcePath("blade", "components", `${name}.blade.php`);
     expect(existsSync(path)).toBe(true);
     const content = readFileSync(path, "utf8");
-    if (name !== "eye-catcher-circle") {
-      expect(content).toContain("@props(");
-    }
+    expect(content).toContain("@props(");
   });
 
   it("package.json has correct name and type", () => {

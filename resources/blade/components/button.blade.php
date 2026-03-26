@@ -16,10 +16,13 @@ $colorClassMap = [
     'default' => 'btn',
 ];
 $buttonClass = $colorClassMap[$color] ?? $colorClassMap['default'];
-$tag = $href ? 'a' : $as;
+$tag = filled($href) ? 'a' : $as;
+$buttonAttributes = $tag === 'a'
+    ? $attributes->merge(['class' => $buttonClass, 'href' => $href])
+    : $attributes->merge(['class' => $buttonClass]);
 @endphp
 
-<{{ $tag }} {{ $attributes->merge(['class' => $buttonClass, 'href' => $href]) }}>
+<{{ $tag }} {{ $buttonAttributes }}>
     {{ $iconLeft ?? '' }}
     {{ $slot }}
     {{ $iconRight ?? '' }}
