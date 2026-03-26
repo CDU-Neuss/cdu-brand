@@ -12,7 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   security: {
-    csp: true,
+    csp: false,
   },
   integrations: [alpinejs(), icon()],
 });
