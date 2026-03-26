@@ -64,6 +64,50 @@ Alpine.data("countdown", countdown);
 Alpine.start();
 ```
 
+### Laravel Blade Components
+
+For Laravel projects, register the Blade components in your `AppServiceProvider`:
+
+```php
+use Illuminate\Support\Facades\Blade;
+
+public function boot(): void
+{
+    Blade::anonymousComponentPath(
+        base_path('node_modules/@cdu-neuss/cdu-brand/resources/blade/components'),
+        'cdu'
+    );
+}
+```
+
+Then use the components with the `x-cdu::` prefix:
+
+```blade
+<x-cdu::button color="gold" href="/contact" as="a">
+    Contact Us
+</x-cdu::button>
+
+<x-cdu::feature title="Fast Delivery">
+    <x-slot:icon>
+        <svg>...</svg>
+    </x-slot:icon>
+    We deliver within 24 hours.
+</x-cdu::feature>
+
+<x-cdu::cta title="Get Started" :links="[
+    ['href' => '/signup', 'text' => 'Sign Up', 'isButton' => true],
+    ['href' => '/learn-more', 'text' => 'Learn More'],
+]">
+    Join us today and start building.
+</x-cdu::cta>
+
+<x-cdu::countdown target-date="2026-12-31" event="New Year" />
+```
+
+Available components: `button`, `icon-circle`, `feature`, `cta`, `linked-section`, `countdown`, `authors`, `eye-catcher-circle`.
+
+> **Note:** The `countdown` component requires Alpine.js — see [Alpine.js Utilities](#alpinejs-utilities) above.
+
 ## What's Included
 
 ### Theme (`resources/css/theme.css`)
@@ -133,6 +177,8 @@ pnpm preview    # Preview production build
 
 ```
 resources/          # Distributable package assets
+├── blade/
+│   └── components/         # Laravel Blade components
 ├── css/
 │   ├── theme.css           # Tailwind theme (brand tokens)
 │   ├── typography.css      # Prose styling

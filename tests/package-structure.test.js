@@ -71,6 +71,24 @@ describe("package structure", () => {
     }
   });
 
+  it.each([
+    "authors",
+    "button",
+    "countdown",
+    "cta",
+    "eye-catcher-circle",
+    "feature",
+    "icon-circle",
+    "linked-section",
+  ])("has Blade component: %s", (name) => {
+    const path = resourcePath("blade", "components", `${name}.blade.php`);
+    expect(existsSync(path)).toBe(true);
+    const content = readFileSync(path, "utf8");
+    if (name !== "eye-catcher-circle") {
+      expect(content).toContain("@props(");
+    }
+  });
+
   it("package.json has correct name and type", () => {
     const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
     expect(pkg.name).toBe("@cdu-neuss/cdu-brand");

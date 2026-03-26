@@ -26,7 +26,7 @@ Install dependencies: `pnpm install` (root) and `cd docs && pnpm install`.
 
 ### Two-part structure (not a monorepo)
 
-- **`/resources`** — The distributable package: CSS theme, component styles, JS utilities, fonts config, and brand images. Consumed by downstream CDU sites as an npm dependency.
+- **`/resources`** — The distributable package: CSS theme, component styles, JS utilities, fonts config, brand images, and Laravel Blade components. Consumed by downstream CDU sites as an npm dependency.
 - **`/docs`** — Astro 5 demo/documentation site that imports from `/resources` and showcases every component. Deployed to GitHub Pages at `/cdu-brand`.
 
 ### Theming system
@@ -35,6 +35,7 @@ Install dependencies: `pnpm install` (root) and `cd docs && pnpm install`.
 - **`resources/css/components/*.css`** — Individual component styles (button, cta, feature, countdown, etc.) using Tailwind's `@utility` and `@variant` directives.
 - **`resources/css/typography.css`** — Prose/typography overrides for `@tailwindcss/typography`.
 - **`resources/css/utilities/`** — Gradient and arc background utilities.
+- **`resources/blade/components/`** — Anonymous Laravel Blade components (button, icon-circle, feature, cta, linked-section, countdown, authors, eye-catcher-circle). Registered via `Blade::anonymousComponentPath()` with the `cdu` namespace (`<x-cdu::button>`).
 - Color naming: `cadenabbia` (teal), `rhoendorf` (blue-gray) are CDU-specific; `fu`, `su`, `cda`, `mit`, `ju` prefixes are sub-organization colors.
 
 ### Key technologies
