@@ -39,7 +39,7 @@ export default defineConfig([
   astro.configs.recommended,
   astro.configs["jsx-a11y-recommended"],
   {
-    files: ["**/*.astro"],
+    files: ["docs/**/*.astro"],
     languageOptions: {
       parser: astroParser,
       parserOptions: {
@@ -53,6 +53,22 @@ export default defineConfig([
     rules: {
       "no-undef": "off", // Disable "not defined" errors for specific Astro types that are globally available (ImageMetadata)
       "@typescript-eslint/no-explicit-any": "off", // you may want this as it can get annoying
+    },
+  },
+  {
+    files: ["resources/**/*.astro"],
+    languageOptions: {
+      parser: astroParser,
+      parserOptions: {
+        parser: tsParser,
+        extraFileExtensions: [".astro"],
+        sourceType: "module",
+        ecmaVersion: "latest",
+      },
+    },
+    rules: {
+      "no-undef": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 
