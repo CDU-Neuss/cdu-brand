@@ -6,7 +6,8 @@
       @apply bg-rhoendorf dark:bg-rhoendorf-60 relative flex flex-col items-center justify-center overflow-hidden px-6 py-16 text-center text-white;
 
       .overlay {
-        @apply absolute top-0 left-0 z-0;
+        @apply absolute top-0 left-0 z-0 h-full w-full bg-left-top bg-no-repeat;
+        background-image: url("../../img/pattern-cta.png");
       }
 
       .body {

@@ -1,0 +1,33 @@
+{#
+  CDU Icon Circle Component
+
+  Parameters:
+    - size: 'default'|'lg'|'xl'|'2xl' (default: 'default')
+    - as: HTML tag (default: 'figure')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
+
+  Blocks:
+    - content: icon or content inside the circle
+
+  Usage:
+    {% embed '@cdu/icon-circle.twig' with { size: 'lg' } %}
+      {% block content %}<svg>…</svg>{% endblock %}
+    {% endembed %}
+#}
+
+{% set size = size|default('default') %}
+{% set as = as|default('figure') %}
+{% set attr = attr|default('') %}
+
+{% set size_class_map = {
+    'default': 'icon-circle',
+    'lg': 'icon-circle-lg',
+    'xl': 'icon-circle-xl',
+    '2xl': 'icon-circle-2xl',
+} %}
+
+{% set circle_class = size_class_map[size]|default('icon-circle') %}
+
+<{{ as }} class="{{ circle_class }}" {{ attr|raw }}>
+    {% block content %}{% endblock %}
+</{{ as }}>

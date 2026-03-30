@@ -1,0 +1,139 @@
+{#
+  CDU Brand — Kitchen Sink (Twig)
+
+  Copy this file into your Craft CMS or Symfony project to verify all CDU brand
+  components render correctly. Requires the @cdu Twig namespace to be configured
+  pointing at the package's twig/components directory.
+#}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CDU Brand — Kitchen Sink</title>
+</head>
+<body class="p-8 space-y-16">
+
+    {# Button #}
+    <section>
+        <h2>Button</h2>
+        <div class="flex flex-wrap gap-4">
+            {% embed '@cdu/button.twig' %}
+                {% block content %}Default{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'blue' } %}
+                {% block content %}Blue{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'gold' } %}
+                {% block content %}Gold{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'blue-inverted' } %}
+                {% block content %}Blue Inverted{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'gold-inverted' } %}
+                {% block content %}Gold Inverted{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'blue-transparent' } %}
+                {% block content %}Blue Transparent{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'gold-transparent' } %}
+                {% block content %}Gold Transparent{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'link' } %}
+                {% block content %}Link{% endblock %}
+            {% endembed %}
+            {% embed '@cdu/button.twig' with { color: 'gold', href: '/example' } %}
+                {% block content %}As Link{% endblock %}
+            {% endembed %}
+        </div>
+    </section>
+
+    {# Icon Circle #}
+    <section>
+        <h2>Icon Circle</h2>
+        <div class="flex items-end gap-4">
+            {% embed '@cdu/icon-circle.twig' %}
+                {% block content %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
+                {% endblock %}
+            {% endembed %}
+            {% embed '@cdu/icon-circle.twig' with { size: 'lg' } %}
+                {% block content %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </section>
+
+    {# Feature #}
+    <section>
+        <h2>Feature</h2>
+        {% embed '@cdu/feature.twig' with { title: 'Schnelle Lieferung', icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>' } %}
+            {% block content %}
+                Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
+            {% endblock %}
+        {% endembed %}
+    </section>
+
+    {# CTA #}
+    <section>
+        <h2>Call to Action</h2>
+        {% embed '@cdu/cta.twig' with { title: 'CDU Shop', links: [
+            { href: '/shop', text: 'Zum Shop', isButton: true },
+            { href: '/info', text: 'Mehr erfahren' },
+        ] } %}
+            {% block content %}
+                Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
+            {% endblock %}
+        {% endembed %}
+    </section>
+
+    {# Linked Section #}
+    <section>
+        <h2>Linked Section</h2>
+        <div class="grid gap-8 md:grid-cols-2">
+            {% embed '@cdu/linked-section.twig' with { title: 'CDUplus', href: '/cduplus', icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>' } %}
+                {% block content %}
+                    Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
+                {% endblock %}
+            {% endembed %}
+
+            {% embed '@cdu/linked-section.twig' with { title: 'CDU Shop', href: '/shop', has_button: true, icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>' } %}
+                {% block content %}
+                    Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </section>
+
+    {# Countdown #}
+    <section>
+        <h2>Countdown</h2>
+        {% include '@cdu/countdown.twig' with {
+            target_date: '2028-01-01 00:00:00',
+            event: 'bis zum großen Event',
+            labels: { days: 'Tage', hours: 'Stunden', minutes: 'Minuten', seconds: 'Sekunden' }
+        } %}
+    </section>
+
+    {# Authors #}
+    <section>
+        <h2>Authors</h2>
+        {% include '@cdu/authors.twig' with { authors: [
+            { name: 'Max Mustermann', link: '#', image: 'https://i.pravatar.cc/80?img=6' },
+            { name: 'Erika Musterfrau', link: '#', image: 'https://i.pravatar.cc/80?img=5' },
+            { name: 'Hans Beispiel', link: '#' },
+        ] } %}
+    </section>
+
+    {# Eye Catcher Circle #}
+    <section>
+        <h2>Eye Catcher Circle</h2>
+        {% embed '@cdu/eye-catcher-circle.twig' with { attr: 'class="size-32"' } %}
+            {% block content %}<strong>Neu</strong><br>2028{% endblock %}
+        {% endembed %}
+    </section>
+
+</body>
+</html>

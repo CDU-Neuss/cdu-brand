@@ -1,0 +1,45 @@
+{#
+  CDU Countdown Component
+
+  Parameters:
+    - target_date: date string, e.g. "2026-12-31" or "2026-12-31 23:59:59" (required)
+    - event: event label shown below the countdown (default: null)
+    - labels: { days, hours, minutes, seconds } custom labels (default: built-in English)
+
+  Usage:
+    {% include '@cdu/countdown.twig' with { target_date: '2026-09-01', event: 'Launch Day', labels: { days: 'Tage', hours: 'Stunden', minutes: 'Minuten', seconds: 'Sekunden' } } %}
+#}
+
+{% set event = event|default(null) %}
+{% set labels = labels|default({}) %}
+{% set label_days = labels.days|default('Days') %}
+{% set label_hours = labels.hours|default('Hours') %}
+{% set label_minutes = labels.minutes|default('Minutes') %}
+{% set label_seconds = labels.seconds|default('Seconds') %}
+
+<figure class="countdown" aria-hidden="true" x-data="countdown({{ target_date|json_encode }})" x-cloak>
+    <div class="clock">
+        <dl x-show="days > 0">
+            <dd x-text="days">&nbsp;</dd>
+            <dt>{{ label_days }}</dt>
+        </dl>
+        <div class="divider" x-show="days > 0">:</div>
+        <dl x-show="hours > 0">
+            <dd x-text="hours">&nbsp;</dd>
+            <dt>{{ label_hours }}</dt>
+        </dl>
+        <div class="divider" x-show="hours > 0">:</div>
+        <dl>
+            <dd x-text="minutes">&nbsp;</dd>
+            <dt>{{ label_minutes }}</dt>
+        </dl>
+        <div class="divider">:</div>
+        <dl>
+            <dd x-text="seconds">&nbsp;</dd>
+            <dt>{{ label_seconds }}</dt>
+        </dl>
+    </div>
+    {% if event %}
+        <figcaption>{{ event }}</figcaption>
+    {% endif %}
+</figure>

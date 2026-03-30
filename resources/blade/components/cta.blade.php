@@ -24,9 +24,5 @@
             </div>
         @endif
     </div>
-    @isset($overlay)
-        <div class="overlay">
-            {{ $overlay }}
-        </div>
-    @endisset
+    <div class="overlay"></div>
 </div>

@@ -1,0 +1,35 @@
+{#
+  CDU Authors Component
+
+  Parameters:
+    - authors: array of { name, link, image? } objects (default: [])
+
+  Usage:
+    {% include '@cdu/authors.twig' with { authors: [{ name: 'Jane Doe', link: '/authors/jane', image: '/img/jane.jpg' }] } %}
+#}
+
+{% set authors = authors|default([]) %}
+
+<ul class="authors">
+    {% for author in authors %}
+        <li>
+            <a href="{{ author.link }}">
+                {% if author.image|default(null) %}
+                    <figure>
+                        <img src="{{ author.image }}" alt="{{ author.name }}" width="80" height="80" />
+                    </figure>
+                {% else %}
+                    {% embed '@cdu/icon-circle.twig' %}
+                        {% block content %}
+                            {# Phosphor user-bold #}
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg>
+                        {% endblock %}
+                    {% endembed %}
+                {% endif %}
+                <span>{{ author.name }}</span>
+            </a>
+        </li>
+    {% else %}
+        <li>No authors available</li>
+    {% endfor %}
+</ul>

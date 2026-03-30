@@ -1,0 +1,29 @@
+{#
+  CDU Feature Component
+
+  Parameters:
+    - title: feature heading (required)
+    - icon: HTML string for the icon inside the icon-circle, rendered unescaped — must be trusted (optional)
+
+  Blocks:
+    - content: feature description
+
+  Usage:
+    {% embed '@cdu/feature.twig' with { title: 'My Feature', icon: '<svg>…</svg>' } %}
+      {% block content %}<p>Description here.</p>{% endblock %}
+    {% endembed %}
+#}
+
+{% set icon = icon|default('') %}
+
+<div class="feature">
+    <div class="icon">
+        <figure class="icon-circle">
+            {{ icon|raw }}
+        </figure>
+    </div>
+    <div class="content">
+        <h5 class="title">{{ title }}</h5>
+        {% block content %}{% endblock %}
+    </div>
+</div>

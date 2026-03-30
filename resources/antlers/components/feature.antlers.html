@@ -1,0 +1,28 @@
+{{#
+  CDU Feature Component
+
+  Parameters:
+    - title: feature heading (required)
+
+  Slots:
+    - icon: optional icon inside the icon-circle
+    - content: feature description
+
+  Usage:
+    {{ partial:cdu/feature title="My Feature" }}
+      {{ slot:icon }}<svg>…</svg>{{ /slot:icon }}
+      {{ slot:content }}<p>Description here.</p>{{ /slot:content }}
+    {{ /partial:cdu/feature }}
+#}}
+
+<div class="feature">
+    <div class="icon">
+        {{ partial:cdu/icon-circle }}
+            {{ slot:content }}{{ slot:icon }}{{ /slot:icon }}{{ /slot:content }}
+        {{ /partial:cdu/icon-circle }}
+    </div>
+    <div class="content">
+        <h5 class="title">{{ title }}</h5>
+        {{ slot:content }}{{ /slot:content }}
+    </div>
+</div>

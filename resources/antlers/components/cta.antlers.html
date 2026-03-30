@@ -1,0 +1,41 @@
+{{#
+  CDU Call-to-Action Component
+
+  Parameters:
+    - title: CTA heading (required)
+    - links: array of { href, text, is_button } objects (default: [])
+    - has_image: set to true when using the image slot (default: false)
+
+  Slots:
+    - image: optional image/figure element
+    - content: CTA body text
+
+  Usage:
+    {{ partial:cdu/cta title="Get started" :links="links" }}
+      {{ slot:content }}<p>Join us today.</p>{{ /slot:content }}
+    {{ /partial:cdu/cta }}
+#}}
+
+<div class="cta{{ if has_image }} with-image{{ /if }}">
+    {{ if has_image }}
+        <figure>
+            {{ slot:image }}{{ /slot:image }}
+        </figure>
+    {{ /if }}
+    <div class="body">
+        <h2 class="title">{{ title }}</h2>
+        <div class="content">
+            {{ slot:content }}{{ /slot:content }}
+        </div>
+        {{ if links }}
+            <div class="links">
+                {{ links }}
+                    {{ partial:cdu/button href="{ href }" as="a" color="{ is_button ? 'gold' : 'link' }" }}
+                        {{ slot:content }}{{ text ?? 'Mehr erfahren' }}{{ /slot:content }}
+                    {{ /partial:cdu/button }}
+                {{ /links }}
+            </div>
+        {{ /if }}
+    </div>
+    <div class="overlay"></div>
+</div>

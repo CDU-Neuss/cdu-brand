@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -85,6 +85,103 @@ describe("package structure", () => {
     expect(existsSync(path)).toBe(true);
     const content = readFileSync(path, "utf8");
     expect(content).toContain("@props(");
+  });
+
+  it.each([
+    "authors",
+    "button",
+    "countdown",
+    "cta",
+    "eye-catcher-circle",
+    "feature",
+    "icon-circle",
+    "linked-section",
+  ])("has Twig component: %s", (name) => {
+    const path = resourcePath("twig", "components", `${name}.twig`);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it.each([
+    "authors",
+    "button",
+    "countdown",
+    "cta",
+    "eye-catcher-circle",
+    "feature",
+    "icon-circle",
+    "linked-section",
+  ])("has Antlers component: %s", (name) => {
+    const path = resourcePath("antlers", "components", `${name}.antlers.html`);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it.each([
+    "Authors",
+    "Button",
+    "Countdown",
+    "Cta",
+    "EyeCatcherCircle",
+    "Feature",
+    "IconCircle",
+    "LinkedSection",
+  ])("has Astro component: %s", (name) => {
+    const path = resourcePath("astro", "components", `${name}.astro`);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it("all template engine component directories have matching component names", () => {
+    // Helper: PascalCase → kebab-case (e.g. "EyeCatcherCircle" → "eye-catcher-circle")
+    const toKebab = (s) =>
+      s
+        .replace(/([a-z])([A-Z])/g, "$1-$2")
+        .replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
+        .toLowerCase();
+
+    const bladeNames = readdirSync(resourcePath("blade", "components"))
+      .filter((f) => f.endsWith(".blade.php"))
+      .map((f) => f.replace(".blade.php", ""))
+      .sort();
+
+    const twigNames = readdirSync(resourcePath("twig", "components"))
+      .filter((f) => f.endsWith(".twig"))
+      .map((f) => f.replace(".twig", ""))
+      .sort();
+
+    const antlersNames = readdirSync(resourcePath("antlers", "components"))
+      .filter((f) => f.endsWith(".antlers.html"))
+      .map((f) => f.replace(".antlers.html", ""))
+      .sort();
+
+    const astroNames = readdirSync(resourcePath("astro", "components"))
+      .filter((f) => f.endsWith(".astro"))
+      .map((f) => toKebab(f.replace(".astro", "")))
+      .sort();
+
+    expect(twigNames).toEqual(bladeNames);
+    expect(antlersNames).toEqual(bladeNames);
+    expect(astroNames).toEqual(bladeNames);
+  });
+
+  it.each([
+    ["blade", "examples/kitchen-sink.blade.php"],
+    ["twig", "examples/kitchen-sink.twig"],
+    ["antlers", "examples/kitchen-sink.antlers.html"],
+  ])("has %s kitchen sink example", (engine, file) => {
+    const path = resourcePath(engine, file);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it.each(["blade", "twig", "antlers"])("%s kitchen sink references all components", (engine) => {
+    const componentNames = readdirSync(resourcePath("blade", "components"))
+      .filter((f) => f.endsWith(".blade.php"))
+      .map((f) => f.replace(".blade.php", ""));
+
+    const exts = { blade: "examples/kitchen-sink.blade.php", twig: "examples/kitchen-sink.twig", antlers: "examples/kitchen-sink.antlers.html" };
+    const content = readFileSync(resourcePath(engine, exts[engine]), "utf8").toLowerCase();
+
+    for (const name of componentNames) {
+      expect(content, `${engine} kitchen sink should reference "${name}"`).toContain(name);
+    }
   });
 
   it("package.json has correct name and type", () => {

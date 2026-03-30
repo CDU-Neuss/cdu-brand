@@ -36,6 +36,10 @@ Install dependencies: `pnpm install` (root) and `cd docs && pnpm install`.
 - **`resources/css/typography.css`** — Prose/typography overrides for `@tailwindcss/typography`.
 - **`resources/css/utilities/`** — Gradient and arc background utilities.
 - **`resources/blade/components/`** — Anonymous Laravel Blade components (button, icon-circle, feature, cta, linked-section, countdown, authors, eye-catcher-circle). Registered via `Blade::anonymousComponentPath()` with the `cdu` namespace (`<x-cdu::button>`).
+- **`resources/twig/components/`** — Twig equivalents of the Blade components for Craft CMS / Symfony projects. Used via `{% embed '@cdu/button.twig' %}` (consumers configure the `@cdu` namespace).
+- **`resources/antlers/components/`** — Antlers equivalents for Statamic projects. Used via `{{ partial:cdu/button }}` (consumers register the `cdu` partial namespace).
+- **`resources/astro/components/`** — Astro equivalents (PascalCase filenames). Used via `import Button from '@cdu-neuss/cdu-brand/resources/astro/components/Button.astro'`.
+- **Template parity rule** — Every component must exist in all four template engines: Blade (`.blade.php`), Twig (`.twig`), Antlers (`.antlers.html`), and Astro (`.astro`). When adding or removing a component, update all four directories. CI enforces this via `tests/package-structure.test.js`.
 - Color naming: `cadenabbia` (teal), `rhoendorf` (blue-gray) are CDU-specific; `fu`, `su`, `cda`, `mit`, `ju` prefixes are sub-organization colors.
 
 ### Key technologies

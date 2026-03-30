@@ -1,0 +1,46 @@
+{#
+  CDU Button Component
+
+  Parameters:
+    - color: 'default'|'blue'|'gold'|'blue-inverted'|'gold-inverted'|'blue-transparent'|'gold-transparent'|'link' (default: 'default')
+    - as: HTML tag when no href (default: 'button')
+    - href: URL — if set, renders as <a> (default: null)
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
+
+  Blocks:
+    - icon_left: optional icon before text
+    - content: button label (required)
+    - icon_right: optional icon after text
+
+  Usage:
+    {% include '@cdu/button.twig' with { color: 'gold', href: '/page' } %}
+    {% embed '@cdu/button.twig' with { color: 'blue' } %}
+      {% block icon_left %}<svg>…</svg>{% endblock %}
+      {% block content %}Click me{% endblock %}
+    {% endembed %}
+#}
+
+{% set color = color|default('default') %}
+{% set as = as|default('button') %}
+{% set href = href|default(null) %}
+{% set attr = attr|default('') %}
+
+{% set color_class_map = {
+    'blue': 'btn btn-blue',
+    'gold': 'btn btn-gold',
+    'blue-inverted': 'btn btn-blue-inverted',
+    'gold-inverted': 'btn btn-gold-inverted',
+    'blue-transparent': 'btn btn-blue-transparent',
+    'gold-transparent': 'btn btn-gold-transparent',
+    'link': 'btn btn-link',
+    'default': 'btn',
+} %}
+
+{% set button_class = color_class_map[color]|default('btn') %}
+{% set tag = href ? 'a' : as %}
+
+<{{ tag }} class="{{ button_class }}"{% if href %} href="{{ href }}"{% endif %} {{ attr|raw }}>
+    {% block icon_left %}{% endblock %}
+    {% block content %}{% endblock %}
+    {% block icon_right %}{% endblock %}
+</{{ tag }}>
