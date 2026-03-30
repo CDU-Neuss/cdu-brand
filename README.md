@@ -194,8 +194,7 @@ Then use the components via `{% embed %}` or `{% include %}`:
 ```php
 public function boot(): void
 {
-    $this->app['view']->addNamespace(
-        'cdu',
+    $this->app['view']->addLocation(
         base_path('node_modules/@cdu-neuss/cdu-brand/resources/antlers')
     );
 }
