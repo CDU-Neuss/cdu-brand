@@ -204,12 +204,12 @@ Then use the components as partials:
 
 ```antlers
 {{ partial:cdu/button color="gold" href="/contact" }}
-    {{ slot:content }}Contact Us{{ /slot:content }}
+    Contact Us
 {{ /partial:cdu/button }}
 
 {{ partial:cdu/feature title="Fast Delivery" }}
     {{ slot:icon }}<svg>...</svg>{{ /slot:icon }}
-    {{ slot:content }}We deliver within 24 hours.{{ /slot:content }}
+    We deliver within 24 hours.
 {{ /partial:cdu/feature }}
 
 {{ partial:cdu/countdown target_date="2026-12-31" event="New Year" }}

@@ -5,14 +5,14 @@
     - attr: extra HTML attributes string (default: '')
 
   Slots:
-    - content: text or elements inside the circle
+    - default: text or elements inside the circle
 
   Usage:
     {{ partial:cdu/eye-catcher-circle }}
-      {{ slot:content }}<strong>New</strong><br>Feature{{ /slot:content }}
+      <strong>New</strong><br>Feature
     {{ /partial:cdu/eye-catcher-circle }}
 #}}
 
 <div class="eye-catcher-circle" {{ attr }}>
-    {{ slot:content }}
+    {{ slot }}
 </div>

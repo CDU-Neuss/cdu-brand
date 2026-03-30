@@ -7,12 +7,12 @@
     - has_image: set to true when using the image slot (default: false)
 
   Slots:
+    - default: CTA body text
     - image: optional image/figure element
-    - content: CTA body text
 
   Usage:
     {{ partial:cdu/cta title="Get started" :links="links" }}
-      {{ slot:content }}<p>Join us today.</p>{{ /slot:content }}
+      <p>Join us today.</p>
     {{ /partial:cdu/cta }}
 #}}
 
@@ -25,13 +25,13 @@
     <div class="body">
         <h2 class="title">{{ title }}</h2>
         <div class="content">
-            {{ slot:content }}
+            {{ slot }}
         </div>
         {{ if links }}
             <div class="links">
                 {{ links }}
                     {{ partial:cdu/button href="{{ href }}" as="a" color="{{ is_button ? 'gold' : 'link' }}" }}
-                        {{ slot:content }}{{ text ?? 'Mehr erfahren' }}{{ /slot:content }}
+                        {{ text ?? 'Mehr erfahren' }}
                     {{ /partial:cdu/button }}
                 {{ /links }}
             </div>

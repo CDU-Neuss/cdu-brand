@@ -8,13 +8,13 @@
     - attr: extra HTML attributes string (default: '')
 
   Slots:
+    - default: button label (required)
     - icon_left: optional icon before text
-    - content: button label (required)
     - icon_right: optional icon after text
 
   Usage:
     {{ partial:cdu/button color="gold" href="/page" }}
-      {{ slot:content }}Click me{{ /slot:content }}
+      Click me
     {{ /partial:cdu/button }}
 #}}
 
@@ -30,7 +30,7 @@
     () => 'btn'
 ) }}" {{ attr }}>
     {{ slot:icon_left }}
-    {{ slot:content }}
+    {{ slot }}
     {{ slot:icon_right }}
 </a>
 {{ else }}
@@ -45,7 +45,7 @@
     () => 'btn'
 ) }}" {{ attr }}>
     {{ slot:icon_left }}
-    {{ slot:content }}
+    {{ slot }}
     {{ slot:icon_right }}
 </{{ as ?? 'button' }}>
 {{ /if }}
