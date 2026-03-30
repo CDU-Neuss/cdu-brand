@@ -1,0 +1,22 @@
+# Exclude non-PHP files from Composer dist archives
+/docs                export-ignore
+/tests               export-ignore
+/.github             export-ignore
+/.idea               export-ignore
+/.claude             export-ignore
+/node_modules        export-ignore
+.gitignore           export-ignore
+.prettierrc.json     export-ignore
+.prettierignore      export-ignore
+.nvmrc               export-ignore
+eslint.config.mjs    export-ignore
+vitest.config.js     export-ignore
+renovate.json        export-ignore
+pnpm-lock.yaml       export-ignore
+CLAUDE.md            export-ignore
+
+# Exclude frontend-only resources
+/resources/css       export-ignore
+/resources/js        export-ignore
+/resources/astro     export-ignore
+/resources/index.css export-ignore

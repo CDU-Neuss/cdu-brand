@@ -20,6 +20,26 @@ Install the required peer dependencies alongside the package:
 pnpm add tailwindcss@^4.0.0 @tailwindcss/typography@^0.5.0 alpinejs@^3.0.0 @fontsource/ibm-plex-serif@^5.1.0 @fontsource/inter@^5.1.0
 ```
 
+### Composer (PHP projects)
+
+For PHP projects that don't need `node_modules` in production, install via Composer to get just the template components with auto-registration:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/CDU-Neuss/cdu-brand"
+        }
+    ],
+    "require": {
+        "cdu-neuss/cdu-brand": "^1.8"
+    }
+}
+```
+
+> **Note:** The CSS, JS, and fonts are still provided via the NPM package (or your build pipeline / CDN). The Composer package only delivers the PHP template components and auto-registration.
+
 ## Usage
 
 ### Import the Theme
@@ -66,7 +86,9 @@ Alpine.start();
 
 ### Laravel Blade Components
 
-For Laravel projects, register the Blade components in your `AppServiceProvider`:
+**Via Composer:** Components are auto-registered. No manual setup needed — Laravel's package auto-discovery registers the `cdu` namespace automatically.
+
+**Via NPM only:** Register the Blade components manually in your `AppServiceProvider`:
 
 ```php
 use Illuminate\Support\Facades\Blade;
@@ -112,7 +134,19 @@ Available components: `button`, `icon-circle`, `feature`, `cta`, `linked-section
 
 ### Twig Components (Craft CMS / Symfony)
 
-Configure a `@cdu` Twig namespace pointing to the package's template directory:
+**Via Composer:** Register the `@cdu` namespace using the included helper:
+
+```php
+// Craft CMS: in a custom module's init()
+use CduNeuss\CduBrand\Twig\CduBrandTwigExtension;
+
+$loader = \Craft::$app->getView()->getTwig()->getLoader();
+if ($loader instanceof \Twig\Loader\FilesystemLoader) {
+    CduBrandTwigExtension::registerNamespace($loader);
+}
+```
+
+**Via NPM only:** Configure the namespace manually in your Craft CMS config:
 
 ```php
 // Craft CMS: config/app.php
@@ -153,11 +187,11 @@ Then use the components via `{% embed %}` or `{% include %}`:
 
 ### Antlers Components (Statamic)
 
-Register the partial namespace in a Statamic service provider:
+**Via Composer:** Antlers partials are auto-registered when Statamic is detected. No manual setup needed.
+
+**Via NPM only:** Register the partial namespace manually in a Statamic service provider:
 
 ```php
-use Statamic\Facades\Cascade;
-
 public function boot(): void
 {
     $this->app['view']->addNamespace(
@@ -283,6 +317,12 @@ pnpm preview    # Preview production build
 ### Project Structure
 
 ```
+src/                # PHP source (Composer package)
+├── Laravel/
+│   └── CduBrandServiceProvider.php
+└── Twig/
+    └── CduBrandTwigExtension.php
+
 resources/          # Distributable package assets
 ├── blade/
 │   └── components/         # Laravel Blade components
@@ -314,4 +354,6 @@ docs/               # Astro documentation/demo site
 
 ## Publishing
 
-The package is published to [GitHub Packages](https://github.com/CDU-Neuss/cdu-brand/packages) automatically when a GitHub release is created.
+**NPM:** The package is published to [GitHub Packages](https://github.com/CDU-Neuss/cdu-brand/packages) automatically when a GitHub release is created.
+
+**Composer:** The package is installed directly from the GitHub repository via VCS. Composer resolves versions from Git tags — no separate publish step is needed.
