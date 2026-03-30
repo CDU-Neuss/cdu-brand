@@ -162,6 +162,25 @@ describe("package structure", () => {
     expect(astroNames).toEqual(bladeNames);
   });
 
+  it.each([
+    ["blade", "examples/kitchen-sink.blade.php"],
+    ["twig", "examples/kitchen-sink.twig"],
+    ["antlers", "examples/kitchen-sink.antlers.html"],
+  ])("has %s kitchen sink example", (engine, file) => {
+    const path = resourcePath(engine, file);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it.each(["blade", "twig", "antlers"])("%s kitchen sink references all components", (engine) => {
+    const componentNames = ["button", "icon-circle", "feature", "cta", "linked-section", "countdown", "authors", "eye-catcher-circle"];
+    const exts = { blade: "examples/kitchen-sink.blade.php", twig: "examples/kitchen-sink.twig", antlers: "examples/kitchen-sink.antlers.html" };
+    const content = readFileSync(resourcePath(engine, exts[engine]), "utf8").toLowerCase();
+
+    for (const name of componentNames) {
+      expect(content, `${engine} kitchen sink should reference "${name}"`).toContain(name);
+    }
+  });
+
   it("package.json has correct name and type", () => {
     const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
     expect(pkg.name).toBe("@cdu-neuss/cdu-brand");
