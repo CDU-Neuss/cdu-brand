@@ -12,3 +12,21 @@ jobs:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - name: Validate composer.json
         run: composer validate --strict
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress
+      - name: Verify autoloading
+        run: |
+          php -r "
+            require 'vendor/autoload.php';
+            \$classes = [
+              'CduNeuss\CduBrand\Laravel\CduBrandServiceProvider',
+              'CduNeuss\CduBrand\Twig\CduBrandTwig',
+            ];
+            foreach (\$classes as \$class) {
+              if (!class_exists(\$class)) {
+                fwrite(STDERR, \"Class not found: \$class\n\");
+                exit(1);
+              }
+            }
+            echo \"All classes autoloaded successfully\n\";
+          "

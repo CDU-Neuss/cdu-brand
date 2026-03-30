@@ -184,6 +184,22 @@ describe("package structure", () => {
     }
   });
 
+  it.each([
+    ["Laravel/CduBrandServiceProvider.php", "CduBrandServiceProvider"],
+    ["Twig/CduBrandTwig.php", "CduBrandTwig"],
+  ])("has PHP source file: %s", (file, className) => {
+    const path = join(ROOT, "src", file);
+    expect(existsSync(path)).toBe(true);
+    const content = readFileSync(path, "utf8");
+    expect(content).toContain(`class ${className}`);
+  });
+
+  it("composer.json has correct name and autoload", () => {
+    const composer = JSON.parse(readFileSync(join(ROOT, "composer.json"), "utf8"));
+    expect(composer.name).toBe("cdu-neuss/cdu-brand");
+    expect(composer.autoload["psr-4"]["CduNeuss\\CduBrand\\"]).toBe("src/");
+  });
+
   it("package.json has correct name and type", () => {
     const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
     expect(pkg.name).toBe("@cdu-neuss/cdu-brand");
