@@ -30,7 +30,7 @@
         {{ if links }}
             <div class="links">
                 {{ links }}
-                    {{ partial:cdu/button href="{ href }" as="a" color="{ is_button ? 'gold' : 'link' }" }}
+                    {{ partial:cdu/button href="{{ href }}" as="a" color="{{ is_button ? 'gold' : 'link' }}" }}
                         {{ slot:content }}{{ text ?? 'Mehr erfahren' }}{{ /slot:content }}
                     {{ /partial:cdu/button }}
                 {{ /links }}
