@@ -5,7 +5,7 @@
     - color: 'default'|'blue'|'gold'|'blue-inverted'|'gold-inverted'|'blue-transparent'|'gold-transparent'|'link' (default: 'default')
     - as: HTML tag when no href (default: 'button')
     - href: URL — if set, renders as <a> (default: null)
-    - attr: extra HTML attributes string (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Blocks:
     - icon_left: optional icon before text
@@ -39,7 +39,7 @@
 {% set button_class = color_class_map[color]|default('btn') %}
 {% set tag = href ? 'a' : as %}
 
-<{{ tag }} class="{{ button_class }}"{% if href %} href="{{ href }}"{% endif %} {{ attr }}>
+<{{ tag }} class="{{ button_class }}"{% if href %} href="{{ href }}"{% endif %} {{ attr|raw }}>
     {% block icon_left %}{% endblock %}
     {% block content %}{% endblock %}
     {% block icon_right %}{% endblock %}

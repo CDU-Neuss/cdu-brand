@@ -172,7 +172,10 @@ describe("package structure", () => {
   });
 
   it.each(["blade", "twig", "antlers"])("%s kitchen sink references all components", (engine) => {
-    const componentNames = ["button", "icon-circle", "feature", "cta", "linked-section", "countdown", "authors", "eye-catcher-circle"];
+    const componentNames = readdirSync(resourcePath("blade", "components"))
+      .filter((f) => f.endsWith(".blade.php"))
+      .map((f) => f.replace(".blade.php", ""));
+
     const exts = { blade: "examples/kitchen-sink.blade.php", twig: "examples/kitchen-sink.twig", antlers: "examples/kitchen-sink.antlers.html" };
     const content = readFileSync(resourcePath(engine, exts[engine]), "utf8").toLowerCase();
 

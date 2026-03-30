@@ -4,7 +4,7 @@
   Parameters:
     - size: 'default'|'lg'|'xl'|'2xl' (default: 'default')
     - as: HTML tag (default: 'figure')
-    - attr: extra HTML attributes string (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Blocks:
     - content: icon or content inside the circle
@@ -28,6 +28,6 @@
 
 {% set circle_class = size_class_map[size]|default('icon-circle') %}
 
-<{{ as }} class="{{ circle_class }}" {{ attr }}>
+<{{ as }} class="{{ circle_class }}" {{ attr|raw }}>
     {% block content %}{% endblock %}
 </{{ as }}>

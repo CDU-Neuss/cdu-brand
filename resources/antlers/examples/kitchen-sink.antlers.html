@@ -119,7 +119,13 @@
         {{ partial:cdu/countdown target_date="2028-01-01 00:00:00" event="bis zum großen Event" label_days="Tage" label_hours="Stunden" label_minutes="Minuten" label_seconds="Sekunden" }}
     </section>
 
-    {{# Authors #}}
+    {{# Authors — requires an `authors` array in the view/controller, e.g.:
+         $authors = [
+             ['name' => 'Max Mustermann', 'link' => '#', 'image' => 'https://i.pravatar.cc/80?img=6'],
+             ['name' => 'Erika Musterfrau', 'link' => '#', 'image' => 'https://i.pravatar.cc/80?img=5'],
+             ['name' => 'Hans Beispiel', 'link' => '#'],
+         ];
+    #}}
     <section>
         <h2>Authors</h2>
         {{ partial:cdu/authors :authors="authors" }}

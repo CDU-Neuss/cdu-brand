@@ -2,7 +2,7 @@
   CDU Eye Catcher Circle Component
 
   Parameters:
-    - attr: extra HTML attributes string (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Blocks:
     - content: text or elements inside the circle
@@ -15,6 +15,6 @@
 
 {% set attr = attr|default('') %}
 
-<div class="eye-catcher-circle" {{ attr }}>
+<div class="eye-catcher-circle" {{ attr|raw }}>
     {% block content %}{% endblock %}
 </div>
