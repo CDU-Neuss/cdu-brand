@@ -1,6 +1,18 @@
 @import "tailwindcss";
 
 @import "../../../resources/css/theme.css";
+@import "../../../resources/css/typography.css";
+@import "../../../resources/css/swiperjs.css";
+@import "../../../resources/css/components/authors.css";
+@import "../../../resources/css/components/button.css";
+@import "../../../resources/css/components/countdown.css";
+@import "../../../resources/css/components/cta.css";
+@import "../../../resources/css/components/eye-catcher-circle.css";
+@import "../../../resources/css/components/feature.css";
+@import "../../../resources/css/components/icon-circle.css";
+@import "../../../resources/css/components/linked-section.css";
+@import "../../../resources/css/components/union-title.css";
+@import "../../../resources/css/utilities/arc.css";
 @plugin "tailwindcss-debug-screens" {
   prefix: "";
 }

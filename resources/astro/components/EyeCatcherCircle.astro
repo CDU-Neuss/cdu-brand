@@ -9,9 +9,3 @@ const { class: className } = Astro.props;
 <div class:list={["eye-catcher-circle", className]}>
   <slot />
 </div>
-
-<style>
-  @import "../../css/components/eye-catcher-circle.css";
-  @reference "tailwindcss";
-  @reference "../../css/theme.css";
-</style>
