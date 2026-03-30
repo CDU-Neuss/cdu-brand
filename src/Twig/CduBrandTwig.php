@@ -6,7 +6,7 @@ namespace CduNeuss\CduBrand\Twig;
 
 use Twig\Loader\FilesystemLoader;
 
-class CduBrandTwigExtension
+class CduBrandTwig
 {
     public static function registerNamespace(FilesystemLoader $loader): void
     {

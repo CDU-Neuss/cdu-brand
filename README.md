@@ -138,11 +138,11 @@ Available components: `button`, `icon-circle`, `feature`, `cta`, `linked-section
 
 ```php
 // Craft CMS: in a custom module's init()
-use CduNeuss\CduBrand\Twig\CduBrandTwigExtension;
+use CduNeuss\CduBrand\Twig\CduBrandTwig;
 
 $loader = \Craft::$app->getView()->getTwig()->getLoader();
 if ($loader instanceof \Twig\Loader\FilesystemLoader) {
-    CduBrandTwigExtension::registerNamespace($loader);
+    CduBrandTwig::registerNamespace($loader);
 }
 ```
 
@@ -321,7 +321,7 @@ src/                # PHP source (Composer package)
 ├── Laravel/
 │   └── CduBrandServiceProvider.php
 └── Twig/
-    └── CduBrandTwigExtension.php
+    └── CduBrandTwig.php
 
 resources/          # Distributable package assets
 ├── blade/

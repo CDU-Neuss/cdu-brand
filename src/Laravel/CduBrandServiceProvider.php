@@ -8,11 +8,6 @@ use Illuminate\Support\ServiceProvider;
 
 class CduBrandServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-        //
-    }
-
     public function boot(): void
     {
         $this->registerBladeComponents();
