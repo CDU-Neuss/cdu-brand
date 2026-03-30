@@ -59,4 +59,7 @@ $container->instance('blade.compiler', $compiler);
 // Register anonymous component path so <x-cdu::button> etc. resolve
 $compiler->anonymousComponentPath($root . '/resources/blade/components', 'cdu');
 
-echo $factory->make('examples.kitchen-sink')->render();
+$html = $factory->make('examples.kitchen-sink')->render();
+
+// Inject stylesheet link for the built CSS
+echo str_replace('</head>', '    <link rel="stylesheet" href="/styles.css">' . "\n" . '</head>', $html);

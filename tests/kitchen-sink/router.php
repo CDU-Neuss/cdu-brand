@@ -4,7 +4,8 @@
  * PHP built-in server router for CDU brand kitchen sink preview.
  *
  * Usage:
- *   composer kitchen-sink
+ *   composer kitchen-sink          — build CSS + start server
+ *   composer kitchen-sink:serve    — start server only (skip CSS build)
  *
  * Then open:
  *   http://localhost:8080/         — index
@@ -13,6 +14,19 @@
  */
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Serve built CSS file
+if ($path === '/styles.css') {
+    $css = __DIR__ . '/styles.css';
+    if (file_exists($css)) {
+        header('Content-Type: text/css');
+        readfile($css);
+    } else {
+        http_response_code(404);
+        echo '/* styles.css not found — run: composer kitchen-sink:build */';
+    }
+    return;
+}
 
 match ($path) {
     '/', '/index' => (function () {

@@ -17,4 +17,7 @@ $twig = new Environment($loader, [
     'auto_reload' => true,
 ]);
 
-echo $twig->render('examples/kitchen-sink.twig');
+$html = $twig->render('examples/kitchen-sink.twig');
+
+// Inject stylesheet link for the built CSS
+echo str_replace('</head>', '    <link rel="stylesheet" href="/styles.css">' . "\n" . '</head>', $html);
