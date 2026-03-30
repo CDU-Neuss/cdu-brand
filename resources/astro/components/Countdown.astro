@@ -47,12 +47,13 @@ const mergedLabels = { ...defaultLabels, ...labels };
 </figure>
 
 <style>
-  @import "../styles/global.css";
-  @import "../../../resources/css/components/countdown.css";
+  @import "../../css/components/countdown.css";
+  @reference "tailwindcss";
+  @reference "../../css/theme.css";
 </style>
 
 <script>
-  import countdown from "../../../resources/js/countdown.js";
+  import countdown from "../../js/countdown.js";
 
   Alpine.data("countdown", (targetDate: string) => countdown(targetDate));
 </script>

@@ -9,7 +9,6 @@
   Blocks:
     - image: optional image/figure element
     - content: CTA body text
-    - overlay: optional background overlay element
 
   Usage:
     {% embed '@cdu/cta.twig' with { title: 'Get started', links: [{ href: '/', text: 'Learn more', isButton: true }] } %}
@@ -41,5 +40,5 @@
             </div>
         {% endif %}
     </div>
-    {% block overlay %}{% endblock %}
+    <div class="overlay"></div>
 </div>

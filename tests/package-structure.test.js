@@ -115,7 +115,28 @@ describe("package structure", () => {
     expect(existsSync(path)).toBe(true);
   });
 
-  it("Blade, Twig and Antlers component directories have matching component names", () => {
+  it.each([
+    "Authors",
+    "Button",
+    "Countdown",
+    "Cta",
+    "EyeCatcherCircle",
+    "Feature",
+    "IconCircle",
+    "LinkedSection",
+  ])("has Astro component: %s", (name) => {
+    const path = resourcePath("astro", "components", `${name}.astro`);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it("all template engine component directories have matching component names", () => {
+    // Helper: PascalCase → kebab-case (e.g. "EyeCatcherCircle" → "eye-catcher-circle")
+    const toKebab = (s) =>
+      s
+        .replace(/([a-z])([A-Z])/g, "$1-$2")
+        .replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
+        .toLowerCase();
+
     const bladeNames = readdirSync(resourcePath("blade", "components"))
       .filter((f) => f.endsWith(".blade.php"))
       .map((f) => f.replace(".blade.php", ""))
@@ -131,8 +152,14 @@ describe("package structure", () => {
       .map((f) => f.replace(".antlers.html", ""))
       .sort();
 
+    const astroNames = readdirSync(resourcePath("astro", "components"))
+      .filter((f) => f.endsWith(".astro"))
+      .map((f) => toKebab(f.replace(".astro", "")))
+      .sort();
+
     expect(twigNames).toEqual(bladeNames);
     expect(antlersNames).toEqual(bladeNames);
+    expect(astroNames).toEqual(bladeNames);
   });
 
   it("package.json has correct name and type", () => {

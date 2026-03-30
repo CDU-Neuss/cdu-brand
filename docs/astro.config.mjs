@@ -10,6 +10,11 @@ export default defineConfig({
   base: "/cdu-brand",
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      fs: {
+        allow: [".."],
+      },
+    },
   },
   security: {
     csp: false,

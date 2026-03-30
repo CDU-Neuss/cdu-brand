@@ -1,7 +1,6 @@
 ---
 import IconCircle from "./IconCircle.astro";
 import Button from "./Button.astro";
-import { Icon } from "astro-icon/components";
 
 interface Props {
   title: string;
@@ -27,14 +26,17 @@ const { title, href, linkText, hasButton = false } = Astro.props;
   </div>
   <div class="link">
     <Button href={href} as="a" color={hasButton ? "gold" : "link"}>
-      {!hasButton && <Icon name="ph:caret-right-bold" slot="icon-right" />}
+      {!hasButton && (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="1em" height="1em" slot="icon-right"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg>
+      )}
       {linkText ?? title}
     </Button>
   </div>
 </div>
 
 <style>
-  @import "../styles/global.css";
-  @import "../../../resources/css/utilities/arc.css";
-  @import "../../../resources/css/components/linked-section.css";
+  @import "../../css/utilities/arc.css";
+  @import "../../css/components/linked-section.css";
+  @reference "tailwindcss";
+  @reference "../../css/theme.css";
 </style>

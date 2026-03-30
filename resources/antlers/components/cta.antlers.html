@@ -9,7 +9,6 @@
   Slots:
     - image: optional image/figure element
     - content: CTA body text
-    - overlay: optional background overlay element
 
   Usage:
     {{ partial:cdu/cta title="Get started" :links="links" }}
@@ -38,5 +37,5 @@
             </div>
         {{ /if }}
     </div>
-    {{ slot:overlay }}{{ /slot:overlay }}
+    <div class="overlay"></div>
 </div>

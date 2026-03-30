@@ -178,6 +178,37 @@ Then use the components as partials:
 {{ partial:cdu/countdown target_date="2026-12-31" event="New Year" }}
 ```
 
+### Astro Components
+
+Import the components directly from the package:
+
+```astro
+---
+import Button from "@cdu-neuss/cdu-brand/resources/astro/components/Button.astro";
+import Feature from "@cdu-neuss/cdu-brand/resources/astro/components/Feature.astro";
+import Cta from "@cdu-neuss/cdu-brand/resources/astro/components/Cta.astro";
+import Countdown from "@cdu-neuss/cdu-brand/resources/astro/components/Countdown.astro";
+---
+
+<Button color="gold" href="/contact" as="a">Contact Us</Button>
+
+<Feature title="Fast Delivery">
+  <svg slot="icon">...</svg>
+  We deliver within 24 hours.
+</Feature>
+
+<Cta title="Get Started" links={[
+  { href: "/signup", text: "Sign Up", isButton: true },
+  { href: "/learn-more", text: "Learn More" },
+]}>
+  Join us today and start building.
+</Cta>
+
+<Countdown targetDate="2026-12-31" event="New Year" />
+```
+
+> **Note:** The `Countdown` component requires `@astrojs/alpinejs` — see [Alpine.js Utilities](#alpinejs-utilities) above.
+
 ## What's Included
 
 ### Theme (`resources/css/theme.css`)
@@ -253,6 +284,8 @@ resources/          # Distributable package assets
 │   └── components/         # Twig components (Craft CMS / Symfony)
 ├── antlers/
 │   └── components/         # Antlers components (Statamic)
+├── astro/
+│   └── components/         # Astro components
 ├── css/
 │   ├── theme.css           # Tailwind theme (brand tokens)
 │   ├── typography.css      # Prose styling
