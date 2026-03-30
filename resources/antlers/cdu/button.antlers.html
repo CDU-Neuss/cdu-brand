@@ -29,9 +29,9 @@
     (color == 'link') => 'btn btn-link',
     () => 'btn'
 ) }}" {{ attr }}>
-    {{ slot:icon_left }}{{ /slot:icon_left }}
-    {{ slot:content }}{{ /slot:content }}
-    {{ slot:icon_right }}{{ /slot:icon_right }}
+    {{ slot:icon_left }}
+    {{ slot:content }}
+    {{ slot:icon_right }}
 </a>
 {{ else }}
 <{{ as ?? 'button' }} class="{{ switch(
@@ -44,8 +44,8 @@
     (color == 'link') => 'btn btn-link',
     () => 'btn'
 ) }}" {{ attr }}>
-    {{ slot:icon_left }}{{ /slot:icon_left }}
-    {{ slot:content }}{{ /slot:content }}
-    {{ slot:icon_right }}{{ /slot:icon_right }}
+    {{ slot:icon_left }}
+    {{ slot:content }}
+    {{ slot:icon_right }}
 </{{ as ?? 'button' }}>
 {{ /if }}

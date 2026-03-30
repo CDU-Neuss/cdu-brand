@@ -22,13 +22,13 @@
     <div class="headline">
         <div class="icon">
             {{ partial:cdu/icon-circle }}
-                {{ slot:content }}{{ slot:icon }}{{ /slot:icon }}{{ /slot:content }}
+                {{ slot:content }}{{ slot:icon }}{{ /slot:content }}
             {{ /partial:cdu/icon-circle }}
         </div>
         <h3 class="title">{{ title }}</h3>
     </div>
     <div class="content">
-        {{ slot:content }}{{ /slot:content }}
+        {{ slot:content }}
     </div>
     <div class="link">
         <a href="{{ href }}" class="btn{{ if has_button }} btn-gold{{ else }} btn-link{{ /if }}">

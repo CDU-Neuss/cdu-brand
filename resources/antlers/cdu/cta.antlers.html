@@ -19,13 +19,13 @@
 <div class="cta{{ if has_image }} with-image{{ /if }}">
     {{ if has_image }}
         <figure>
-            {{ slot:image }}{{ /slot:image }}
+            {{ slot:image }}
         </figure>
     {{ /if }}
     <div class="body">
         <h2 class="title">{{ title }}</h2>
         <div class="content">
-            {{ slot:content }}{{ /slot:content }}
+            {{ slot:content }}
         </div>
         {{ if links }}
             <div class="links">
