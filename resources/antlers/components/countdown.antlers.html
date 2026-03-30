@@ -13,7 +13,7 @@
     {{ partial:cdu/countdown target_date="2026-09-01" event="Launch Day" label_days="Tage" label_hours="Stunden" label_minutes="Minuten" label_seconds="Sekunden" }}
 #}}
 
-<figure class="countdown" aria-hidden="true" x-data="countdown('{{ target_date }}')" x-cloak>
+<figure class="countdown" aria-hidden="true" x-data="countdown({{ target_date | to_json }})" x-cloak>
     <div class="clock">
         <dl x-show="days > 0">
             <dd x-text="days">&nbsp;</dd>

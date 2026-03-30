@@ -108,6 +108,8 @@ Available components: `button`, `icon-circle`, `feature`, `cta`, `linked-section
 
 > **Note:** The `countdown` component requires Alpine.js — see [Alpine.js Utilities](#alpinejs-utilities) above.
 
+> **Kitchen Sink:** Copy `resources/blade/examples/kitchen-sink.blade.php` into your project to test all components at once.
+
 ### Twig Components (Craft CMS / Symfony)
 
 Configure a `@cdu` Twig namespace pointing to the package's template directory:
@@ -147,6 +149,8 @@ Then use the components via `{% embed %}` or `{% include %}`:
 {% include '@cdu/countdown.twig' with { target_date: '2026-12-31', event: 'New Year' } %}
 ```
 
+> **Kitchen Sink:** Copy `resources/twig/examples/kitchen-sink.twig` into your project to test all components at once.
+
 ### Antlers Components (Statamic)
 
 Register the partial namespace in a Statamic service provider:
@@ -177,6 +181,8 @@ Then use the components as partials:
 
 {{ partial:cdu/countdown target_date="2026-12-31" event="New Year" }}
 ```
+
+> **Kitchen Sink:** Copy `resources/antlers/examples/kitchen-sink.antlers.html` into your project to test all components at once.
 
 ### Astro Components
 
