@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
 @import "../../../resources/css/theme.css";
-@import "../../../resources/css/typography.css";
-@import "../../../resources/css/swiperjs.css";
 @import "../../../resources/css/components/authors.css";
 @import "../../../resources/css/components/button.css";
 @import "../../../resources/css/components/countdown.css";
