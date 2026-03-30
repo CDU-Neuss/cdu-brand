@@ -1,0 +1,45 @@
+{#
+  CDU Call-to-Action Component
+
+  Parameters:
+    - title: CTA heading (required)
+    - links: array of { href, text, isButton } objects (default: [])
+    - has_image: set to true when using the image block (default: false)
+
+  Blocks:
+    - image: optional image/figure element
+    - content: CTA body text
+    - overlay: optional background overlay element
+
+  Usage:
+    {% embed '@cdu/cta.twig' with { title: 'Get started', links: [{ href: '/', text: 'Learn more', isButton: true }] } %}
+      {% block content %}<p>Join us today.</p>{% endblock %}
+    {% endembed %}
+#}
+
+{% set links = links|default([]) %}
+{% set has_image = has_image|default(false) %}
+
+<div class="cta{{ has_image ? ' with-image' : '' }}">
+    {% if has_image %}
+        <figure>
+            {% block image %}{% endblock %}
+        </figure>
+    {% endif %}
+    <div class="body">
+        <h2 class="title">{{ title }}</h2>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+        {% if links|length > 0 %}
+            <div class="links">
+                {% for link in links %}
+                    <a href="{{ link.href }}" class="btn{{ link.isButton|default(false) ? ' btn-gold' : ' btn-link' }}">
+                        {{ link.text|default('Mehr erfahren') }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    {% block overlay %}{% endblock %}
+</div>

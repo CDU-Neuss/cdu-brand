@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, dirname, resolve } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -85,6 +85,54 @@ describe("package structure", () => {
     expect(existsSync(path)).toBe(true);
     const content = readFileSync(path, "utf8");
     expect(content).toContain("@props(");
+  });
+
+  it.each([
+    "authors",
+    "button",
+    "countdown",
+    "cta",
+    "eye-catcher-circle",
+    "feature",
+    "icon-circle",
+    "linked-section",
+  ])("has Twig component: %s", (name) => {
+    const path = resourcePath("twig", "components", `${name}.twig`);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it.each([
+    "authors",
+    "button",
+    "countdown",
+    "cta",
+    "eye-catcher-circle",
+    "feature",
+    "icon-circle",
+    "linked-section",
+  ])("has Antlers component: %s", (name) => {
+    const path = resourcePath("antlers", "components", `${name}.antlers.html`);
+    expect(existsSync(path)).toBe(true);
+  });
+
+  it("Blade, Twig and Antlers component directories have matching component names", () => {
+    const bladeNames = readdirSync(resourcePath("blade", "components"))
+      .filter((f) => f.endsWith(".blade.php"))
+      .map((f) => f.replace(".blade.php", ""))
+      .sort();
+
+    const twigNames = readdirSync(resourcePath("twig", "components"))
+      .filter((f) => f.endsWith(".twig"))
+      .map((f) => f.replace(".twig", ""))
+      .sort();
+
+    const antlersNames = readdirSync(resourcePath("antlers", "components"))
+      .filter((f) => f.endsWith(".antlers.html"))
+      .map((f) => f.replace(".antlers.html", ""))
+      .sort();
+
+    expect(twigNames).toEqual(bladeNames);
+    expect(antlersNames).toEqual(bladeNames);
   });
 
   it("package.json has correct name and type", () => {

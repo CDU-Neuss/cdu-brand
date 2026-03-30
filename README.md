@@ -108,6 +108,76 @@ Available components: `button`, `icon-circle`, `feature`, `cta`, `linked-section
 
 > **Note:** The `countdown` component requires Alpine.js — see [Alpine.js Utilities](#alpinejs-utilities) above.
 
+### Twig Components (Craft CMS / Symfony)
+
+Configure a `@cdu` Twig namespace pointing to the package's template directory:
+
+```php
+// Craft CMS: config/app.php
+'components' => [
+    'view' => [
+        'class' => \craft\web\View::class,
+        'twig' => [
+            'namespaces' => [
+                'cdu' => '@vendor/cdu-neuss/cdu-brand/resources/twig/components',
+            ],
+        ],
+    ],
+],
+```
+
+Then use the components via `{% embed %}` or `{% include %}`:
+
+```twig
+{% embed '@cdu/button.twig' with { color: 'gold', href: '/contact' } %}
+    {% block content %}Contact Us{% endblock %}
+{% endembed %}
+
+{% embed '@cdu/feature.twig' with { title: 'Fast Delivery', icon: '<svg>...</svg>' } %}
+    {% block content %}We deliver within 24 hours.{% endblock %}
+{% endembed %}
+
+{% embed '@cdu/cta.twig' with { title: 'Get Started', links: [
+    { href: '/signup', text: 'Sign Up', isButton: true },
+    { href: '/learn-more', text: 'Learn More' },
+] } %}
+    {% block content %}Join us today and start building.{% endblock %}
+{% endembed %}
+
+{% include '@cdu/countdown.twig' with { target_date: '2026-12-31', event: 'New Year' } %}
+```
+
+### Antlers Components (Statamic)
+
+Register the partial namespace in a Statamic service provider:
+
+```php
+use Statamic\Facades\Cascade;
+
+public function boot(): void
+{
+    $this->app['view']->addNamespace(
+        'cdu',
+        base_path('node_modules/@cdu-neuss/cdu-brand/resources/antlers/components')
+    );
+}
+```
+
+Then use the components as partials:
+
+```antlers
+{{ partial:cdu/button color="gold" href="/contact" }}
+    {{ slot:content }}Contact Us{{ /slot:content }}
+{{ /partial:cdu/button }}
+
+{{ partial:cdu/feature title="Fast Delivery" }}
+    {{ slot:icon }}<svg>...</svg>{{ /slot:icon }}
+    {{ slot:content }}We deliver within 24 hours.{{ /slot:content }}
+{{ /partial:cdu/feature }}
+
+{{ partial:cdu/countdown target_date="2026-12-31" event="New Year" }}
+```
+
 ## What's Included
 
 ### Theme (`resources/css/theme.css`)
@@ -179,6 +249,10 @@ pnpm preview    # Preview production build
 resources/          # Distributable package assets
 ├── blade/
 │   └── components/         # Laravel Blade components
+├── twig/
+│   └── components/         # Twig components (Craft CMS / Symfony)
+├── antlers/
+│   └── components/         # Antlers components (Statamic)
 ├── css/
 │   ├── theme.css           # Tailwind theme (brand tokens)
 │   ├── typography.css      # Prose styling

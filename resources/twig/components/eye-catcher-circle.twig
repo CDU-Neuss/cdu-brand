@@ -1,0 +1,20 @@
+{#
+  CDU Eye Catcher Circle Component
+
+  Parameters:
+    - attr: extra HTML attributes string (default: '')
+
+  Blocks:
+    - content: text or elements inside the circle
+
+  Usage:
+    {% embed '@cdu/eye-catcher-circle.twig' %}
+      {% block content %}<strong>New</strong><br>Feature{% endblock %}
+    {% endembed %}
+#}
+
+{% set attr = attr|default('') %}
+
+<div class="eye-catcher-circle" {{ attr }}>
+    {% block content %}{% endblock %}
+</div>
