@@ -111,7 +111,7 @@ describe("package structure", () => {
     "icon-circle",
     "linked-section",
   ])("has Antlers component: %s", (name) => {
-    const path = resourcePath("antlers", "components", `${name}.antlers.html`);
+    const path = resourcePath("antlers", "cdu", `${name}.antlers.html`);
     expect(existsSync(path)).toBe(true);
   });
 
@@ -147,7 +147,7 @@ describe("package structure", () => {
       .map((f) => f.replace(".twig", ""))
       .sort();
 
-    const antlersNames = readdirSync(resourcePath("antlers", "components"))
+    const antlersNames = readdirSync(resourcePath("antlers", "cdu"))
       .filter((f) => f.endsWith(".antlers.html"))
       .map((f) => f.replace(".antlers.html", ""))
       .sort();

@@ -30,10 +30,10 @@ class CduBrandServiceProvider extends ServiceProvider
 
     private function registerAntlersPartials(): void
     {
-        $antlersPath = $this->componentPath('antlers/components');
+        $antlersPath = $this->componentPath('antlers');
 
         if (is_dir($antlersPath)) {
-            $this->loadViewsFrom($antlersPath, 'cdu');
+            $this->app['view']->addLocation($antlersPath);
         }
     }
 

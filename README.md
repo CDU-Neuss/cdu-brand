@@ -196,7 +196,7 @@ public function boot(): void
 {
     $this->app['view']->addNamespace(
         'cdu',
-        base_path('node_modules/@cdu-neuss/cdu-brand/resources/antlers/components')
+        base_path('node_modules/@cdu-neuss/cdu-brand/resources/antlers')
     );
 }
 ```
@@ -329,7 +329,7 @@ resources/          # Distributable package assets
 ├── twig/
 │   └── components/         # Twig components (Craft CMS / Symfony)
 ├── antlers/
-│   └── components/         # Antlers components (Statamic)
+│   └── cdu/                # Antlers components (Statamic)
 ├── astro/
 │   └── components/         # Astro components
 ├── css/
