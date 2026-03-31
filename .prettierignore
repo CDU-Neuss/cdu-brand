@@ -1,10 +1,33 @@
-# Ignore artifacts:
+# Build artifacts
 dist
 .astro
+tests/kitchen-sink/styles.css
 
 # Standard
 **/.git
 **/node_modules
+vendor
 
-# lockfile
+# Lock files
 pnpm-lock.yaml
+composer.lock
+
+# Binary / non-formattable assets
+resources/img/
+*.png
+*.jpg
+*.svg
+*.ico
+*.woff
+*.woff2
+
+# Generated / third-party
+docs/dist
+docs/.astro
+
+# Kitchen sink examples (Twig parser doesn't handle inline PHP arrays)
+resources/twig/examples/
+
+# Twig files with dynamic tag names (unsupported by prettier-plugin-twig parser)
+resources/twig/components/button.twig
+resources/twig/components/icon-circle.twig

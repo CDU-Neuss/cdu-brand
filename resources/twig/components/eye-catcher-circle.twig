@@ -18,5 +18,7 @@
 {% set attr = attr|default('') %}
 
 <div class="{{ ['eye-catcher-circle', class]|join(' ')|trim }}" {{ attr|raw }}>
-    {% block content %}{% endblock %}
+    {% block content %}
+
+    {% endblock %}
 </div>

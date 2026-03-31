@@ -20,19 +20,12 @@ describe("package structure", () => {
     expect(existsSync(resourcePath("css", "theme.css"))).toBe(true);
   });
 
-  it.each([
-    "authors",
-    "button",
-    "countdown",
-    "cta",
-    "eye-catcher-circle",
-    "feature",
-    "icon-circle",
-    "linked-section",
-    "union-title",
-  ])("has component CSS: %s", (name) => {
-    expect(existsSync(resourcePath("css", "components", `${name}.css`))).toBe(true);
-  });
+  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section", "union-title"])(
+    "has component CSS: %s",
+    (name) => {
+      expect(existsSync(resourcePath("css", "components", `${name}.css`))).toBe(true);
+    },
+  );
 
   it.each(["arc", "gradient"])("has utility CSS: %s", (name) => {
     expect(existsSync(resourcePath("css", "utilities", `${name}.css`))).toBe(true);
@@ -46,15 +39,12 @@ describe("package structure", () => {
     expect(existsSync(resourcePath("js", name))).toBe(true);
   });
 
-  it.each([
-    "arc.svg",
-    "cdu-gesamtlogo.png",
-    "cdu-logo-transparent.png",
-    "cdu-logo-white-transparent.png",
-    "pattern-cta.png",
-  ])("has image: %s", (name) => {
-    expect(existsSync(resourcePath("img", name))).toBe(true);
-  });
+  it.each(["arc.svg", "cdu-gesamtlogo.png", "cdu-logo-transparent.png", "cdu-logo-white-transparent.png", "pattern-cta.png"])(
+    "has image: %s",
+    (name) => {
+      expect(existsSync(resourcePath("img", name))).toBe(true);
+    },
+  );
 
   it("index.css imports all reference existing files", () => {
     const indexPath = resourcePath("index.css");
@@ -71,63 +61,39 @@ describe("package structure", () => {
     }
   });
 
-  it.each([
-    "authors",
-    "button",
-    "countdown",
-    "cta",
-    "eye-catcher-circle",
-    "feature",
-    "icon-circle",
-    "linked-section",
-  ])("has Blade component: %s", (name) => {
-    const path = resourcePath("blade", "components", `${name}.blade.php`);
-    expect(existsSync(path)).toBe(true);
-    const content = readFileSync(path, "utf8");
-    expect(content).toContain("@props(");
-  });
+  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section"])(
+    "has Blade component: %s",
+    (name) => {
+      const path = resourcePath("blade", "components", `${name}.blade.php`);
+      expect(existsSync(path)).toBe(true);
+      const content = readFileSync(path, "utf8");
+      expect(content).toMatch(/@props\s*\(/);
+    },
+  );
 
-  it.each([
-    "authors",
-    "button",
-    "countdown",
-    "cta",
-    "eye-catcher-circle",
-    "feature",
-    "icon-circle",
-    "linked-section",
-  ])("has Twig component: %s", (name) => {
-    const path = resourcePath("twig", "components", `${name}.twig`);
-    expect(existsSync(path)).toBe(true);
-  });
+  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section"])(
+    "has Twig component: %s",
+    (name) => {
+      const path = resourcePath("twig", "components", `${name}.twig`);
+      expect(existsSync(path)).toBe(true);
+    },
+  );
 
-  it.each([
-    "authors",
-    "button",
-    "countdown",
-    "cta",
-    "eye-catcher-circle",
-    "feature",
-    "icon-circle",
-    "linked-section",
-  ])("has Antlers component: %s", (name) => {
-    const path = resourcePath("antlers", "cdu", `${name}.antlers.html`);
-    expect(existsSync(path)).toBe(true);
-  });
+  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section"])(
+    "has Antlers component: %s",
+    (name) => {
+      const path = resourcePath("antlers", "cdu", `${name}.antlers.html`);
+      expect(existsSync(path)).toBe(true);
+    },
+  );
 
-  it.each([
-    "Authors",
-    "Button",
-    "Countdown",
-    "Cta",
-    "EyeCatcherCircle",
-    "Feature",
-    "IconCircle",
-    "LinkedSection",
-  ])("has Astro component: %s", (name) => {
-    const path = resourcePath("astro", "components", `${name}.astro`);
-    expect(existsSync(path)).toBe(true);
-  });
+  it.each(["Authors", "Button", "Countdown", "Cta", "EyeCatcherCircle", "Feature", "IconCircle", "LinkedSection"])(
+    "has Astro component: %s",
+    (name) => {
+      const path = resourcePath("astro", "components", `${name}.astro`);
+      expect(existsSync(path)).toBe(true);
+    },
+  );
 
   it("all template engine component directories have matching component names", () => {
     // Helper: PascalCase → kebab-case (e.g. "EyeCatcherCircle" → "eye-catcher-circle")
@@ -176,7 +142,11 @@ describe("package structure", () => {
       .filter((f) => f.endsWith(".blade.php"))
       .map((f) => f.replace(".blade.php", ""));
 
-    const exts = { blade: "examples/kitchen-sink.blade.php", twig: "examples/kitchen-sink.twig", antlers: "examples/kitchen-sink.antlers.html" };
+    const exts = {
+      blade: "examples/kitchen-sink.blade.php",
+      twig: "examples/kitchen-sink.twig",
+      antlers: "examples/kitchen-sink.antlers.html",
+    };
     const content = readFileSync(resourcePath(engine, exts[engine]), "utf8").toLowerCase();
 
     for (const name of componentNames) {

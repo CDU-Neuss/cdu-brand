@@ -21,29 +21,51 @@
 {% set class = class|default('') %}
 {% set attr = attr|default('') %}
 
-<figure class="{{ ['countdown', class]|join(' ')|trim }}" aria-hidden="true" x-data="countdown({{ target_date|json_encode }})" x-cloak {{ attr|raw }}>
+<figure
+    class="{{ ['countdown', class]|join(' ')|trim }}"
+    aria-hidden="true"
+    x-data="countdown({{ target_date|json_encode }})"
+    x-cloak
+    {{ attr|raw }}
+>
     <div class="clock">
         <dl x-show="days > 0">
             <dd x-text="days">&nbsp;</dd>
-            <dt>{{ label_days }}</dt>
+            <dt>
+                {{ label_days }}
+            </dt>
         </dl>
-        <div class="divider" x-show="days > 0">:</div>
+        <div class="divider" x-show="days > 0">
+            :
+        </div>
         <dl x-show="hours > 0">
             <dd x-text="hours">&nbsp;</dd>
-            <dt>{{ label_hours }}</dt>
+            <dt>
+                {{ label_hours }}
+            </dt>
         </dl>
-        <div class="divider" x-show="hours > 0">:</div>
+        <div class="divider" x-show="hours > 0">
+            :
+        </div>
         <dl>
             <dd x-text="minutes">&nbsp;</dd>
-            <dt>{{ label_minutes }}</dt>
+            <dt>
+                {{ label_minutes }}
+            </dt>
         </dl>
-        <div class="divider">:</div>
+        <div class="divider">
+            :
+        </div>
         <dl>
             <dd x-text="seconds">&nbsp;</dd>
-            <dt>{{ label_seconds }}</dt>
+            <dt>
+                {{ label_seconds }}
+            </dt>
         </dl>
     </div>
     {% if event %}
-        <figcaption>{{ event }}</figcaption>
+        <figcaption>
+            {{ event }}
+        </figcaption>
     {% endif %}
 </figure>

@@ -26,15 +26,19 @@
 <div class="{{ ['cta', has_image ? 'with-image' : '', class]|join(' ')|trim }}" {{ attr|raw }}>
     {% if has_image %}
         <figure>
-            {% block image %}{% endblock %}
+            {% block image %}
+
+            {% endblock %}
         </figure>
     {% endif %}
     <div class="body">
         <h2 class="title">{{ title }}</h2>
         <div class="content">
-            {% block content %}{% endblock %}
+            {% block content %}
+
+            {% endblock %}
         </div>
-        {% if links|length > 0 %}
+        {% if (links|length) > 0 %}
             <div class="links">
                 {% for link in links %}
                     <a href="{{ link.href }}" class="btn{{ link.isButton|default(false) ? ' btn-gold' : ' btn-link' }}">
