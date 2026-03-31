@@ -6,31 +6,35 @@
     - href: link URL (required)
     - link_text: custom link label (default: title value)
     - has_button: if true, renders gold button instead of link style (default: false)
-    - icon: HTML string for the icon inside the icon-circle, rendered unescaped — must be trusted (optional)
     - class: additional CSS classes to merge onto the root element (default: '')
     - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Blocks:
+    - icon: optional icon inside the icon-circle
     - content: section body text
 
   Usage:
-    {% embed '@cdu/linked-section.twig' with { title: 'Read more', href: '/page', icon: '<svg>…</svg>' } %}
+    {% embed '@cdu/linked-section.twig' with { title: 'Read more', href: '/page' } %}
+      {% block icon %}<svg>…</svg>{% endblock %}
       {% block content %}<p>Teaser text here.</p>{% endblock %}
     {% endembed %}
 #}
 
 {% set link_text = link_text|default(title) %}
 {% set has_button = has_button|default(false) %}
-{% set icon = icon|default('') %}
 {% set class = class|default('') %}
 {% set attr = attr|default('') %}
 
 <div class="{{ ['linked-section', has_button ? 'has-button' : '', class]|join(' ')|trim }}" {{ attr|raw }}>
     <div class="headline">
         <div class="icon">
-            <figure class="icon-circle">
-                {{ icon|raw }}
-            </figure>
+            {% embed '@cdu/icon-circle.twig' %}
+                {% block content %}
+                    {% block icon %}
+
+                    {% endblock %}
+                {% endblock %}
+            {% endembed %}
         </div>
         <h3 class="title">{{ title }}</h3>
     </div>
