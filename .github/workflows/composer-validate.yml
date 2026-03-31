@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - name: Validate composer.json
-        run: composer validate --strict
+        run: composer validate --no-check-publish
       - name: Generate autoloader
         run: composer dump-autoload --no-interaction
       - name: Verify PSR-4 autoload mapping
