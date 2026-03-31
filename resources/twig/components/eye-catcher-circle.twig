@@ -2,6 +2,7 @@
   CDU Eye Catcher Circle Component
 
   Parameters:
+    - class: additional CSS classes to merge onto the root element (default: '')
     - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Blocks:
@@ -13,8 +14,9 @@
     {% endembed %}
 #}
 
+{% set class = class|default('') %}
 {% set attr = attr|default('') %}
 
-<div class="eye-catcher-circle" {{ attr|raw }}>
+<div class="{{ ['eye-catcher-circle', class]|join(' ')|trim }}" {{ attr|raw }}>
     {% block content %}{% endblock %}
 </div>

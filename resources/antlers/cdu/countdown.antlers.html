@@ -8,12 +8,13 @@
     - label_hours: custom label (default: 'Hours')
     - label_minutes: custom label (default: 'Minutes')
     - label_seconds: custom label (default: 'Seconds')
+    - class: additional CSS classes to merge onto the root element (default: '')
 
   Usage:
     {{ partial:cdu/countdown target_date="2026-09-01" event="Launch Day" label_days="Tage" label_hours="Stunden" label_minutes="Minuten" label_seconds="Sekunden" }}
 #}}
 
-<figure class="countdown" aria-hidden="true" x-data="countdown({{ target_date | to_json }})" x-cloak>
+<figure class="countdown {{ class }}" aria-hidden="true" x-data="countdown({{ target_date | to_json }})" x-cloak {{ attr }}>
     <div class="clock">
         <dl x-show="days > 0">
             <dd x-text="days">&nbsp;</dd>

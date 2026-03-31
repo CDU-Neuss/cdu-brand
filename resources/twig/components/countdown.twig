@@ -5,6 +5,8 @@
     - target_date: date string, e.g. "2026-12-31" or "2026-12-31 23:59:59" (required)
     - event: event label shown below the countdown (default: null)
     - labels: { days, hours, minutes, seconds } custom labels (default: built-in English)
+    - class: additional CSS classes to merge onto the root element (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Usage:
     {% include '@cdu/countdown.twig' with { target_date: '2026-09-01', event: 'Launch Day', labels: { days: 'Tage', hours: 'Stunden', minutes: 'Minuten', seconds: 'Sekunden' } } %}
@@ -16,8 +18,10 @@
 {% set label_hours = labels.hours|default('Hours') %}
 {% set label_minutes = labels.minutes|default('Minutes') %}
 {% set label_seconds = labels.seconds|default('Seconds') %}
+{% set class = class|default('') %}
+{% set attr = attr|default('') %}
 
-<figure class="countdown" aria-hidden="true" x-data="countdown({{ target_date|json_encode }})" x-cloak>
+<figure class="{{ ['countdown', class]|join(' ')|trim }}" aria-hidden="true" x-data="countdown({{ target_date|json_encode }})" x-cloak {{ attr|raw }}>
     <div class="clock">
         <dl x-show="days > 0">
             <dd x-text="days">&nbsp;</dd>

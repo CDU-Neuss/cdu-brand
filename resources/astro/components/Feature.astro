@@ -1,14 +1,15 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import IconCircle from "./IconCircle.astro";
 
-interface Props {
+interface Props extends HTMLAttributes<"div"> {
   title: string;
 }
 
-const { title } = Astro.props;
+const { title, class: className, ...attrs } = Astro.props;
 ---
 
-<div class="feature">
+<div class:list={["feature", className]} {...attrs}>
   <div class="icon">
     <IconCircle>
       <slot name="icon" />

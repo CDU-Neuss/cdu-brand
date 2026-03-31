@@ -6,6 +6,7 @@
     - href: link URL (required)
     - link_text: custom link label (default: title value)
     - has_button: if true, renders gold button instead of link style (default: false)
+    - class: additional CSS classes to merge onto the root element (default: '')
 
   Slots:
     - default: section body text
@@ -18,7 +19,7 @@
     {{ /partial:cdu/linked-section }}
 #}}
 
-<div class="linked-section{{ if has_button }} has-button{{ /if }}">
+<div class="linked-section{{ if has_button }} has-button{{ /if }} {{ class }}" {{ attr }}>
     <div class="headline">
         <div class="icon">
             {{ partial:cdu/icon-circle }}

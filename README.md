@@ -128,6 +128,14 @@ Then use the components with the `x-cdu::` prefix:
 
 Available components: `button`, `icon-circle`, `feature`, `cta`, `linked-section`, `countdown`, `authors`, `eye-catcher-circle`.
 
+All components support extra HTML attributes (`aria-*`, `data-*`, `id`, etc.) and additional CSS classes via the standard Blade `$attributes` bag:
+
+```blade
+<x-cdu::button color="blue" class="mt-4" aria-label="Contact us" data-track="cta">
+    Contact Us
+</x-cdu::button>
+```
+
 > **Note:** The `countdown` component requires Alpine.js — see [Alpine.js Utilities](#alpinejs-utilities) above.
 
 > **Kitchen Sink:** Copy `resources/blade/examples/kitchen-sink.blade.php` into your project to test all components at once.
@@ -183,6 +191,14 @@ Then use the components via `{% embed %}` or `{% include %}`:
 {% include '@cdu/countdown.twig' with { target_date: '2026-12-31', event: 'New Year' } %}
 ```
 
+All components accept `class` for additional CSS classes and `attr` for extra HTML attributes:
+
+```twig
+{% embed '@cdu/button.twig' with { color: 'blue', class: 'mt-4', attr: 'aria-label="Contact us" data-track="cta"' } %}
+    {% block content %}Contact Us{% endblock %}
+{% endembed %}
+```
+
 > **Kitchen Sink:** Copy `resources/twig/examples/kitchen-sink.twig` into your project to test all components at once.
 
 ### Antlers Components (Statamic)
@@ -215,6 +231,14 @@ Then use the components as partials:
 {{ partial:cdu/countdown target_date="2026-12-31" event="New Year" }}
 ```
 
+All components accept `class` for additional CSS classes and `attr` for extra HTML attributes:
+
+```antlers
+{{ partial:cdu/button color="blue" class="mt-4" attr='aria-label="Contact us" data-track="cta"' }}
+    Contact Us
+{{ /partial:cdu/button }}
+```
+
 > **Kitchen Sink:** Copy `resources/antlers/examples/kitchen-sink.antlers.html` into your project to test all components at once.
 
 ### Astro Components
@@ -244,6 +268,11 @@ import Countdown from "@cdu-neuss/cdu-brand/resources/astro/components/Countdown
 </Cta>
 
 <Countdown targetDate="2026-12-31" event="New Year" />
+
+<!-- All components accept extra classes and HTML attributes via rest-spread -->
+<Button color="blue" class="mt-4" aria-label="Contact us" data-track="cta">
+  Contact Us
+</Button>
 ```
 
 > **Note:** The `Countdown` component requires `@astrojs/alpinejs` — see [Alpine.js Utilities](#alpinejs-utilities) above.

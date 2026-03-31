@@ -5,6 +5,7 @@
     - color: 'default'|'blue'|'gold'|'blue-inverted'|'gold-inverted'|'blue-transparent'|'gold-transparent'|'link' (default: 'default')
     - as: HTML tag when no href (default: 'button')
     - href: URL — if set, renders as <a> (default: null)
+    - class: additional CSS classes to merge onto the root element (default: '')
     - attr: extra HTML attributes string (default: '')
 
   Slots:
@@ -28,7 +29,7 @@
     (color == 'gold-transparent') => 'btn btn-gold-transparent',
     (color == 'link') => 'btn btn-link',
     () => 'btn'
-) }}" {{ attr }}>
+) }} {{ class }}" {{ attr }}>
     {{ slot:icon_left }}
     {{ slot }}
     {{ slot:icon_right }}
@@ -43,7 +44,7 @@
     (color == 'gold-transparent') => 'btn btn-gold-transparent',
     (color == 'link') => 'btn btn-link',
     () => 'btn'
-) }}" {{ attr }}>
+) }} {{ class }}" {{ attr }}>
     {{ slot:icon_left }}
     {{ slot }}
     {{ slot:icon_right }}

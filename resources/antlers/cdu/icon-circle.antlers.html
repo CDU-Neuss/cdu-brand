@@ -4,6 +4,7 @@
   Parameters:
     - size: 'default'|'lg'|'xl'|'2xl' (default: 'default')
     - as: HTML tag (default: 'figure')
+    - class: additional CSS classes to merge onto the root element (default: '')
     - attr: extra HTML attributes string (default: '')
 
   Slots:
@@ -20,6 +21,6 @@
     (size == 'xl') => 'icon-circle-xl',
     (size == '2xl') => 'icon-circle-2xl',
     () => 'icon-circle'
-) }}" {{ attr }}>
+) }} {{ class }}" {{ attr }}>
     {{ slot }}
 </{{ as ?? 'figure' }}>

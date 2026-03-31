@@ -2,6 +2,7 @@
   CDU Eye Catcher Circle Component
 
   Parameters:
+    - class: additional CSS classes to merge onto the root element (default: '')
     - attr: extra HTML attributes string (default: '')
 
   Slots:
@@ -13,6 +14,6 @@
     {{ /partial:cdu/eye-catcher-circle }}
 #}}
 
-<div class="eye-catcher-circle" {{ attr }}>
+<div class="eye-catcher-circle {{ class }}" {{ attr }}>
     {{ slot }}
 </div>

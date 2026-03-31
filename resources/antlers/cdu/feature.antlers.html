@@ -3,6 +3,7 @@
 
   Parameters:
     - title: feature heading (required)
+    - class: additional CSS classes to merge onto the root element (default: '')
 
   Slots:
     - default: feature description
@@ -15,7 +16,7 @@
     {{ /partial:cdu/feature }}
 #}}
 
-<div class="feature">
+<div class="feature {{ class }}" {{ attr }}>
     <div class="icon">
         {{ partial:cdu/icon-circle }}
             {{ slot:icon }}

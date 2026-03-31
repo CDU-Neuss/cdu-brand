@@ -5,6 +5,7 @@
     - title: CTA heading (required)
     - links: array of { href, text, is_button } objects (default: [])
     - has_image: set to true when using the image slot (default: false)
+    - class: additional CSS classes to merge onto the root element (default: '')
 
   Slots:
     - default: CTA body text
@@ -16,7 +17,7 @@
     {{ /partial:cdu/cta }}
 #}}
 
-<div class="cta{{ if has_image }} with-image{{ /if }}">
+<div class="cta{{ if has_image }} with-image{{ /if }} {{ class }}" {{ attr }}>
     {{ if has_image }}
         <figure>
             {{ slot:image }}

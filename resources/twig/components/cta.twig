@@ -5,6 +5,8 @@
     - title: CTA heading (required)
     - links: array of { href, text, isButton } objects (default: [])
     - has_image: set to true when using the image block (default: false)
+    - class: additional CSS classes to merge onto the root element (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Blocks:
     - image: optional image/figure element
@@ -18,8 +20,10 @@
 
 {% set links = links|default([]) %}
 {% set has_image = has_image|default(false) %}
+{% set class = class|default('') %}
+{% set attr = attr|default('') %}
 
-<div class="cta{{ has_image ? ' with-image' : '' }}">
+<div class="{{ ['cta', has_image ? 'with-image' : '', class]|join(' ')|trim }}" {{ attr|raw }}>
     {% if has_image %}
         <figure>
             {% block image %}{% endblock %}

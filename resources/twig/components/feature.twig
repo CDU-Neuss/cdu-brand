@@ -4,6 +4,8 @@
   Parameters:
     - title: feature heading (required)
     - icon: HTML string for the icon inside the icon-circle, rendered unescaped — must be trusted (optional)
+    - class: additional CSS classes to merge onto the root element (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Blocks:
     - content: feature description
@@ -15,8 +17,10 @@
 #}
 
 {% set icon = icon|default('') %}
+{% set class = class|default('') %}
+{% set attr = attr|default('') %}
 
-<div class="feature">
+<div class="{{ ['feature', class]|join(' ')|trim }}" {{ attr|raw }}>
     <div class="icon">
         <figure class="icon-circle">
             {{ icon|raw }}
