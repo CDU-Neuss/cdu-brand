@@ -54,8 +54,11 @@ for (const file of files) {
   console.log(`  ✓  ${file} — ${old} → ${version}`);
 }
 
+// Update composer.lock to match composer.json
+execSync("composer update --lock", { cwd: ROOT, stdio: "inherit" });
+
 // Stage, commit, tag
-execSync(`git add ${files.join(" ")}`, { cwd: ROOT, stdio: "inherit" });
+execSync(`git add ${files.join(" ")} composer.lock`, { cwd: ROOT, stdio: "inherit" });
 execSync(`git commit -m "Release ${version}"`, { cwd: ROOT, stdio: "inherit" });
 execSync(`git tag ${version}`, { cwd: ROOT, stdio: "inherit" });
 
