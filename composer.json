@@ -1,7 +1,7 @@
 {
   "name": "cdu-neuss/cdu-brand",
   "description": "CDU brand template components for Laravel (Blade), Twig, and Statamic (Antlers)",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "type": "library",
   "license": "proprietary",
   "homepage": "https://github.com/CDU-Neuss/cdu-brand",
