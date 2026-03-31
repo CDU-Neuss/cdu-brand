@@ -1,20 +1,26 @@
 {{#
-    CDU Button Component Parameters: - color:
-    'default'|'blue'|'gold'|'blue-inverted'|'gold-inverted'|'blue-transparent'|'gold-transparent'|'link' (default: 'default') - as: HTML tag
-    when no href (default: 'button') - href: URL — if set, renders as
-    <a>
-        (default: null) - class: additional CSS classes to merge onto the root element (default: '') - attr: extra HTML attributes string
-        (default: '') Slots: - default: button label (required) - icon_left: optional icon before text - icon_right: optional icon after text
-        Usage:
-        {{ partial:cdu/button color="gold" href="/page" }}
-            Click me
-        {{ /partial:cdu/button }}
-    </a>
+  CDU Button Component
+
+  Parameters:
+    - color: 'default'|'blue'|'gold'|'blue-inverted'|'gold-inverted'|'blue-transparent'|'gold-transparent'|'link' (default: 'default')
+    - as: HTML tag when no href (default: 'button')
+    - href: URL — if set, renders as <a> (default: null)
+    - class: additional CSS classes to merge onto the root element (default: '')
+    - attr: extra HTML attributes string (default: '')
+
+  Slots:
+    - default: button label (required)
+    - icon_left: optional icon before text
+    - icon_right: optional icon after text
+
+  Usage:
+    {{ partial:cdu/button color="gold" href="/page" }}
+      Click me
+    {{ /partial:cdu/button }}
 #}}
+
 {{ if href }}
-    <a
-        href="{{ href }}"
-        class="{{ switch(
+<a href="{{ href }}" class="{{ switch(
     (color == 'blue') => 'btn btn-blue',
     (color == 'gold') => 'btn btn-gold',
     (color == 'blue-inverted') => 'btn btn-blue-inverted',
@@ -22,16 +28,14 @@
     (color == 'blue-transparent') => 'btn btn-blue-transparent',
     (color == 'gold-transparent') => 'btn btn-gold-transparent',
     (color == 'link') => 'btn btn-link',
-    () => 'btn') }} {{ class }}"
-        {{ attr }}
-    >
-        {{ slot:icon_left }}
-        {{ slot }}
-        {{ slot:icon_right }}
-    </a>
+    () => 'btn'
+) }} {{ class }}" {{ attr }}>
+    {{ slot:icon_left }}
+    {{ slot }}
+    {{ slot:icon_right }}
+</a>
 {{ else }}
-    <{{ as ?? 'button' }}
-        class="{{ switch(
+<{{ as ?? 'button' }} class="{{ switch(
     (color == 'blue') => 'btn btn-blue',
     (color == 'gold') => 'btn btn-gold',
     (color == 'blue-inverted') => 'btn btn-blue-inverted',
@@ -39,11 +43,10 @@
     (color == 'blue-transparent') => 'btn btn-blue-transparent',
     (color == 'gold-transparent') => 'btn btn-gold-transparent',
     (color == 'link') => 'btn btn-link',
-    () => 'btn') }} {{ class }}"
-        {{ attr }}
-    >
-        {{ slot:icon_left }}
-        {{ slot }}
-        {{ slot:icon_right }}
-    </{{ as ?? 'button' }}>
+    () => 'btn'
+) }} {{ class }}" {{ attr }}>
+    {{ slot:icon_left }}
+    {{ slot }}
+    {{ slot:icon_right }}
+</{{ as ?? 'button' }}>
 {{ /if }}

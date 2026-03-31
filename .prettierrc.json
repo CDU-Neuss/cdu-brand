@@ -2,7 +2,6 @@
   "plugins": [
     "@shufo/prettier-plugin-blade",
     "@zackad/prettier-plugin-twig",
-    "prettier-plugin-antlers",
     "prettier-plugin-astro",
     "prettier-plugin-tailwindcss"
   ],
@@ -36,9 +35,7 @@
     {
       "files": "*.antlers.html",
       "options": {
-        "parser": "antlers",
-        "tabWidth": 4,
-        "singleQuote": true
+        "tabWidth": 4
       }
     }
   ]

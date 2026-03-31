@@ -1,11 +1,18 @@
 {{#
-    CDU Feature Component Parameters: - title: feature heading (required) - class: additional CSS classes to merge onto the root element
-    (default: '') Slots: - default: feature description - icon: optional icon inside the icon-circle Usage:
+  CDU Feature Component
+
+  Parameters:
+    - title: feature heading (required)
+    - class: additional CSS classes to merge onto the root element (default: '')
+
+  Slots:
+    - default: feature description
+    - icon: optional icon inside the icon-circle
+
+  Usage:
     {{ partial:cdu/feature title="My Feature" }}
-        {{ slot:icon }}
-            <svg>…</svg>
-        {{ /slot:icon }}
-        <p>Description here.</p>
+      {{ slot:icon }}<svg>…</svg>{{ /slot:icon }}
+      <p>Description here.</p>
     {{ /partial:cdu/feature }}
 #}}
 

@@ -25,9 +25,11 @@ resources/img/
 docs/dist
 docs/.astro
 
-# Kitchen sink examples (Twig/Antlers parsers don't handle inline PHP arrays)
+# Antlers (prettier-plugin-antlers collapses multi-line doc comments and injects stray HTML)
+resources/antlers/
+
+# Kitchen sink examples (Twig parser doesn't handle inline PHP arrays)
 resources/twig/examples/
-resources/antlers/examples/
 
 # Twig files with dynamic tag names (unsupported by prettier-plugin-twig parser)
 resources/twig/components/button.twig

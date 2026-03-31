@@ -1,9 +1,19 @@
 {{#
-    CDU Call-to-Action Component Parameters: - title: CTA heading (required) - links: array of { href, text, is_button } objects (default: []) -
-    has_image: set to true when using the image slot (default: false) - class: additional CSS classes to merge onto the root element (default:
-    '') Slots: - default: CTA body text - image: optional image/figure element Usage:
+  CDU Call-to-Action Component
+
+  Parameters:
+    - title: CTA heading (required)
+    - links: array of { href, text, is_button } objects (default: [])
+    - has_image: set to true when using the image slot (default: false)
+    - class: additional CSS classes to merge onto the root element (default: '')
+
+  Slots:
+    - default: CTA body text
+    - image: optional image/figure element
+
+  Usage:
     {{ partial:cdu/cta title="Get started" :links="links" }}
-        <p>Join us today.</p>
+      <p>Join us today.</p>
     {{ /partial:cdu/cta }}
 #}}
 
