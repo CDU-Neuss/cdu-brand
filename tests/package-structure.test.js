@@ -111,7 +111,7 @@ describe("package structure", () => {
     "icon-circle",
     "linked-section",
   ])("has Antlers component: %s", (name) => {
-    const path = resourcePath("antlers", "components", `${name}.antlers.html`);
+    const path = resourcePath("antlers", "cdu", `${name}.antlers.html`);
     expect(existsSync(path)).toBe(true);
   });
 
@@ -147,7 +147,7 @@ describe("package structure", () => {
       .map((f) => f.replace(".twig", ""))
       .sort();
 
-    const antlersNames = readdirSync(resourcePath("antlers", "components"))
+    const antlersNames = readdirSync(resourcePath("antlers", "cdu"))
       .filter((f) => f.endsWith(".antlers.html"))
       .map((f) => f.replace(".antlers.html", ""))
       .sort();
@@ -182,6 +182,22 @@ describe("package structure", () => {
     for (const name of componentNames) {
       expect(content, `${engine} kitchen sink should reference "${name}"`).toContain(name);
     }
+  });
+
+  it.each([
+    ["Laravel/CduBrandServiceProvider.php", "CduBrandServiceProvider"],
+    ["Twig/CduBrandTwig.php", "CduBrandTwig"],
+  ])("has PHP source file: %s", (file, className) => {
+    const path = join(ROOT, "src", file);
+    expect(existsSync(path)).toBe(true);
+    const content = readFileSync(path, "utf8");
+    expect(content).toContain(`class ${className}`);
+  });
+
+  it("composer.json has correct name and autoload", () => {
+    const composer = JSON.parse(readFileSync(join(ROOT, "composer.json"), "utf8"));
+    expect(composer.name).toBe("cdu-neuss/cdu-brand");
+    expect(composer.autoload["psr-4"]["CduNeuss\\CduBrand\\"]).toBe("src/");
   });
 
   it("package.json has correct name and type", () => {

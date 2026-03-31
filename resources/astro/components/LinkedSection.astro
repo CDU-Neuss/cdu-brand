@@ -1,18 +1,19 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import IconCircle from "./IconCircle.astro";
 import Button from "./Button.astro";
 
-interface Props {
+interface Props extends HTMLAttributes<"div"> {
   title: string;
   href: string;
   linkText?: string;
   hasButton?: boolean;
 }
 
-const { title, href, linkText, hasButton = false } = Astro.props;
+const { title, href, linkText, hasButton = false, class: className, ...attrs } = Astro.props;
 ---
 
-<div class={`linked-section${hasButton ? " has-button" : ""}`}>
+<div class:list={["linked-section", { "has-button": hasButton }, className]} {...attrs}>
   <div class="headline">
     <div class="icon">
       <IconCircle>

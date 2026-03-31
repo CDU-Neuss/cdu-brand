@@ -3,12 +3,13 @@
 
   Parameters:
     - authors: array of { name, link, image? } objects (default: [])
+    - class: additional CSS classes to merge onto the root element (default: '')
 
   Usage:
     {{ partial:cdu/authors :authors="authors" }}
 #}}
 
-<ul class="authors">
+<ul class="authors {{ class }}" {{ attr }}>
     {{ if authors }}
         {{ authors }}
             <li>

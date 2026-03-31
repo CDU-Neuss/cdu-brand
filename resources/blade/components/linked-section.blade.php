@@ -5,7 +5,7 @@
     'hasButton' => false,
 ])
 
-<div class="linked-section{{ $hasButton ? ' has-button' : '' }}">
+<div {{ $attributes->merge(['class' => 'linked-section' . ($hasButton ? ' has-button' : '')]) }}>
     <div class="headline">
         <div class="icon">
             <x-cdu::icon-circle>

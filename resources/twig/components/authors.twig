@@ -3,14 +3,18 @@
 
   Parameters:
     - authors: array of { name, link, image? } objects (default: [])
+    - class: additional CSS classes to merge onto the root element (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
 
   Usage:
     {% include '@cdu/authors.twig' with { authors: [{ name: 'Jane Doe', link: '/authors/jane', image: '/img/jane.jpg' }] } %}
 #}
 
 {% set authors = authors|default([]) %}
+{% set class = class|default('') %}
+{% set attr = attr|default('') %}
 
-<ul class="authors">
+<ul class="{{ ['authors', class]|join(' ')|trim }}" {{ attr|raw }}>
     {% for author in authors %}
         <li>
             <a href="{{ author.link }}">

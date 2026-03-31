@@ -3,7 +3,7 @@
 
   Copy this file into your Statamic project to verify all CDU brand components
   render correctly. Requires the cdu partial namespace to be registered pointing
-  at the package's antlers/components directory.
+  at the package's antlers/cdu directory.
 #}}
 
 <!DOCTYPE html>
@@ -20,31 +20,31 @@
         <h2>Button</h2>
         <div class="flex flex-wrap gap-4">
             {{ partial:cdu/button }}
-                {{ slot:content }}Default{{ /slot:content }}
+                Default
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="blue" }}
-                {{ slot:content }}Blue{{ /slot:content }}
+                Blue
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="gold" }}
-                {{ slot:content }}Gold{{ /slot:content }}
+                Gold
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="blue-inverted" }}
-                {{ slot:content }}Blue Inverted{{ /slot:content }}
+                Blue Inverted
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="gold-inverted" }}
-                {{ slot:content }}Gold Inverted{{ /slot:content }}
+                Gold Inverted
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="blue-transparent" }}
-                {{ slot:content }}Blue Transparent{{ /slot:content }}
+                Blue Transparent
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="gold-transparent" }}
-                {{ slot:content }}Gold Transparent{{ /slot:content }}
+                Gold Transparent
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="link" }}
-                {{ slot:content }}Link{{ /slot:content }}
+                Link
             {{ /partial:cdu/button }}
             {{ partial:cdu/button color="gold" href="/example" }}
-                {{ slot:content }}As Link{{ /slot:content }}
+                As Link
             {{ /partial:cdu/button }}
         </div>
     </section>
@@ -54,14 +54,10 @@
         <h2>Icon Circle</h2>
         <div class="flex items-end gap-4">
             {{ partial:cdu/icon-circle }}
-                {{ slot:content }}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
-                {{ /slot:content }}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
             {{ /partial:cdu/icon-circle }}
             {{ partial:cdu/icon-circle size="lg" }}
-                {{ slot:content }}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
-                {{ /slot:content }}
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
             {{ /partial:cdu/icon-circle }}
         </div>
     </section>
@@ -73,9 +69,7 @@
             {{ slot:icon }}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
             {{ /slot:icon }}
-            {{ slot:content }}
-                Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
-            {{ /slot:content }}
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
         {{ /partial:cdu/feature }}
     </section>
 
@@ -83,9 +77,7 @@
     <section>
         <h2>Call to Action</h2>
         {{ partial:cdu/cta title="CDU Shop" }}
-            {{ slot:content }}
-                Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
-            {{ /slot:content }}
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
         {{ /partial:cdu/cta }}
     </section>
 
@@ -97,18 +89,14 @@
                 {{ slot:icon }}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
                 {{ /slot:icon }}
-                {{ slot:content }}
-                    Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
-                {{ /slot:content }}
+                Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
             {{ /partial:cdu/linked-section }}
 
             {{ partial:cdu/linked-section title="CDU Shop" href="/shop" has_button="true" }}
                 {{ slot:icon }}
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z"/></svg>
                 {{ /slot:icon }}
-                {{ slot:content }}
-                    Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
-                {{ /slot:content }}
+                Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
             {{ /partial:cdu/linked-section }}
         </div>
     </section>
@@ -135,7 +123,7 @@
     <section>
         <h2>Eye Catcher Circle</h2>
         {{ partial:cdu/eye-catcher-circle attr='class="size-32"' }}
-            {{ slot:content }}<strong>Neu</strong><br>2028{{ /slot:content }}
+            <strong>Neu</strong><br>2028
         {{ /partial:cdu/eye-catcher-circle }}
     </section>
 

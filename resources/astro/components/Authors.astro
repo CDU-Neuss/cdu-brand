@@ -1,8 +1,9 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import { Image } from "astro:assets";
 import IconCircle from "./IconCircle.astro";
 
-interface Props {
+interface Props extends HTMLAttributes<"ul"> {
   authors: {
     name: string;
     image?: string;
@@ -10,10 +11,10 @@ interface Props {
   }[];
 }
 
-const { authors = [] } = Astro.props;
+const { authors = [], class: className, ...attrs } = Astro.props;
 ---
 
-<ul class="authors">
+<ul class:list={["authors", className]} {...attrs}>
   {
     Array.isArray(authors) && authors.length > 0 ? (
       authors.map((author) => (

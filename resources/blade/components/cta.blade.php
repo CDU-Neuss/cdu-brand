@@ -3,7 +3,7 @@
     'links' => [],
 ])
 
-<div class="cta{{ isset($image) ? ' with-image' : '' }}">
+<div {{ $attributes->merge(['class' => 'cta' . (isset($image) ? ' with-image' : '')]) }}>
     @isset($image)
         <figure>
             {{ $image }}

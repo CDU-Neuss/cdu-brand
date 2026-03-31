@@ -2,7 +2,7 @@
     'title',
 ])
 
-<div class="feature">
+<div {{ $attributes->merge(['class' => 'feature']) }}>
     <div class="icon">
         <x-cdu::icon-circle>
             {{ $icon ?? '' }}

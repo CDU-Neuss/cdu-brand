@@ -3,26 +3,27 @@
 
   Parameters:
     - title: feature heading (required)
+    - class: additional CSS classes to merge onto the root element (default: '')
 
   Slots:
+    - default: feature description
     - icon: optional icon inside the icon-circle
-    - content: feature description
 
   Usage:
     {{ partial:cdu/feature title="My Feature" }}
       {{ slot:icon }}<svg>…</svg>{{ /slot:icon }}
-      {{ slot:content }}<p>Description here.</p>{{ /slot:content }}
+      <p>Description here.</p>
     {{ /partial:cdu/feature }}
 #}}
 
-<div class="feature">
+<div class="feature {{ class }}" {{ attr }}>
     <div class="icon">
         {{ partial:cdu/icon-circle }}
-            {{ slot:content }}{{ slot:icon }}{{ /slot:icon }}{{ /slot:content }}
+            {{ slot:icon }}
         {{ /partial:cdu/icon-circle }}
     </div>
     <div class="content">
         <h5 class="title">{{ title }}</h5>
-        {{ slot:content }}{{ /slot:content }}
+        {{ slot }}
     </div>
 </div>

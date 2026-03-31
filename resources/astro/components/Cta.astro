@@ -1,7 +1,8 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import Button from "./Button.astro";
 
-interface Props {
+interface Props extends HTMLAttributes<"div"> {
   title: string;
   links?: Array<{
     text?: string;
@@ -10,10 +11,10 @@ interface Props {
   }>;
 }
 
-const { title, links } = Astro.props;
+const { title, links, class: className, ...attrs } = Astro.props;
 ---
 
-<div class={`cta${Astro.slots.has("image") ? " with-image" : ""}`}>
+<div class:list={["cta", { "with-image": Astro.slots.has("image") }, className]} {...attrs}>
   {
     Astro.slots.has("image") && (
       <figure>

@@ -20,6 +20,26 @@ Install the required peer dependencies alongside the package:
 pnpm add tailwindcss@^4.0.0 @tailwindcss/typography@^0.5.0 alpinejs@^3.0.0 @fontsource/ibm-plex-serif@^5.1.0 @fontsource/inter@^5.1.0
 ```
 
+### Composer (PHP projects)
+
+For PHP projects that don't need `node_modules` in production, install via Composer to get just the template components with auto-registration:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/CDU-Neuss/cdu-brand"
+        }
+    ],
+    "require": {
+        "cdu-neuss/cdu-brand": "^1.8"
+    }
+}
+```
+
+> **Note:** The CSS, JS, and fonts are still provided via the NPM package (or your build pipeline / CDN). The Composer package only delivers the PHP template components and auto-registration.
+
 ## Usage
 
 ### Import the Theme
@@ -66,7 +86,9 @@ Alpine.start();
 
 ### Laravel Blade Components
 
-For Laravel projects, register the Blade components in your `AppServiceProvider`:
+**Via Composer:** Components are auto-registered. No manual setup needed — Laravel's package auto-discovery registers the `cdu` namespace automatically.
+
+**Via NPM only:** Register the Blade components manually in your `AppServiceProvider`:
 
 ```php
 use Illuminate\Support\Facades\Blade;
@@ -106,13 +128,33 @@ Then use the components with the `x-cdu::` prefix:
 
 Available components: `button`, `icon-circle`, `feature`, `cta`, `linked-section`, `countdown`, `authors`, `eye-catcher-circle`.
 
+All components support extra HTML attributes (`aria-*`, `data-*`, `id`, etc.) and additional CSS classes via the standard Blade `$attributes` bag:
+
+```blade
+<x-cdu::button color="blue" class="mt-4" aria-label="Contact us" data-track="cta">
+    Contact Us
+</x-cdu::button>
+```
+
 > **Note:** The `countdown` component requires Alpine.js — see [Alpine.js Utilities](#alpinejs-utilities) above.
 
 > **Kitchen Sink:** Copy `resources/blade/examples/kitchen-sink.blade.php` into your project to test all components at once.
 
 ### Twig Components (Craft CMS / Symfony)
 
-Configure a `@cdu` Twig namespace pointing to the package's template directory:
+**Via Composer:** Register the `@cdu` namespace using the included helper:
+
+```php
+// Craft CMS: in a custom module's init()
+use CduNeuss\CduBrand\Twig\CduBrandTwig;
+
+$loader = \Craft::$app->getView()->getTwig()->getLoader();
+if ($loader instanceof \Twig\Loader\FilesystemLoader) {
+    CduBrandTwig::registerNamespace($loader);
+}
+```
+
+**Via NPM only:** Configure the namespace manually in your Craft CMS config:
 
 ```php
 // Craft CMS: config/app.php
@@ -149,20 +191,27 @@ Then use the components via `{% embed %}` or `{% include %}`:
 {% include '@cdu/countdown.twig' with { target_date: '2026-12-31', event: 'New Year' } %}
 ```
 
+All components accept `class` for additional CSS classes and `attr` for extra HTML attributes:
+
+```twig
+{% embed '@cdu/button.twig' with { color: 'blue', class: 'mt-4', attr: 'aria-label="Contact us" data-track="cta"' } %}
+    {% block content %}Contact Us{% endblock %}
+{% endembed %}
+```
+
 > **Kitchen Sink:** Copy `resources/twig/examples/kitchen-sink.twig` into your project to test all components at once.
 
 ### Antlers Components (Statamic)
 
-Register the partial namespace in a Statamic service provider:
+**Via Composer:** Antlers partials are auto-registered when Statamic is detected. No manual setup needed.
+
+**Via NPM only:** Register the partial namespace manually in a Statamic service provider:
 
 ```php
-use Statamic\Facades\Cascade;
-
 public function boot(): void
 {
-    $this->app['view']->addNamespace(
-        'cdu',
-        base_path('node_modules/@cdu-neuss/cdu-brand/resources/antlers/components')
+    $this->app['view']->addLocation(
+        base_path('node_modules/@cdu-neuss/cdu-brand/resources/antlers')
     );
 }
 ```
@@ -171,15 +220,23 @@ Then use the components as partials:
 
 ```antlers
 {{ partial:cdu/button color="gold" href="/contact" }}
-    {{ slot:content }}Contact Us{{ /slot:content }}
+    Contact Us
 {{ /partial:cdu/button }}
 
 {{ partial:cdu/feature title="Fast Delivery" }}
     {{ slot:icon }}<svg>...</svg>{{ /slot:icon }}
-    {{ slot:content }}We deliver within 24 hours.{{ /slot:content }}
+    We deliver within 24 hours.
 {{ /partial:cdu/feature }}
 
 {{ partial:cdu/countdown target_date="2026-12-31" event="New Year" }}
+```
+
+All components accept `class` for additional CSS classes and `attr` for extra HTML attributes:
+
+```antlers
+{{ partial:cdu/button color="blue" class="mt-4" attr='aria-label="Contact us" data-track="cta"' }}
+    Contact Us
+{{ /partial:cdu/button }}
 ```
 
 > **Kitchen Sink:** Copy `resources/antlers/examples/kitchen-sink.antlers.html` into your project to test all components at once.
@@ -211,6 +268,11 @@ import Countdown from "@cdu-neuss/cdu-brand/resources/astro/components/Countdown
 </Cta>
 
 <Countdown targetDate="2026-12-31" event="New Year" />
+
+<!-- All components accept extra classes and HTML attributes via rest-spread -->
+<Button color="blue" class="mt-4" aria-label="Contact us" data-track="cta">
+  Contact Us
+</Button>
 ```
 
 > **Note:** The `Countdown` component requires `@astrojs/alpinejs` — see [Alpine.js Utilities](#alpinejs-utilities) above.
@@ -283,13 +345,19 @@ pnpm preview    # Preview production build
 ### Project Structure
 
 ```
+src/                # PHP source (Composer package)
+├── Laravel/
+│   └── CduBrandServiceProvider.php
+└── Twig/
+    └── CduBrandTwig.php
+
 resources/          # Distributable package assets
 ├── blade/
 │   └── components/         # Laravel Blade components
 ├── twig/
 │   └── components/         # Twig components (Craft CMS / Symfony)
 ├── antlers/
-│   └── components/         # Antlers components (Statamic)
+│   └── cdu/                # Antlers components (Statamic)
 ├── astro/
 │   └── components/         # Astro components
 ├── css/
@@ -314,4 +382,6 @@ docs/               # Astro documentation/demo site
 
 ## Publishing
 
-The package is published to [GitHub Packages](https://github.com/CDU-Neuss/cdu-brand/packages) automatically when a GitHub release is created.
+**NPM:** The package is published to [GitHub Packages](https://github.com/CDU-Neuss/cdu-brand/packages) automatically when a GitHub release is created.
+
+**Composer:** The package is installed directly from the GitHub repository via VCS. Composer resolves versions from Git tags — no separate publish step is needed.

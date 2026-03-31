@@ -1,11 +1,13 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
   color?: "default" | "blue" | "gold" | "blue-inverted" | "gold-inverted" | "blue-transparent" | "gold-transparent" | "link";
   as?: "a" | "button";
   href?: string;
 }
 
-const { color = "default", as: As = "button", href } = Astro.props;
+const { color = "default", as: As = "button", href, class: className, ...attrs } = Astro.props;
 const colorClassMap = {
   blue: "btn btn-blue",
   gold: "btn btn-gold",
@@ -20,7 +22,7 @@ const colorClassMap = {
 const buttonClass = colorClassMap[color as keyof typeof colorClassMap] || colorClassMap.default;
 ---
 
-<As class={buttonClass} href={href}>
+<As class:list={[buttonClass, className]} href={href} {...attrs}>
   <slot name="icon-left" />
   <slot />
   <slot name="icon-right" />

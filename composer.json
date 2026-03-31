@@ -1,0 +1,36 @@
+{
+    "name": "cdu-neuss/cdu-brand",
+    "description": "CDU brand template components for Laravel (Blade), Twig, and Statamic (Antlers)",
+    "type": "library",
+    "license": "proprietary",
+    "homepage": "https://github.com/CDU-Neuss/cdu-brand",
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "illuminate/view": "^10.0 | ^11.0 | ^12.0 | ^13.0",
+        "twig/twig": "^3.0"
+    },
+    "scripts": {
+        "kitchen-sink:build": "npx @tailwindcss/cli -i tests/kitchen-sink/input.css -o tests/kitchen-sink/styles.css --minify",
+        "kitchen-sink:serve": "php -S localhost:8080 tests/kitchen-sink/router.php",
+        "kitchen-sink": ["@kitchen-sink:build", "@kitchen-sink:serve"]
+    },
+    "autoload": {
+        "psr-4": {
+            "CduNeuss\\CduBrand\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CduNeuss\\CduBrand\\Laravel\\CduBrandServiceProvider"
+            ]
+        }
+    },
+    "suggest": {
+        "illuminate/support": "Required for Laravel Blade component auto-registration (^10.0 || ^11.0 || ^12.0 || ^13.0)",
+        "twig/twig": "Required for Twig namespace registration (^3.0)",
+        "statamic/cms": "Required for Antlers partial namespace registration (^4.0 || ^5.0 || ^6.0)"
+    }
+}

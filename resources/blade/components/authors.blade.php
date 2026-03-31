@@ -2,7 +2,7 @@
     'authors' => [],
 ])
 
-<ul class="authors">
+<ul {{ $attributes->merge(['class' => 'authors']) }}>
     @forelse($authors as $author)
         <li>
             <a href="{{ $author['link'] }}">

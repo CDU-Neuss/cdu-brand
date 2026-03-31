@@ -1,0 +1,3 @@
+/* Kitchen sink CSS entry point — imports Tailwind defaults + brand theme */
+@import "tailwindcss";
+@import "../../resources/index.css";

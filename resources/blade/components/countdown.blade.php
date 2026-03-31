@@ -14,7 +14,7 @@ $defaultLabels = [
 $mergedLabels = array_merge($defaultLabels, $labels);
 @endphp
 
-<figure class="countdown" aria-hidden="true" x-data="countdown(@js($targetDate))" x-cloak>
+<figure {{ $attributes->merge(['class' => 'countdown', 'aria-hidden' => 'true']) }} x-data="countdown(@js($targetDate))" x-cloak>
     <div class="clock">
         <dl x-show="days > 0">
             <dd x-text="days">&nbsp;</dd>
