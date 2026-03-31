@@ -14,9 +14,3 @@ vitest.config.js     export-ignore
 renovate.json        export-ignore
 pnpm-lock.yaml       export-ignore
 CLAUDE.md            export-ignore
-
-# Exclude frontend-only resources
-/resources/css       export-ignore
-/resources/js        export-ignore
-/resources/astro     export-ignore
-/resources/index.css export-ignore
