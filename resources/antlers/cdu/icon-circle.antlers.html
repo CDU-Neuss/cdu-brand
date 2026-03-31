@@ -1,26 +1,19 @@
 {{#
-  CDU Icon Circle Component
-
-  Parameters:
-    - size: 'default'|'lg'|'xl'|'2xl' (default: 'default')
-    - as: HTML tag (default: 'figure')
-    - class: additional CSS classes to merge onto the root element (default: '')
-    - attr: extra HTML attributes string (default: '')
-
-  Slots:
-    - default: icon or content inside the circle
-
-  Usage:
+    CDU Icon Circle Component Parameters: - size: 'default'|'lg'|'xl'|'2xl' (default: 'default') - as: HTML tag (default: 'figure') - class:
+    additional CSS classes to merge onto the root element (default: '') - attr: extra HTML attributes string (default: '') Slots: - default:
+    icon or content inside the circle Usage:
     {{ partial:cdu/icon-circle size="lg" }}
-      <svg>…</svg>
+        <svg>…</svg>
     {{ /partial:cdu/icon-circle }}
 #}}
 
-<{{ as ?? 'figure' }} class="{{ switch(
+<{{ as ?? 'figure' }}
+    class="{{ switch(
     (size == 'lg') => 'icon-circle-lg',
     (size == 'xl') => 'icon-circle-xl',
     (size == '2xl') => 'icon-circle-2xl',
-    () => 'icon-circle'
-) }} {{ class }}" {{ attr }}>
+    () => 'icon-circle') }} {{ class }}"
+    {{ attr }}
+>
     {{ slot }}
 </{{ as ?? 'figure' }}>
