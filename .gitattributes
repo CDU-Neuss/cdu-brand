@@ -14,3 +14,4 @@ vitest.config.js     export-ignore
 renovate.json        export-ignore
 pnpm-lock.yaml       export-ignore
 CLAUDE.md            export-ignore
+/scripts             export-ignore
