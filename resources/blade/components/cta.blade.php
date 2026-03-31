@@ -1,7 +1,4 @@
-@props([
-    'title',
-    'links' => [],
-])
+@props(['title', 'links' => []])
 
 <div {{ $attributes->merge(['class' => 'cta' . (isset($image) ? ' with-image' : '')]) }}>
     @isset($image)
@@ -14,9 +11,9 @@
         <div class="content">
             {{ $slot }}
         </div>
-        @if(count($links) > 0)
+        @if (count($links) > 0)
             <div class="links">
-                @foreach($links as $link)
+                @foreach ($links as $link)
                     <x-cdu::button :href="$link['href']" as="a" :color="!empty($link['isButton']) ? 'gold' : 'link'">
                         {{ $link['text'] ?? 'Mehr erfahren' }}
                     </x-cdu::button>

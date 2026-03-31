@@ -1,17 +1,13 @@
-@props([
-    'targetDate',
-    'event' => null,
-    'labels' => [],
-])
+@props(['targetDate', 'event' => null, 'labels' => []])
 
 @php
-$defaultLabels = [
-    'days' => 'Days',
-    'hours' => 'Hours',
-    'minutes' => 'Minutes',
-    'seconds' => 'Seconds',
-];
-$mergedLabels = array_merge($defaultLabels, $labels);
+    $defaultLabels = [
+        'days' => 'Days',
+        'hours' => 'Hours',
+        'minutes' => 'Minutes',
+        'seconds' => 'Seconds',
+    ];
+    $mergedLabels = array_merge($defaultLabels, $labels);
 @endphp
 
 <figure {{ $attributes->merge(['class' => 'countdown', 'aria-hidden' => 'true']) }} x-data="countdown(@js($targetDate))" x-cloak>
@@ -36,7 +32,7 @@ $mergedLabels = array_merge($defaultLabels, $labels);
             <dt>{{ $mergedLabels['seconds'] }}</dt>
         </dl>
     </div>
-    @if($event)
+    @if ($event)
         <figcaption>{{ $event }}</figcaption>
     @endif
 </figure>

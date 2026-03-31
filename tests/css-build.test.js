@@ -9,10 +9,7 @@ const TMP_INPUT = join(ROOT, "tests/.tmp-test-input.css");
 function compileCss() {
   // The resources package doesn't import tailwindcss itself — consumers do.
   // We need to prepend @import "tailwindcss" so @apply directives resolve.
-  writeFileSync(
-    TMP_INPUT,
-    `@import "tailwindcss";\n@import "../resources/index.css";\n`,
-  );
+  writeFileSync(TMP_INPUT, `@import "tailwindcss";\n@import "../resources/index.css";\n`);
 
   try {
     return execSync(`npx @tailwindcss/cli -i ${TMP_INPUT}`, {
