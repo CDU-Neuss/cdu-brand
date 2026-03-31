@@ -8,6 +8,13 @@ tests/kitchen-sink/styles.css
 **/node_modules
 vendor
 
+# Non-source files
+.claude/
+.github/
+CLAUDE.md
+README.md
+docs/README.md
+
 # Lock files
 pnpm-lock.yaml
 composer.lock
