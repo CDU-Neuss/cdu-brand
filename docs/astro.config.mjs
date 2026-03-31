@@ -12,7 +12,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: {
       fs: {
-        allow: ["../resources"],
+        allow: [".."],
       },
     },
   },
