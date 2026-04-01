@@ -28,13 +28,11 @@
 <div class="{{ ['linked-section', has_button ? 'has-button' : '', class]|join(' ')|trim }}" {{ attr|raw }}>
     <div class="headline">
         <div class="icon">
-            {% embed '@cdu/icon-circle.twig' %}
-                {% block content %}
-                    {% block icon %}
+            <figure class="icon-circle">
+                {% block icon %}
 
-                    {% endblock %}
                 {% endblock %}
-            {% endembed %}
+            </figure>
         </div>
         <h3 class="title">{{ title }}</h3>
     </div>
