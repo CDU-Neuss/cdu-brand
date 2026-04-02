@@ -86,23 +86,9 @@ Alpine.start();
 
 ### Laravel Blade Components
 
-**Via Composer:** Components are auto-registered. No manual setup needed — Laravel's package auto-discovery registers the `cdu` namespace automatically.
+Components are auto-registered via Composer. No manual setup needed — Laravel's package auto-discovery registers the `cdu` namespace automatically.
 
-**Via NPM only:** Register the Blade components manually in your `AppServiceProvider`:
-
-```php
-use Illuminate\Support\Facades\Blade;
-
-public function boot(): void
-{
-    Blade::anonymousComponentPath(
-        base_path('node_modules/@cdu-neuss/cdu-brand/resources/blade/components'),
-        'cdu'
-    );
-}
-```
-
-Then use the components with the `x-cdu::` prefix:
+Use the components with the `x-cdu::` prefix:
 
 ```blade
 <x-cdu::button color="gold" href="/contact" as="a">
@@ -142,7 +128,7 @@ All components support extra HTML attributes (`aria-*`, `data-*`, `id`, etc.) an
 
 ### Twig Components (Craft CMS / Symfony)
 
-**Via Composer:** Register the `@cdu` namespace using the included helper:
+Register the `@cdu` Twig namespace using the included helper:
 
 ```php
 // Craft CMS: in a custom module's init()
@@ -152,22 +138,6 @@ $loader = \Craft::$app->getView()->getTwig()->getLoader();
 if ($loader instanceof \Twig\Loader\FilesystemLoader) {
     CduBrandTwig::registerNamespace($loader);
 }
-```
-
-**Via NPM only:** Configure the namespace manually in your Craft CMS config:
-
-```php
-// Craft CMS: config/app.php
-'components' => [
-    'view' => [
-        'class' => \craft\web\View::class,
-        'twig' => [
-            'namespaces' => [
-                'cdu' => '@vendor/cdu-neuss/cdu-brand/resources/twig/components',
-            ],
-        ],
-    ],
-],
 ```
 
 Then use the components via `{% embed %}` or `{% include %}`:
@@ -203,20 +173,9 @@ All components accept `class` for additional CSS classes and `attr` for extra HT
 
 ### Antlers Components (Statamic)
 
-**Via Composer:** Antlers partials are auto-registered when Statamic is detected. No manual setup needed.
+Antlers partials are auto-registered via Composer when Statamic is detected. No manual setup needed.
 
-**Via NPM only:** Register the partial namespace manually in a Statamic service provider:
-
-```php
-public function boot(): void
-{
-    $this->app['view']->addLocation(
-        base_path('node_modules/@cdu-neuss/cdu-brand/resources/antlers')
-    );
-}
-```
-
-Then use the components as partials:
+Use the components as partials:
 
 ```antlers
 {{ partial:cdu/button color="gold" href="/contact" }}
