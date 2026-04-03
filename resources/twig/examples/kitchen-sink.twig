@@ -240,6 +240,25 @@
             } %}
         </section>
 
+        {# Union Title #}
+        <section>
+            <h2>Union Title</h2>
+            <div class="space-y-4">
+                {% embed '@cdu/union-title.twig' with { level: 'h3', class: 'font-sans text-xl font-extrabold' } %}
+                    {% block content %}News{% endblock %}
+                {% endembed %}
+                {% embed '@cdu/union-title.twig' with { level: 'h3', class: 'bg-rhoendorf font-sans text-3xl font-extrabold' } %}
+                    {% block content %}Weit hinten, hinter den <strong>Wortbergen</strong>{% endblock %}
+                {% endembed %}
+                {% embed '@cdu/union-title.twig' with { level: 'h3', class: 'bg-gold font-serif text-2xl font-bold' } %}
+                    {% block content %}Leben die <strong>Blindtexte</strong>{% endblock %}
+                {% endembed %}
+                {% embed '@cdu/union-title.twig' with { level: 'h3', class: 'bg-white font-sans text-xl font-extrabold' } %}
+                    {% block content %}News{% endblock %}
+                {% endembed %}
+            </div>
+        </section>
+
         {# Eye Catcher Circle #}
         <section>
             <h2>Eye Catcher Circle</h2>

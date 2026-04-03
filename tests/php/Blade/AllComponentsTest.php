@@ -13,6 +13,7 @@ dataset('blade-components', [
     'countdown'          => ['<x-cdu::countdown target-date="2030-01-01" />', 'countdown'],
     'authors'            => ['<x-cdu::authors :authors="[]" />', 'authors'],
     'eye-catcher-circle' => ['<x-cdu::eye-catcher-circle>Hi</x-cdu::eye-catcher-circle>', 'eye-catcher-circle'],
+    'union-title'        => ['<x-cdu::union-title level="h3">News</x-cdu::union-title>', 'union-title'],
 ]);
 
 it('renders without error and contains root CSS class', function (string $template, string $expectedClass) {

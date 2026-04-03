@@ -122,10 +122,31 @@
             {{ partial:cdu/authors :authors="authors" }}
         </section>
 
+        {{# Union Title #}}
+        <section>
+            <h2>Union Title</h2>
+            <div class="space-y-4">
+                {{ partial:cdu/union-title level="h3" class="font-sans text-xl font-extrabold" }}
+                    News
+                {{ /partial:cdu/union-title }}
+                {{ partial:cdu/union-title level="h3" class="bg-rhoendorf font-sans text-3xl font-extrabold" }}
+                    Weit hinten, hinter den
+                    <strong>Wortbergen</strong>
+                {{ /partial:cdu/union-title }}
+                {{ partial:cdu/union-title level="h3" class="bg-gold font-serif text-2xl font-bold" }}
+                    Leben die
+                    <strong>Blindtexte</strong>
+                {{ /partial:cdu/union-title }}
+                {{ partial:cdu/union-title level="h3" class="bg-white font-sans text-xl font-extrabold" }}
+                    News
+                {{ /partial:cdu/union-title }}
+            </div>
+        </section>
+
         {{# Eye Catcher Circle #}}
         <section>
             <h2>Eye Catcher Circle</h2>
-            {{ partial:cdu/eye-catcher-circle attr='class="size-32"' }}
+            {{ partial:cdu/eye-catcher-circle class="size-32" }}
                 <strong>Neu</strong>
                 <br />
                 2028

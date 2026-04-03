@@ -13,6 +13,7 @@ dataset('twig-components', [
     'countdown'          => ["{% include '@cdu/countdown.twig' with { target_date: '2030-01-01' } %}", 'countdown'],
     'authors'            => ["{% include '@cdu/authors.twig' with { authors: [] } %}", 'authors'],
     'eye-catcher-circle' => ["{% embed '@cdu/eye-catcher-circle.twig' %}{% block content %}Hi{% endblock %}{% endembed %}", 'eye-catcher-circle'],
+    'union-title'        => ["{% embed '@cdu/union-title.twig' with { level: 'h3' } %}{% block content %}News{% endblock %}{% endembed %}", 'union-title'],
 ]);
 
 it('renders without error and contains root CSS class', function (string $template, string $expectedClass) {

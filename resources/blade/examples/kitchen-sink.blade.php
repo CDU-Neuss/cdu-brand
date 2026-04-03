@@ -115,6 +115,21 @@
         ]" />
     </section>
 
+    {{-- Union Title --}}
+    <section>
+        <h2>Union Title</h2>
+        <div class="space-y-4">
+            <x-cdu::union-title level="h3" class="font-sans text-xl font-extrabold">News</x-cdu::union-title>
+            <x-cdu::union-title level="h3" class="bg-rhoendorf font-sans text-3xl font-extrabold">
+                Weit hinten, hinter den <strong>Wortbergen</strong>
+            </x-cdu::union-title>
+            <x-cdu::union-title level="h3" class="bg-gold font-serif text-2xl font-bold">
+                Leben die <strong>Blindtexte</strong>
+            </x-cdu::union-title>
+            <x-cdu::union-title level="h3" class="bg-white font-sans text-xl font-extrabold">News</x-cdu::union-title>
+        </div>
+    </section>
+
     {{-- Eye Catcher Circle --}}
     <section>
         <h2>Eye Catcher Circle</h2>
