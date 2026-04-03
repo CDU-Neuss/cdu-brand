@@ -8,9 +8,10 @@ interface Props extends HTMLAttributes<"div"> {
   href: string;
   linkText?: string;
   hasButton?: boolean;
+  linkAttr?: Record<string, string>;
 }
 
-const { title, href, linkText, hasButton = false, class: className, ...attrs } = Astro.props;
+const { title, href, linkText, hasButton = false, linkAttr = {}, class: className, ...attrs } = Astro.props;
 ---
 
 <div class:list={["linked-section", { "has-button": hasButton }, className]} {...attrs}>
@@ -26,7 +27,7 @@ const { title, href, linkText, hasButton = false, class: className, ...attrs } =
     <slot />
   </div>
   <div class="link">
-    <Button href={href} as="a" color={hasButton ? "gold" : "link"}>
+    <Button href={href} as="a" color={hasButton ? "gold" : "link"} {...linkAttr}>
       {
         !hasButton && (
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="1em" height="1em" slot="icon-right">
