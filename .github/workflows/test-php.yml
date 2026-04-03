@@ -32,7 +32,7 @@ jobs:
           php-version: ${{ matrix.php }}
 
       - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist
+        run: composer update --no-interaction --prefer-dist
 
       - name: Run Pest tests
         run: vendor/bin/pest
