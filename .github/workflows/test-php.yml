@@ -1,0 +1,33 @@
+# Description:
+# Runs the Pest test suite for Blade, Twig, and Antlers template rendering
+# Runs on pull requests and pushes to the main branch
+
+# GITHUB SECRETS REQUIRED: NONE
+
+name: Test (Pest)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Test (Pest)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout project repo
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@9e72090525849c5e82e596468b86eb55e9cc5401 # v2
+        with:
+          php-version: "8.4"
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run Pest tests
+        run: vendor/bin/pest
