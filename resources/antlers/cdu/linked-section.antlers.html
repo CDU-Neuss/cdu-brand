@@ -12,9 +12,9 @@
 <div class="linked-section{{ if has_button }} has-button{{ /if }} {{ class }}" {{ attr }}>
     <div class="headline">
         <div class="icon">
-            {{ partial:cdu/icon-circle }}
+            <figure class="icon-circle">
                 {{ slot:icon }}
-            {{ /partial:cdu/icon-circle }}
+            </figure>
         </div>
         <h3 class="title">{{ title }}</h3>
     </div>
@@ -23,6 +23,7 @@
     </div>
     <div class="link">
         <a href="{{ href }}" class="btn{{ if has_button }} btn-gold{{ else }} btn-link{{ /if }}" {{ link_attr }}>
+            {{ link_text ?? title }}
             {{ unless has_button }}
                 {{# Phosphor caret-right-bold #}}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="1em" height="1em">
@@ -31,7 +32,6 @@
                     />
                 </svg>
             {{ /unless }}
-            {{ link_text ?? title }}
         </a>
     </div>
 </div>
