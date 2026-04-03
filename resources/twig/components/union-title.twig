@@ -1,0 +1,30 @@
+{#
+  CDU Union Title Component
+
+  Parameters:
+    - level: HTML tag 'h1'–'h6' or 'div' (default: 'h2')
+    - class: additional CSS classes to merge onto the root element (default: '')
+    - attr: extra HTML attributes string, rendered unescaped — must be trusted (default: '')
+
+  Blocks:
+    - content: heading text — use <strong> to highlight words in the accent color
+
+  Usage:
+    {% embed '@cdu/union-title.twig' with { level: 'h3' } %}
+      {% block content %}Hinter den <strong>Wortbergen</strong>{% endblock %}
+    {% endembed %}
+#}
+
+{% set level = level|default('h2') %}
+{% set class = class|default('') %}
+{% set attr = attr|default('') %}
+
+{% set tag = level in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'] ? level : 'h2' %}
+
+<{{ tag }} class="{{ ['union-title', class]|join(' ')|trim }}" {{ attr|raw }}>
+    <span>
+        {% block content %}
+
+        {% endblock %}
+    </span>
+</{{ tag }}>

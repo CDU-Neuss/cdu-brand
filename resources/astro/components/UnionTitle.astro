@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"h2"> {
+  level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div";
+}
+
+const allowedLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "div"] as const;
+
+const { level: rawLevel = "h2", class: className, ...attrs } = Astro.props;
+
+const Level = allowedLevels.includes(rawLevel as (typeof allowedLevels)[number]) ? rawLevel : "h2";
+---
+
+<Level class:list={["union-title", className]} {...attrs}>
+  <span>
+    <slot />
+  </span>
+</Level>

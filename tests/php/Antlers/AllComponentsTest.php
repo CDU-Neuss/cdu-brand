@@ -13,6 +13,7 @@ dataset('antlers-components', [
     'countdown'          => ['countdown', ['target_date' => '2030-01-01'], 'countdown'],
     'authors'            => ['authors', ['authors' => []], 'authors'],
     'eye-catcher-circle' => ['eye-catcher-circle', [], 'eye-catcher-circle'],
+    'union-title'        => ['union-title', ['level' => 'h3'], 'union-title'],
 ]);
 
 it('renders without error and contains root CSS class', function (string $component, array $vars, string $expectedClass) {

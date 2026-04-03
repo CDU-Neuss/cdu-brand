@@ -1,0 +1,32 @@
+{{#
+    CDU Union Title Component Parameters: - level: HTML tag 'h1'–'h6' or 'div' (default: 'h2') - class: additional CSS classes to merge onto the
+    root element (default: '') - attr: extra HTML attributes string (default: '') Slots: - default: heading text — use
+    <strong>
+        to highlight words in the accent color Usage:
+        {{ partial:cdu/union-title level="h3" class="font-sans text-xl font-extrabold" }}
+            Hinter den
+            <strong>Wortbergen</strong>
+        {{ /partial:cdu/union-title }}
+    </strong>
+#}}
+
+<{{ switch(
+    (level == 'h1') => 'h1',
+    (level == 'h3') => 'h3',
+    (level == 'h4') => 'h4',
+    (level == 'h5') => 'h5',
+    (level == 'h6') => 'h6',
+    (level == 'div') => 'div',
+    () => 'h2') }}
+    class="union-title {{ class }}"
+    {{ attr }}
+>
+    <span>{{ slot }}</span>
+</{{ switch(
+    (level == 'h1') => 'h1',
+    (level == 'h3') => 'h3',
+    (level == 'h4') => 'h4',
+    (level == 'h5') => 'h5',
+    (level == 'h6') => 'h6',
+    (level == 'div') => 'div',
+    () => 'h2') }}>

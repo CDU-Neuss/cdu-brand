@@ -61,7 +61,7 @@ describe("package structure", () => {
     }
   });
 
-  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section"])(
+  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section", "union-title"])(
     "has Blade component: %s",
     (name) => {
       const path = resourcePath("blade", "components", `${name}.blade.php`);
@@ -71,7 +71,7 @@ describe("package structure", () => {
     },
   );
 
-  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section"])(
+  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section", "union-title"])(
     "has Twig component: %s",
     (name) => {
       const path = resourcePath("twig", "components", `${name}.twig`);
@@ -79,7 +79,7 @@ describe("package structure", () => {
     },
   );
 
-  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section"])(
+  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section", "union-title"])(
     "has Antlers component: %s",
     (name) => {
       const path = resourcePath("antlers", "cdu", `${name}.antlers.html`);
@@ -87,7 +87,7 @@ describe("package structure", () => {
     },
   );
 
-  it.each(["Authors", "Button", "Countdown", "Cta", "EyeCatcherCircle", "Feature", "IconCircle", "LinkedSection"])(
+  it.each(["Authors", "Button", "Countdown", "Cta", "EyeCatcherCircle", "Feature", "IconCircle", "LinkedSection", "UnionTitle"])(
     "has Astro component: %s",
     (name) => {
       const path = resourcePath("astro", "components", `${name}.astro`);
