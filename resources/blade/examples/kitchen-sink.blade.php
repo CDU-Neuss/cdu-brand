@@ -88,7 +88,7 @@
                 Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
             </x-cdu::linked-section>
 
-            <x-cdu::linked-section title="CDU Shop" href="/shop" :hasButton="true">
+            <x-cdu::linked-section title="CDU Shop" href="/shop" :hasButton="true" link-attr='target="_blank" rel="noopener"'>
                 <x-slot:icon>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor">
                         <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Z" />

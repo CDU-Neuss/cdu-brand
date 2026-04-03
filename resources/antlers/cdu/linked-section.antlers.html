@@ -1,12 +1,11 @@
 {{#
     CDU Linked Section Component Parameters: - title: section heading (required) - href: link URL (required) - link_text: custom link label
     (default: title value) - has_button: if true, renders gold button instead of link style (default: false) - class: additional CSS classes to
-    merge onto the root element (default: '') Slots: - default: section body text - icon: optional icon inside the icon-circle Usage:
-    {{ partial:cdu/linked-section title="Read more" href="/page" }}
-        {{ slot:icon }}
-            <svg>…</svg>
-        {{ /slot:icon }}
-        <p>Teaser text here.</p>
+    merge onto the root element (default: '') - link_attr: extra HTML attributes string rendered on the link element — must be trusted (default:
+    '') Slots: - default: section body text - icon: optional icon inside the icon-circle Usage:
+    {{ partial:cdu/linked-section title="Read more" href="/page" link_attr='target="_blank" rel="noopener"' }}
+        {{ slot:icon }}...{{ /slot:icon }}
+        Teaser text here.
     {{ /partial:cdu/linked-section }}
 #}}
 
@@ -23,7 +22,7 @@
         {{ slot }}
     </div>
     <div class="link">
-        <a href="{{ href }}" class="btn{{ if has_button }} btn-gold{{ else }} btn-link{{ /if }}">
+        <a href="{{ href }}" class="btn{{ if has_button }} btn-gold{{ else }} btn-link{{ /if }}" {{ link_attr }}>
             {{ unless has_button }}
                 {{# Phosphor caret-right-bold #}}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" width="1em" height="1em">
