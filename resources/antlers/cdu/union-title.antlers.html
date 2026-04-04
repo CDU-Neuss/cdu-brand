@@ -1,5 +1,5 @@
 {{#
-    CDU Union Title Component Parameters: - level: HTML tag 'h1'–'h6' or 'div' (default: 'h2') - class: additional CSS classes to merge onto the
+    CDU Union Title Component Parameters: - level: HTML tag 'h1'–'h6', 'p', or 'div' (default: 'h2') - class: additional CSS classes to merge onto the
     root element (default: '') - attr: extra HTML attributes string (default: '') Slots: - default: heading text — use
     <strong>
         to highlight words in the accent color Usage:
@@ -16,6 +16,7 @@
     (level == 'h4') => 'h4',
     (level == 'h5') => 'h5',
     (level == 'h6') => 'h6',
+    (level == 'p') => 'p',
     (level == 'div') => 'div',
     () => 'h2') }}
     class="union-title {{ class }}"
@@ -28,5 +29,6 @@
     (level == 'h4') => 'h4',
     (level == 'h5') => 'h5',
     (level == 'h6') => 'h6',
+    (level == 'p') => 'p',
     (level == 'div') => 'div',
     () => 'h2') }}>

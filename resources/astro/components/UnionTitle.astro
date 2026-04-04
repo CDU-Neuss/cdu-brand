@@ -2,10 +2,10 @@
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"h2"> {
-  level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div";
+  level?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "div";
 }
 
-const allowedLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "div"] as const;
+const allowedLevels = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "div"] as const;
 
 const { level: rawLevel = "h2", class: className, ...attrs } = Astro.props;
 
