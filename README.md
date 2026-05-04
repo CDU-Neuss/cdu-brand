@@ -50,7 +50,9 @@ If your project uses [Renovate](https://docs.renovatebot.com/) to keep dependenc
 }
 ```
 
-The preset configures the correct registry URLs for both the npm and composer packages. Authentication for GitHub Packages still needs to be configured in your own Renovate `hostRules` or environment — if Renovate reports auth errors after extending the preset, that is the next thing to check.
+For composer the preset disables the default Packagist lookup (which fails with `no-result` because the package is not on Packagist) and replaces it with a `customManagers` regex that reads the pinned version straight from your `composer.json` and resolves updates via the `github-tags` datasource — no changes to your `composer.json` `repositories` block are needed.
+
+For npm the preset points lookups at `https://npm.pkg.github.com`. Authentication for GitHub Packages still needs to be configured in your own Renovate `hostRules` or environment — if Renovate reports auth errors for the npm package after extending the preset, that is the next thing to check.
 
 ## Usage
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Renovate preset for repos consuming @cdu-neuss/cdu-brand. Tells Renovate the package is published to GitHub Packages (npm) and a VCS repository (composer), not to npmjs.org or Packagist.",
+  "description": "Renovate preset for repos consuming @cdu-neuss/cdu-brand. Tells Renovate the package is published to GitHub Packages (npm) and a GitHub VCS repository (composer), not to npmjs.org or Packagist.",
   "packageRules": [
     {
       "description": "Resolve @cdu-neuss/cdu-brand from GitHub Packages npm registry",
@@ -9,10 +9,20 @@
       "registryUrls": ["https://npm.pkg.github.com"]
     },
     {
-      "description": "Resolve cdu-neuss/cdu-brand from the GitHub VCS repository (no Packagist entry)",
-      "matchManagers": ["composer"],
+      "description": "Disable the default composer/Packagist lookup for cdu-neuss/cdu-brand — handled by the customManagers entry below, which reads versions directly from GitHub tags",
       "matchPackageNames": ["cdu-neuss/cdu-brand"],
-      "registryUrls": ["https://github.com/CDU-Neuss/cdu-brand"]
+      "matchDatasources": ["packagist"],
+      "enabled": false
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)composer\\.json$/"],
+      "matchStrings": ["\"cdu-neuss/cdu-brand\"\\s*:\\s*\"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "cdu-neuss/cdu-brand",
+      "packageNameTemplate": "CDU-Neuss/cdu-brand",
+      "datasourceTemplate": "github-tags"
     }
   ]
 }
