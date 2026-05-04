@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for repos consuming @cdu-neuss/cdu-brand. Tells Renovate the package is published to GitHub Packages (npm) and a VCS repository (composer), not to npmjs.org or Packagist.",
+  "packageRules": [
+    {
+      "description": "Resolve @cdu-neuss/cdu-brand from GitHub Packages npm registry",
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@cdu-neuss/cdu-brand"],
+      "registryUrls": ["https://npm.pkg.github.com"]
+    },
+    {
+      "description": "Resolve cdu-neuss/cdu-brand from the GitHub VCS repository (no Packagist entry)",
+      "matchManagers": ["composer"],
+      "matchPackageNames": ["cdu-neuss/cdu-brand"],
+      "registryUrls": ["https://github.com/CDU-Neuss/cdu-brand"]
+    }
+  ]
+}
