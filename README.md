@@ -40,6 +40,18 @@ For PHP projects that don't need `node_modules` in production, install via Compo
 
 > **Note:** The CSS, JS, and fonts are still provided via the NPM package (or your build pipeline / CDN). The Composer package only delivers the PHP template components and auto-registration.
 
+### Renovate
+
+If your project uses [Renovate](https://docs.renovatebot.com/) to keep dependencies up to date, extend this repo's preset so Renovate knows where to look up the package — it is published to GitHub Packages (npm) and a VCS repository (composer), not to npmjs.org or Packagist:
+
+```json
+{
+  "extends": ["github>CDU-Neuss/cdu-brand:renovate-preset"]
+}
+```
+
+The preset configures the correct registry URLs for both the npm and composer packages. Authentication for GitHub Packages still needs to be configured in your own Renovate `hostRules` or environment — if Renovate reports auth errors after extending the preset, that is the next thing to check.
+
 ## Usage
 
 ### Import the Theme
