@@ -1,9 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>derteaser/renovate-presets",
-    "github>derteaser/renovate-presets:astro",
-    ":preserveSemverRanges",
-    "schedule:weekends"
-  ]
+  "extends": ["github>derteaser/renovate-presets", "github>derteaser/renovate-presets:astro", ":preserveSemverRanges", "schedule:weekends"]
 }
