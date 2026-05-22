@@ -25,6 +25,30 @@
   }
 }
 
+@utility union-title-on-cadenabbia {
+  --union-title-background-color: var(--color-cadenabbia);
+  --union-title-text-color: var(--color-rhoendorf);
+  --union-title-text-strong-color: var(--color-gold);
+}
+
+@utility union-title-on-gold {
+  --union-title-background-color: var(--color-gold);
+  --union-title-text-color: var(--color-rhoendorf);
+  --union-title-text-strong-color: var(--color-white);
+}
+
+@utility union-title-on-rhoendorf {
+  --union-title-background-color: var(--color-rhoendorf);
+  --union-title-text-color: var(--color-white);
+  --union-title-text-strong-color: var(--color-gold);
+}
+
+@utility union-title-on-white {
+  --union-title-background-color: var(--color-white);
+  --union-title-text-color: var(--color-rhoendorf);
+  --union-title-text-strong-color: var(--color-gold);
+}
+
 @layer components {
   .union-title {
     @apply overflow-hidden bg-transparent! break-words;
