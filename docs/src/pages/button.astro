@@ -46,6 +46,27 @@ import ButtonComponent from "../../../resources/astro/components/Button.astro";
       </li>
     </ul>
   </section>
+
+  <section id="buttons-dark" class="dark bg-rhoendorf mt-12 rounded p-6">
+    <h2 class="mb-4 text-white">Dark-mode variants</h2>
+    <p class="mb-4 text-white">
+      Pair an unprefixed color with a <code>dark:</code>-prefixed one. The dark variant only applies inside a <code>.dark</code> ancestor.
+    </p>
+    <ul>
+      <li>
+        <ButtonComponent color="blue" class="dark:btn-blue-inverted">Blue → Inverted</ButtonComponent>
+      </li>
+      <li>
+        <ButtonComponent color="gold" class="dark:btn-gold-inverted">Gold → Inverted</ButtonComponent>
+      </li>
+      <li>
+        <ButtonComponent color="blue-transparent" class="dark:btn-blue-inverted">Blue Transparent → Inverted</ButtonComponent>
+      </li>
+      <li>
+        <ButtonComponent color="gold-transparent" class="dark:btn-gold-inverted">Gold Transparent → Inverted</ButtonComponent>
+      </li>
+    </ul>
+  </section>
 </Layout>
 
 <style>
@@ -57,6 +78,16 @@ import ButtonComponent from "../../../resources/astro/components/Button.astro";
 
       li {
         @apply border-rhoendorf-10 flex flex-col items-center border p-4;
+      }
+    }
+  }
+
+  #buttons-dark {
+    ul {
+      @apply mt-4 grid max-w-screen-md grid-cols-1 gap-4 sm:grid-cols-2;
+
+      li {
+        @apply border-rhoendorf-60 bg-rhoendorf flex flex-col items-center border p-4;
       }
     }
   }

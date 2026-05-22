@@ -11,87 +11,87 @@
     --btn-border-color-disabled: var(--color-rhoendorf-10);
     --btn-text-color-disabled: var(--color-rhoendorf-60);
   }
+}
 
-  .btn-gold {
-    --btn-background-color: var(--color-gold);
-    --btn-background-color-hover: var(--color-gold-110);
-    --btn-border-color: var(--color-gold);
-    --btn-border-color-hover: var(--color-gold-110);
-    --btn-text-color: var(--color-rhoendorf);
-    --btn-text-color-hover: var(--color-rhoendorf);
-  }
+@utility btn-gold {
+  --btn-background-color: var(--color-gold);
+  --btn-background-color-hover: var(--color-gold-110);
+  --btn-border-color: var(--color-gold);
+  --btn-border-color-hover: var(--color-gold-110);
+  --btn-text-color: var(--color-rhoendorf);
+  --btn-text-color-hover: var(--color-rhoendorf);
+}
 
-  .btn-gold-inverted {
-    --btn-background-color: var(--color-white);
-    --btn-background-color-hover: var(--color-gold-110);
-    --btn-border-color: var(--color-white);
-    --btn-border-color-hover: var(--color-gold-110);
-    --btn-text-color: var(--color-gold-110);
-    --btn-text-color-hover: var(--color-white);
-  }
+@utility btn-gold-inverted {
+  --btn-background-color: var(--color-white);
+  --btn-background-color-hover: var(--color-gold-110);
+  --btn-border-color: var(--color-white);
+  --btn-border-color-hover: var(--color-gold-110);
+  --btn-text-color: var(--color-gold-110);
+  --btn-text-color-hover: var(--color-white);
+}
 
-  .btn-gold-transparent {
-    --btn-background-color: var(--color-transparent);
-    --btn-background-color-hover: var(--color-gold);
-    --btn-border-color: var(--color-gold);
-    --btn-border-color-hover: var(--color-gold);
-    --btn-text-color: var(--color-gold-110);
-    --btn-text-color-hover: var(--color-white);
-  }
+@utility btn-gold-transparent {
+  --btn-background-color: var(--color-transparent);
+  --btn-background-color-hover: var(--color-gold);
+  --btn-border-color: var(--color-gold);
+  --btn-border-color-hover: var(--color-gold);
+  --btn-text-color: var(--color-gold-110);
+  --btn-text-color-hover: var(--color-white);
+}
 
-  .btn-blue {
-    --btn-background-color: var(--color-rhoendorf);
-    --btn-background-color-hover: var(--color-rhoendorf-60);
-    --btn-border-color: var(--color-rhoendorf);
-    --btn-border-color-hover: var(--color-rhoendorf-60);
-    --btn-text-color: var(--color-white);
-    --btn-text-color-hover: var(--color-white);
-  }
+@utility btn-blue {
+  --btn-background-color: var(--color-rhoendorf);
+  --btn-background-color-hover: var(--color-rhoendorf-60);
+  --btn-border-color: var(--color-rhoendorf);
+  --btn-border-color-hover: var(--color-rhoendorf-60);
+  --btn-text-color: var(--color-white);
+  --btn-text-color-hover: var(--color-white);
+}
 
-  .btn-blue-inverted {
-    --btn-background-color: var(--color-white);
-    --btn-background-color-hover: var(--color-rhoendorf-60);
-    --btn-border-color: var(--color-white);
-    --btn-border-color-hover: var(--color-rhoendorf-60);
-    --btn-text-color: var(--color-rhoendorf);
-    --btn-text-color-hover: var(--color-white);
-  }
+@utility btn-blue-inverted {
+  --btn-background-color: var(--color-white);
+  --btn-background-color-hover: var(--color-rhoendorf-60);
+  --btn-border-color: var(--color-white);
+  --btn-border-color-hover: var(--color-rhoendorf-60);
+  --btn-text-color: var(--color-rhoendorf);
+  --btn-text-color-hover: var(--color-white);
+}
 
-  .btn-blue-transparent {
-    --btn-background-color: var(--color-transparent);
-    --btn-background-color-hover: var(--color-rhoendorf);
-    --btn-border-color: var(--color-rhoendorf);
-    --btn-border-color-hover: var(--color-rhoendorf);
-    --btn-text-color: var(--color-rhoendorf);
-    --btn-text-color-hover: var(--color-white);
-  }
+@utility btn-blue-transparent {
+  --btn-background-color: var(--color-transparent);
+  --btn-background-color-hover: var(--color-rhoendorf);
+  --btn-border-color: var(--color-rhoendorf);
+  --btn-border-color-hover: var(--color-rhoendorf);
+  --btn-text-color: var(--color-rhoendorf);
+  --btn-text-color-hover: var(--color-white);
+}
 
-  .btn-link {
-    --btn-background-color: var(--color-transparent);
-    --btn-background-color-hover: var(--color-transparent);
-    --btn-border-color: var(--color-transparent);
-    --btn-border-color-hover: var(--color-transparent);
-    --btn-text-color: var(--color-rhoendorf);
-    --btn-text-color-hover: var(--color-rhoendorf);
-  }
+@utility btn-link {
+  --btn-background-color: var(--color-transparent);
+  --btn-background-color-hover: var(--color-transparent);
+  --btn-border-color: var(--color-transparent);
+  --btn-border-color-hover: var(--color-transparent);
+  --btn-text-color: var(--color-rhoendorf);
+  --btn-text-color-hover: var(--color-rhoendorf);
+}
 
-  .btn-facebook {
-    --btn-background-color: var(--color-facebook);
-    --btn-background-color-hover: var(--color-white);
-    --btn-border-color: var(--color-facebook);
-    --btn-border-color-hover: var(--color-facebook);
-    --btn-text-color: var(--color-white);
-    --btn-text-color-hover: var(--color-facebook);
-  }
+@utility btn-facebook {
+  --btn-background-color: var(--color-facebook);
+  --btn-background-color-hover: var(--color-white);
+  --btn-border-color: var(--color-facebook);
+  --btn-border-color-hover: var(--color-facebook);
+  --btn-text-color: var(--color-white);
+  --btn-text-color-hover: var(--color-facebook);
+}
 
-  .btn-whatsapp {
-    --btn-background-color: var(--color-whatsapp);
-    --btn-background-color-hover: var(--color-white);
-    --btn-border-color: var(--color-whatsapp);
-    --btn-border-color-hover: var(--color-whatsapp);
-    --btn-text-color: var(--color-white);
-    --btn-text-color-hover: var(--color-whatsapp);
-  }
+@utility btn-whatsapp {
+  --btn-background-color: var(--color-whatsapp);
+  --btn-background-color-hover: var(--color-white);
+  --btn-border-color: var(--color-whatsapp);
+  --btn-border-color-hover: var(--color-whatsapp);
+  --btn-text-color: var(--color-white);
+  --btn-text-color-hover: var(--color-whatsapp);
 }
 
 @layer components {
