@@ -1,3 +1,29 @@
+/*
+ * Safelist all button color modifiers.
+ *
+ * Tailwind v4 tree-shakes `@utility` declarations that don't appear in
+ * scanned source. The brand's template components (Button.astro,
+ * button.blade.php, button.twig, button.antlers.html) construct the
+ * class string from a `color` prop via a lookup map, so the literals
+ * "btn-blue" / "btn-gold" / "btn-blue-inverted" / etc. never appear
+ * directly in consumer source. Without this directive the utilities
+ * below would be tree-shaken away and rendered buttons would fall
+ * back to the bare `.btn` styling.
+ *
+ * Dark-mode variants like `dark:btn-blue-inverted` are NOT listed
+ * here: consumers write those literally in their own templates, so
+ * the scanner picks them up normally.
+ */
+@source inline("btn-blue");
+@source inline("btn-blue-inverted");
+@source inline("btn-blue-transparent");
+@source inline("btn-gold");
+@source inline("btn-gold-inverted");
+@source inline("btn-gold-transparent");
+@source inline("btn-link");
+@source inline("btn-facebook");
+@source inline("btn-whatsapp");
+
 @layer base {
   :root {
     --btn-background-color: var(--color-cadenabbia);
