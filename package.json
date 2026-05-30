@@ -20,7 +20,7 @@
     "test:watch": "vitest",
     "release": "node scripts/release.mjs"
   },
-  "packageManager": "pnpm@11.2.2",
+  "packageManager": "pnpm@11.3.0",
   "devDependencies": {
     "@eslint/js": "^10.0.0",
     "@shufo/prettier-plugin-blade": "^1.16.2",
