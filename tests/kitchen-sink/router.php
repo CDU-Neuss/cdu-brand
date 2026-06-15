@@ -11,7 +11,6 @@
  *   http://localhost:8080/         — index
  *   http://localhost:8080/blade    — Blade kitchen sink
  *   http://localhost:8080/twig     — Twig kitchen sink
- *   http://localhost:8080/antlers  — Antlers kitchen sink
  */
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -40,7 +39,6 @@ match ($path) {
             <ul>
                 <li><a href="/blade">Blade</a></li>
                 <li><a href="/twig">Twig</a></li>
-                <li><a href="/antlers">Antlers</a></li>
             </ul>
         </body>
         </html>
@@ -48,7 +46,6 @@ match ($path) {
     })(),
     '/blade'   => require __DIR__ . '/blade.php',
     '/twig'    => require __DIR__ . '/twig.php',
-    '/antlers' => require __DIR__ . '/antlers.php',
     default  => (function () {
         http_response_code(404);
         echo '404 Not Found';

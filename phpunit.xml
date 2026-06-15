@@ -11,8 +11,5 @@
         <testsuite name="Twig">
             <directory>tests/php/Twig</directory>
         </testsuite>
-        <testsuite name="Antlers">
-            <directory>tests/php/Antlers</directory>
-        </testsuite>
     </testsuites>
 </phpunit>

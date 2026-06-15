@@ -185,35 +185,6 @@ All components accept `class` for additional CSS classes and `attr` for extra HT
 
 > **Kitchen Sink:** Copy `resources/twig/examples/kitchen-sink.twig` into your project to test all components at once.
 
-### Antlers Components (Statamic)
-
-Antlers partials are auto-registered via Composer when Statamic is detected. No manual setup needed.
-
-Use the components as partials:
-
-```antlers
-{{ partial:cdu/button color="gold" href="/contact" }}
-    Contact Us
-{{ /partial:cdu/button }}
-
-{{ partial:cdu/feature title="Fast Delivery" }}
-    {{ slot:icon }}<svg>...</svg>{{ /slot:icon }}
-    We deliver within 24 hours.
-{{ /partial:cdu/feature }}
-
-{{ partial:cdu/countdown target_date="2026-12-31" event="New Year" }}
-```
-
-All components accept `class` for additional CSS classes and `attr` for extra HTML attributes:
-
-```antlers
-{{ partial:cdu/button color="blue" class="mt-4" attr='aria-label="Contact us" data-track="cta"' }}
-    Contact Us
-{{ /partial:cdu/button }}
-```
-
-> **Kitchen Sink:** Copy `resources/antlers/examples/kitchen-sink.antlers.html` into your project to test all components at once.
-
 ### Astro Components
 
 Import the components directly from the package:
@@ -329,8 +300,6 @@ resources/          # Distributable package assets
 │   └── components/         # Laravel Blade components
 ├── twig/
 │   └── components/         # Twig components (Craft CMS / Symfony)
-├── antlers/
-│   └── cdu/                # Antlers components (Statamic)
 ├── astro/
 │   └── components/         # Astro components
 ├── css/

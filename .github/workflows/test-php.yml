@@ -1,5 +1,5 @@
 # Description:
-# Runs the Pest test suite for Blade, Twig, and Antlers template rendering
+# Runs the Pest test suite for Blade and Twig template rendering
 # Runs on pull requests and pushes to the main branch
 
 # GITHUB SECRETS REQUIRED: NONE

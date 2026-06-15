@@ -79,14 +79,6 @@ describe("package structure", () => {
     },
   );
 
-  it.each(["authors", "button", "countdown", "cta", "eye-catcher-circle", "feature", "icon-circle", "linked-section", "union-title"])(
-    "has Antlers component: %s",
-    (name) => {
-      const path = resourcePath("antlers", "cdu", `${name}.antlers.html`);
-      expect(existsSync(path)).toBe(true);
-    },
-  );
-
   it.each(["Authors", "Button", "Countdown", "Cta", "EyeCatcherCircle", "Feature", "IconCircle", "LinkedSection", "UnionTitle"])(
     "has Astro component: %s",
     (name) => {
@@ -113,31 +105,24 @@ describe("package structure", () => {
       .map((f) => f.replace(".twig", ""))
       .sort();
 
-    const antlersNames = readdirSync(resourcePath("antlers", "cdu"))
-      .filter((f) => f.endsWith(".antlers.html"))
-      .map((f) => f.replace(".antlers.html", ""))
-      .sort();
-
     const astroNames = readdirSync(resourcePath("astro", "components"))
       .filter((f) => f.endsWith(".astro"))
       .map((f) => toKebab(f.replace(".astro", "")))
       .sort();
 
     expect(twigNames).toEqual(bladeNames);
-    expect(antlersNames).toEqual(bladeNames);
     expect(astroNames).toEqual(bladeNames);
   });
 
   it.each([
     ["blade", "examples/kitchen-sink.blade.php"],
     ["twig", "examples/kitchen-sink.twig"],
-    ["antlers", "examples/kitchen-sink.antlers.html"],
   ])("has %s kitchen sink example", (engine, file) => {
     const path = resourcePath(engine, file);
     expect(existsSync(path)).toBe(true);
   });
 
-  it.each(["blade", "twig", "antlers"])("%s kitchen sink references all components", (engine) => {
+  it.each(["blade", "twig"])("%s kitchen sink references all components", (engine) => {
     const componentNames = readdirSync(resourcePath("blade", "components"))
       .filter((f) => f.endsWith(".blade.php"))
       .map((f) => f.replace(".blade.php", ""));
@@ -145,7 +130,6 @@ describe("package structure", () => {
     const exts = {
       blade: "examples/kitchen-sink.blade.php",
       twig: "examples/kitchen-sink.twig",
-      antlers: "examples/kitchen-sink.antlers.html",
     };
     const content = readFileSync(resourcePath(engine, exts[engine]), "utf8").toLowerCase();
 

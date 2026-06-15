@@ -1,11 +1,5 @@
 {
-  "plugins": [
-    "@shufo/prettier-plugin-blade",
-    "@zackad/prettier-plugin-twig",
-    "prettier-plugin-antlers",
-    "prettier-plugin-astro",
-    "prettier-plugin-tailwindcss"
-  ],
+  "plugins": ["@shufo/prettier-plugin-blade", "@zackad/prettier-plugin-twig", "prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "singleQuote": false,
   "trailingComma": "all",
   "printWidth": 140,
@@ -30,12 +24,6 @@
       "files": "*.twig",
       "options": {
         "parser": "twig",
-        "tabWidth": 4
-      }
-    },
-    {
-      "files": "*.antlers.html",
-      "options": {
         "tabWidth": 4
       }
     }
