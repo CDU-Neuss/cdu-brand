@@ -1,12 +1,12 @@
 ---
 name: new-component
-description: Scaffold a new CDU brand component across all 4 template engines (Blade, Twig, Antlers, Astro) with attribute forwarding, CSS file, and test registration
+description: Scaffold a new CDU brand component across all 3 template engines (Blade, Twig, Astro) with attribute forwarding, CSS file, and test registration
 disable-model-invocation: true
 ---
 
 # New Component Scaffold
 
-Create a new CDU brand component with files in all 4 template engines plus a CSS file. The user provides:
+Create a new CDU brand component with files in all 3 template engines plus a CSS file. The user provides:
 - **Component name** (kebab-case, e.g. `card` or `hero-banner`)
 - **Root HTML element** (e.g. `div`, `section`, `figure`)
 - **Brief description** of what the component does
@@ -60,33 +60,7 @@ Follow this pattern — use `class` and `attr` parameters:
 </{el}>
 ```
 
-### 4. Antlers (`resources/antlers/cdu/{name}.antlers.html`)
-
-Follow this pattern:
-
-```antlers
-{{#
-  CDU {PascalName} Component
-
-  Parameters:
-    - class: additional CSS classes (default: '')
-    - attr: extra HTML attributes string (default: '')
-
-  Slots:
-    - default: main content
-
-  Usage:
-    {{ partial:cdu/{name} }}
-        Content here
-    {{ /partial:cdu/{name} }}
-#}}
-
-<{el} class="{name} {{ class }}" {{ attr }}>
-    {{ slot }}
-</{el}>
-```
-
-### 5. Astro (`resources/astro/components/{PascalName}.astro`)
+### 4. Astro (`resources/astro/components/{PascalName}.astro`)
 
 Follow this pattern — use `HTMLAttributes` and rest-spread:
 
@@ -107,8 +81,8 @@ const { class: className, ...attrs } = Astro.props;
 ## After creating files
 
 1. Add `@import "./components/{name}.css";` to `resources/index.css`
-2. Register the component name in the test arrays in `tests/package-structure.test.js` (CSS components, Blade, Twig, Antlers, and Astro lists)
-3. Add entries to all 3 kitchen sink examples (`resources/blade/examples/kitchen-sink.blade.php`, `resources/twig/examples/kitchen-sink.twig`, `resources/antlers/examples/kitchen-sink.antlers.html`)
+2. Register the component name in the test arrays in `tests/package-structure.test.js` (CSS components, Blade, Twig, and Astro lists)
+3. Add entries to both kitchen sink examples (`resources/blade/examples/kitchen-sink.blade.php`, `resources/twig/examples/kitchen-sink.twig`)
 4. Run `pnpm test` to verify template parity passes
 5. Run `npx prettier --write` on all new files
 
@@ -117,5 +91,4 @@ const { class: className, ...attrs } = Astro.props;
 - CSS class / file name: `kebab-case` (e.g. `hero-banner`)
 - Blade file: `{kebab-case}.blade.php`
 - Twig file: `{kebab-case}.twig`
-- Antlers file: `{kebab-case}.antlers.html`
 - Astro file: `{PascalCase}.astro` (e.g. `HeroBanner.astro`)

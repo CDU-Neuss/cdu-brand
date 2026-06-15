@@ -11,10 +11,6 @@ class CduBrandServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerBladeComponents();
-
-        if ($this->isStatamicInstalled()) {
-            $this->registerAntlersPartials();
-        }
     }
 
     private function registerBladeComponents(): void
@@ -26,20 +22,6 @@ class CduBrandServiceProvider extends ServiceProvider
                 $blade->anonymousComponentPath($bladePath, 'cdu');
             });
         }
-    }
-
-    private function registerAntlersPartials(): void
-    {
-        $antlersPath = $this->componentPath('antlers');
-
-        if (is_dir($antlersPath)) {
-            $this->app['view']->addLocation($antlersPath);
-        }
-    }
-
-    private function isStatamicInstalled(): bool
-    {
-        return class_exists(\Statamic\Statamic::class);
     }
 
     private function componentPath(string $relative): string

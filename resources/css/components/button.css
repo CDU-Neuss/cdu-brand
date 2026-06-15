@@ -3,7 +3,7 @@
  *
  * Tailwind v4 tree-shakes `@utility` declarations that don't appear in
  * scanned source. The brand's template components (Button.astro,
- * button.blade.php, button.twig, button.antlers.html) construct the
+ * button.blade.php, button.twig) construct the
  * class string from a `color` prop via a lookup map, so the literals
  * "btn-blue" / "btn-gold" / "btn-blue-inverted" / etc. never appear
  * directly in consumer source. Without this directive the utilities
