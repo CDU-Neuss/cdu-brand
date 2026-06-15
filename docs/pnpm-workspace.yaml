@@ -3,3 +3,5 @@ packages:
 allowBuilds:
   esbuild: false
   sharp: false
+overrides:
+  esbuild: ">=0.28.1"
