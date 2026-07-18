@@ -28,7 +28,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@zackad/prettier-plugin-twig": "^0.17.0",
     "eslint": "^10.0.0",
-    "eslint-plugin-astro": "^2.0.0",
+    "eslint-plugin-astro": "^3.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.5.4",
     "globals": "^17.0.0",
