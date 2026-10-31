@@ -189,8 +189,8 @@ importers:
         specifier: ^0.5.19
         version: 0.5.20(tailwindcss@4.3.3)
       '@zackad/prettier-plugin-twig':
-        specifier: ^0.17.0
-        version: 0.17.0
+        specifier: ^0.18.0
+        version: 0.18.0
       eslint:
         specifier: ^10.0.0
         version: 10.13.0(jiti@1.21.7)(supports-color@7.2.0)
@@ -214,7 +214,7 @@ importers:
         version: 1.1.2(prettier@3.9.10)
       prettier-plugin-tailwindcss:
         specifier: ^0.8.0
-        version: 0.8.1(@zackad/prettier-plugin-twig@0.17.0)(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)
+        version: 0.8.1(@zackad/prettier-plugin-twig@0.18.0)(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10)
       tailwindcss:
         specifier: ^4.2.1
         version: 4.3.3
@@ -866,8 +866,8 @@ packages:
   '@vue/shared@3.5.44':
     resolution: {integrity: sha512-H82XLH0DjmSOdbEwO15x3QTo1f5PWEtv237eLpYKc0mqLu+B8hnq16lFWmuBmNurkeiG3wr+oM1FhOll/YVFRg==}
 
-  '@zackad/prettier-plugin-twig@0.17.0':
-    resolution: {integrity: sha512-vEuR3vDP5ydWMTBhs7sDvsSz6Ttd5BCCO0/I9GmlFRylJ60R8aw9c0fPAHDTylw07+8RxOBjTMKlpEf+Vo9PdQ==}
+  '@zackad/prettier-plugin-twig@0.18.0':
+    resolution: {integrity: sha512-z8YuEj/plMRpk7yuflPlfJiktOyq3jIwSeWmC/+WNsGyelV7yweP5bxLfgumzyJMTxqaB4PObMd4gXKvmK8IFQ==}
     engines: {node: '>=18'}
 
   abbrev@5.0.0:
@@ -3052,7 +3052,7 @@ snapshots:
 
   '@vue/shared@3.5.44': {}
 
-  '@zackad/prettier-plugin-twig@0.17.0':
+  '@zackad/prettier-plugin-twig@0.18.0':
     dependencies:
       '@babel/template': 7.29.7
       '@babel/types': 7.29.11
@@ -4246,11 +4246,11 @@ snapshots:
       prettier: 3.9.10
       sass-formatter: 0.8.0
 
-  prettier-plugin-tailwindcss@0.8.1(@zackad/prettier-plugin-twig@0.17.0)(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10):
+  prettier-plugin-tailwindcss@0.8.1(@zackad/prettier-plugin-twig@0.18.0)(prettier-plugin-astro@1.1.2(prettier@3.9.10))(prettier@3.9.10):
     dependencies:
       prettier: 3.9.10
     optionalDependencies:
-      '@zackad/prettier-plugin-twig': 0.17.0
+      '@zackad/prettier-plugin-twig': 0.18.0
       prettier-plugin-astro: 1.1.2(prettier@3.9.10)
 
   prettier@3.9.10: {}
